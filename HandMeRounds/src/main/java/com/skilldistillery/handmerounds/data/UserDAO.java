@@ -1,5 +1,8 @@
 package com.skilldistillery.handmerounds.data;
 
-public interface UserDAO {
+import com.skilldistillery.handmerounds.entities.User;
 
+public interface UserDAO {
+	
+	User findById(int userId);
 }
