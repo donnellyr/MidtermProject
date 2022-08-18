@@ -32,14 +32,14 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `user` ;
 
 CREATE TABLE IF NOT EXISTS `user` (
-  `idUser` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `Wishlist` VARCHAR(45) NULL,
   `address_id` INT NOT NULL,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NULL,
   `enabled` TINYINT NULL,
   `role` VARCHAR(45) NULL,
-  PRIMARY KEY (`idUser`),
+  PRIMARY KEY (`id`),
   INDEX `fk_User_address1_idx` (`address_id` ASC),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC),
   CONSTRAINT `fk_User_address1`
@@ -73,7 +73,7 @@ ENGINE = InnoDB;
 SET SQL_MODE = '';
 DROP USER IF EXISTS handmeroundsuser@localhost;
 SET SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-CREATE USER 'handmeroundsuser'@'localhost' IDENTIFIED BY 'handmerounds';
+CREATE USER 'handmeroundsuser'@'localhost' IDENTIFIED BY 'handmeroundsuser';
 
 GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE * TO 'handmeroundsuser'@'localhost';
 
@@ -96,7 +96,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `handmeroundsdb`;
-INSERT INTO `user` (`idUser`, `Wishlist`, `address_id`, `username`, `password`, `enabled`, `role`) VALUES (1, NULL, 1, 'admin', 'admin', 1, NULL);
+INSERT INTO `user` (`id`, `Wishlist`, `address_id`, `username`, `password`, `enabled`, `role`) VALUES (1, NULL, 1, 'admin', 'admin', 1, NULL);
 
 COMMIT;
 
