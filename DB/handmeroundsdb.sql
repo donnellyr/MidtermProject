@@ -75,11 +75,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `condition`
+-- Table `item_condition`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `condition` ;
+DROP TABLE IF EXISTS `item_condition` ;
 
-CREATE TABLE IF NOT EXISTS `condition` (
+CREATE TABLE IF NOT EXISTS `item_condition` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50) NULL,
   `description` VARCHAR(200) NULL,
@@ -135,7 +135,7 @@ CREATE TABLE IF NOT EXISTS `item` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_item_condition1`
     FOREIGN KEY (`condition_id`)
-    REFERENCES `condition` (`id`)
+    REFERENCES `item_condition` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_item_size1`
@@ -416,14 +416,14 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `condition`
+-- Data for table `item_condition`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `handmeroundsdb`;
-INSERT INTO `condition` (`id`, `name`, `description`) VALUES (1, 'New', 'New with tags or in box');
-INSERT INTO `condition` (`id`, `name`, `description`) VALUES (2, 'Like New', NULL);
-INSERT INTO `condition` (`id`, `name`, `description`) VALUES (3, 'Used-Good', NULL);
-INSERT INTO `condition` (`id`, `name`, `description`) VALUES (4, 'Used-Fair', NULL);
+INSERT INTO `item_condition` (`id`, `name`, `description`) VALUES (1, 'New', 'New with tags or in box');
+INSERT INTO `item_condition` (`id`, `name`, `description`) VALUES (2, 'Like New', NULL);
+INSERT INTO `item_condition` (`id`, `name`, `description`) VALUES (3, 'Used-Good', NULL);
+INSERT INTO `item_condition` (`id`, `name`, `description`) VALUES (4, 'Used-Fair', NULL);
 
 COMMIT;
 
@@ -468,6 +468,16 @@ COMMIT;
 START TRANSACTION;
 USE `handmeroundsdb`;
 INSERT INTO `trade_request` (`id`, `trade_request`, `remarks`, `item_id`, `user_id`, `request_date`) VALUES (1, 1, 'Willing to trade locally', 1, 1, '2014-05-26 23:57:41');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `delivery_option_has_item`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `handmeroundsdb`;
+INSERT INTO `delivery_option_has_item` (`delivery_option_id`, `item_id`) VALUES (1, 1);
 
 COMMIT;
 
