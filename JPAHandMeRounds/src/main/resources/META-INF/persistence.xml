@@ -2,9 +2,20 @@
 <persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
 	<persistence-unit name="JPAHandMeRounds">
 	
-	    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 	    
-<class>com.skilldistillery.handmerounds.entities.User</class>
+		<class>com.skilldistillery.handmerounds.entities.AdditionalImage</class>
+		<class>com.skilldistillery.handmerounds.entities.Address</class>
+		<class>com.skilldistillery.handmerounds.entities.DeliveryOption</class>
+		<class>com.skilldistillery.handmerounds.entities.Exchange</class>
+		<class>com.skilldistillery.handmerounds.entities.Item</class>
+		<class>com.skilldistillery.handmerounds.entities.ItemCondition</class>
+		<class>com.skilldistillery.handmerounds.entities.Report</class>
+		<class>com.skilldistillery.handmerounds.entities.Size</class>
+		<class>com.skilldistillery.handmerounds.entities.TradeRequest</class>
+		<class>com.skilldistillery.handmerounds.entities.TradeRequestComment</class>
+		<class>com.skilldistillery.handmerounds.entities.Type</class>
+		<class>com.skilldistillery.handmerounds.entities.User</class>
 
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/handmeroundsdb?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=US/Mountain" />
