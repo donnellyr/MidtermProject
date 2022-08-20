@@ -2,6 +2,7 @@ package com.skilldistillery.handmerounds.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -45,5 +46,11 @@ class ItemConditionTest {
 		assertNotNull(iC);
 		assertEquals("New", iC.getName());
 		assertEquals("New with tags or in box", iC.getDescription());
+	}
+	@Test
+	void test_User_ItemCondition_OneToMany_mapping() {
+		assertNotNull(iC);
+		assertTrue(iC.getItems().size() > 0);
+		assertNotNull(iC.getItems());
 	}
 }

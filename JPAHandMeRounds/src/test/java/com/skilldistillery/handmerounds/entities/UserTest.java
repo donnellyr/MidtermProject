@@ -2,6 +2,7 @@ package com.skilldistillery.handmerounds.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -47,5 +48,47 @@ class UserTest {
 		assertEquals("admin", user.getPassword());
 		assertEquals("admin", user.getRole());
 	}
+	@Test
+	void test_User_Address_OneToOne_mapping() {
+		assertNotNull(user);
+		assertNotNull(user.getAddress());
+		assertEquals("SomeCity", user.getAddress().getCity());
+	}
+	@Test
+	void test_User_Item_ManyToMany_mapping() {
+		assertNotNull(user);
+		assertNotNull(user.getAddress());
+		assertEquals("SomeCity", user.getAddress().getCity());
+	}
+	@Test
+	void test_User_Report_OneToMany_TimesUserHasBeenReported_mapping() {
+		User user2 = em.find(User.class, 2);
+		assertNotNull(user2);
+		assertNotNull(user2.getTimesUserHasBeenReported());
+		assertTrue(user2.getTimesUserHasBeenReported().size() > 0);
+	}
+	@Test
+	void test_User_Report_OneToMany_TimesUserHasReportedOtherUser_mapping() {
+		assertNotNull(user);
+		assertNotNull(user.getTimesUserHasReportedOtherUsers());
+		assertTrue(user.getTimesUserHasReportedOtherUsers().size() > 0);
+	}
+	
+	@Test
+	void test_User_TradeRequest_OneToMany_mapping() {
+		assertNotNull(user);
+		assertNotNull(user.getRequests());
+		assertTrue(user.getRequests().size() > 0);
+	}
+	
+	@Test
+	void test_User_TradeRequestComment_OneToMany_mapping() {
+		User user2 = em.find(User.class, 2);
+		assertNotNull(user2);
+		assertNotNull(user2.getTradeRequestComments());
+		assertTrue(user2.getTradeRequestComments().size() > 0);
+	}
+	
+	
 
 }

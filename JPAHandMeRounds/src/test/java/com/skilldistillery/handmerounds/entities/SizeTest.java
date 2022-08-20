@@ -2,6 +2,7 @@ package com.skilldistillery.handmerounds.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -44,6 +45,12 @@ class SizeTest {
 	void test_Size_entity_mapping() {
 		assertNotNull(size);
 		assertEquals("Newborn", size.getSize());
+	}
+	@Test
+	void test_Size_Item_OneToMany_mapping() {
+		assertNotNull(size);
+		assertNotNull(size.getItems());
+		assertTrue(size.getItems().size() > 0);
 	}
 
 }

@@ -1,11 +1,16 @@
 package com.skilldistillery.handmerounds.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -18,6 +23,26 @@ public class User {
 	private String password;
 	private Boolean enabled;
 	private String role;
+
+	@OneToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
+
+	@ManyToMany(mappedBy = "users")
+	private List<Item> items;
+
+	@OneToMany(mappedBy = "reported")
+	private List<Report> timesUserHasBeenReported;
+
+	@OneToMany(mappedBy = "reporter")
+	private List<Report> timesUserHasReportedOtherUsers;
+
+	@OneToMany(mappedBy = "user")
+	private List<TradeRequest> requests;
+
+	@OneToMany(mappedBy = "user")
+	private List<TradeRequestComment> tradeRequestComments;
+	
 
 	public User() {
 		super();
@@ -61,6 +86,54 @@ public class User {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public List<Item> getItems() {
+		return items;
+	}
+
+	public void setItems(List<Item> items) {
+		this.items = items;
+	}
+
+	public List<Report> getTimesUserHasBeenReported() {
+		return timesUserHasBeenReported;
+	}
+
+	public void setTimesUserHasBeenReported(List<Report> timesUserHasBeenReported) {
+		this.timesUserHasBeenReported = timesUserHasBeenReported;
+	}
+
+	public List<Report> getTimesUserHasReportedOtherUsers() {
+		return timesUserHasReportedOtherUsers;
+	}
+
+	public void setTimesUserHasReportedOtherUsers(List<Report> timesUserHasReportedOtherUsers) {
+		this.timesUserHasReportedOtherUsers = timesUserHasReportedOtherUsers;
+	}
+
+	public List<TradeRequest> getRequests() {
+		return requests;
+	}
+
+	public void setRequests(List<TradeRequest> requests) {
+		this.requests = requests;
+	}
+
+	public List<TradeRequestComment> getTradeRequestComments() {
+		return tradeRequestComments;
+	}
+
+	public void setTradeRequestComments(List<TradeRequestComment> tradeRequestComments) {
+		this.tradeRequestComments = tradeRequestComments;
 	}
 
 	@Override

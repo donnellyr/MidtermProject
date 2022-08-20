@@ -41,9 +41,21 @@ class TradeRequestCommentTest {
 	}
 
 	@Test
-	void test_TradeRequest_entity_mapping() {
+	void test_TradeRequestComment_entity_mapping() {
 		assertNotNull(trc);
 		assertEquals(2014, trc.getCommentDate().getYear());
 		assertEquals(5, trc.getCommentDate().getMonthValue());
+	}
+	@Test
+	void test_TradeRequestComment_TradeRequest_ManyToOne_mapping() {
+		assertNotNull(trc);
+		assertNotNull(trc.getTradeRequest());
+		assertEquals("Willing to trade locally", trc.getTradeRequest().getRemarks());
+	}
+	@Test
+	void test_TradeRequestComment_User_ManyToOne_mapping() {
+		assertNotNull(trc);
+		assertNotNull(trc.getUser());
+		assertEquals(2, trc.getUser().getId());
 	}
 }

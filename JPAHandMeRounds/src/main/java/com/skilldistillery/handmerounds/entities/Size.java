@@ -1,11 +1,13 @@
 package com.skilldistillery.handmerounds.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Size {
@@ -17,6 +19,9 @@ public class Size {
 	private String size;
 
 	private String description;
+	
+	@OneToMany(mappedBy="size")
+	private List<Item> items;
 
 	public Size() {
 		super();
@@ -44,6 +49,14 @@ public class Size {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public List<Item> getItems() {
+		return items;
+	}
+
+	public void setItems(List<Item> items) {
+		this.items = items;
 	}
 
 	@Override

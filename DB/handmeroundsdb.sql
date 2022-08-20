@@ -445,7 +445,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `handmeroundsdb`;
-INSERT INTO `item` (`id`, `name`, `available`, `type_id`, `user_id`, `condition_id`, `trade`, `size_id`, `date_posted`, `image`) VALUES (1, 'Diaper Changing Table', 1, 3, 1, 1, 1, NULL, '2014-05-26 23:57:41', NULL);
+INSERT INTO `item` (`id`, `name`, `available`, `type_id`, `user_id`, `condition_id`, `trade`, `size_id`, `date_posted`, `image`) VALUES (1, 'Diaper Changing Table', 1, 3, 1, 1, 1, 1, '2014-05-26 23:57:41', NULL);
 
 COMMIT;
 
