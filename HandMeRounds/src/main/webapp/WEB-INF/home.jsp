@@ -8,6 +8,8 @@
 </head>
 <body>
 	<h1>Get in the van</h1>
+	<a href="login.do" >Login</a>
+	<--button on login page
 	${SMOKETEST }
 </body>
 </html>
