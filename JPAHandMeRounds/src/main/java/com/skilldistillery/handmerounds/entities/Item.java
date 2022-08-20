@@ -1,6 +1,7 @@
 package com.skilldistillery.handmerounds.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +9,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Item {
@@ -26,7 +33,28 @@ public class Item {
 	private LocalDateTime datePosted;
 
 	private String image;
-
+	
+	@OneToMany(mappedBy = "item")
+	private List<AdditionalImage> images;
+	
+	@OneToOne
+	@JoinColumn(name= "type_id")
+	private Type type;
+	
+	@ManyToMany
+	@JoinTable(name="wishlist",
+	joinColumns = @JoinColumn(name="item_id"), 
+	inverseJoinColumns = @JoinColumn (name = "user_id"))
+	private List<User> users;
+	
+	@ManyToOne
+	@JoinColumn(name="condition_id") 
+	private ItemCondition condition;
+	
+	@ManyToOne
+	@JoinColumn(name="size_id")
+	private Size size;
+	
 	public Item() {
 		super();
 	}
@@ -75,8 +103,48 @@ public class Item {
 		return image;
 	}
 
+	public List<AdditionalImage> getImages() {
+		return images;
+	}
+
+	public void setImages(List<AdditionalImage> images) {
+		this.images = images;
+	}
+
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public Type getType() {
+		return type;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+	public ItemCondition getCondition() {
+		return condition;
+	}
+
+	public void setCondition(ItemCondition condition) {
+		this.condition = condition;
+	}
+
+	public Size getSize() {
+		return size;
+	}
+
+	public void setSize(Size size) {
+		this.size = size;
 	}
 
 	@Override

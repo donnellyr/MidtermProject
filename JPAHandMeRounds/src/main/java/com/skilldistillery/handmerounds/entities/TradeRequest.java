@@ -1,6 +1,7 @@
 package com.skilldistillery.handmerounds.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,6 +30,17 @@ public class TradeRequest {
 
 	@Column(name = "request_date")
 	private LocalDateTime requestDate;
+
+	@OneToOne
+	@JoinColumn(name = "item_id")
+	private Item item;
+
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
+
+	@OneToMany(mappedBy = "tradeRequest")
+	private List<TradeRequestComment> tradeRequestComments;
 
 	public TradeRequest() {
 		super();
@@ -60,6 +76,30 @@ public class TradeRequest {
 
 	public void setRequestDate(LocalDateTime requestDate) {
 		this.requestDate = requestDate;
+	}
+
+	public Item getItem() {
+		return item;
+	}
+
+	public void setItem(Item item) {
+		this.item = item;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<TradeRequestComment> getTradeRequestComments() {
+		return tradeRequestComments;
+	}
+
+	public void setTradeRequestComments(List<TradeRequestComment> tradeRequestComments) {
+		this.tradeRequestComments = tradeRequestComments;
 	}
 
 	@Override

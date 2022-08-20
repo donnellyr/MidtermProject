@@ -46,4 +46,17 @@ class ExchangeTest {
 		assertEquals("It's ok", exchange.getOwnerRatingComment());
 		assertEquals(3, exchange.getOwnerRating());
 	}
+	
+	@Test
+	void test_ExchangeTest_TradeRequest_OneToOne_mapping() {
+		assertNotNull(exchange);
+		assertNotNull(exchange.getTradeRequest());
+		assertEquals(1, exchange.getTradeRequest().getId());
+	}
+	@Test
+	void test_ExchangeTest_DeliveryOption_OneToOne_mapping() {
+		assertNotNull(exchange);
+		assertNotNull(exchange.getDeliveryOption());
+		assertEquals(1, exchange.getDeliveryOption().getId());
+	}
 }

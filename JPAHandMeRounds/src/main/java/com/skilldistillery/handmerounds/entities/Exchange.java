@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Exchange {
@@ -29,6 +31,15 @@ public class Exchange {
 
 	@Column(name = "requestor_rating_comment")
 	private String requestorRatingComment;
+	
+	@OneToOne
+	@JoinColumn(name="trade_request_id")
+	private TradeRequest tradeRequest;
+	
+	@OneToOne
+	@JoinColumn(name="delivery_option_id")
+	private DeliveryOption deliveryOption;
+	
 
 	public Exchange() {
 		super();
@@ -80,6 +91,22 @@ public class Exchange {
 
 	public void setRequestorRatingComment(String requestorRatingComment) {
 		this.requestorRatingComment = requestorRatingComment;
+	}
+
+	public TradeRequest getTradeRequest() {
+		return tradeRequest;
+	}
+
+	public void setTradeRequest(TradeRequest tradeRequest) {
+		this.tradeRequest = tradeRequest;
+	}
+
+	public DeliveryOption getDeliveryOption() {
+		return deliveryOption;
+	}
+
+	public void setDeliveryOption(DeliveryOption deliveryOption) {
+		this.deliveryOption = deliveryOption;
 	}
 
 	@Override

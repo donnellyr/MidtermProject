@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +19,11 @@ public class AdditionalImage {
 	private int id;
 
 	private String image;
+	
+	@ManyToOne
+	@JoinColumn(name="item_id")
+	private Item item;
+	
 
 	public AdditionalImage() {
 		super();
@@ -36,6 +43,14 @@ public class AdditionalImage {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public Item getItem() {
+		return item;
+	}
+
+	public void setItem(Item item) {
+		this.item = item;
 	}
 
 	@Override

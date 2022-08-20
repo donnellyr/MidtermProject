@@ -46,4 +46,16 @@ class TradeRequestTest {
 		assertEquals(2014, tD.getRequestDate().getYear());
 		assertEquals(5, tD.getRequestDate().getMonthValue());
 	}
+	@Test
+	void test_TradeRequest_User_ManyToOne_mapping() {
+		assertNotNull(tD);
+		assertNotNull(tD.getUser());
+		assertEquals(1, tD.getUser().getId());
+	}
+	@Test
+	void test_TradeRequest_TradeRequestComment_OneToMany_mapping() {
+		assertNotNull(tD);
+		assertNotNull(tD.getTradeRequestComments());
+		assertTrue(tD.getTradeRequestComments().size() > 0);
+	}
 }

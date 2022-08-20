@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Report {
@@ -22,6 +25,14 @@ public class Report {
 	private String reason;
 
 	private String image;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User reported;
+	
+	@ManyToOne
+	@JoinColumn(name="reported_by_id")
+	private User reporter;
 
 	public Report() {
 		super();
@@ -57,6 +68,22 @@ public class Report {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public User getReported() {
+		return reported;
+	}
+
+	public void setReported(User reported) {
+		this.reported = reported;
+	}
+
+	public User getReporter() {
+		return reporter;
+	}
+
+	public void setReporter(User reporter) {
+		this.reporter = reporter;
 	}
 
 	@Override

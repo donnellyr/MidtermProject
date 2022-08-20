@@ -1,6 +1,8 @@
 package com.skilldistillery.handmerounds.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -43,6 +45,28 @@ class ItemTest {
 	void test_Item_entity_mapping() {
 		assertNotNull(item);
 		assertEquals(2014, item.getDatePosted().getYear());
+	}
+	@Test
+	void test_Item_AdditionalImage_ManyToOne_mapping() {
+		assertNotNull(item);
+		assertTrue(item.getImages().size() > 0);
+		assertNotNull(item.getImages());
+	}
+	@Test
+	void test_Item_User_ManyToMany_mapping() {
+		assertNotNull(item);
+//		assertTrue(item.getUsers().size() > 0);
+		assertNotNull(item.getUsers());
+	}
+	@Test
+	void test_Item_ItemCondition_ManyToOne_mapping() {
+		assertNotNull(item);
+		assertNotNull(item.getCondition());
+	}
+	@Test
+	void test_Item_Size_ManyToOne_mapping() {
+		assertNotNull(item);
+		assertEquals("Newborn", item.getSize().getSize());
 	}
 
 }

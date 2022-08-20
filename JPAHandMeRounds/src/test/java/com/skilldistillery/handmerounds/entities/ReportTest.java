@@ -45,4 +45,16 @@ class ReportTest {
 		assertNotNull(report);
 		assertEquals("Trying to Sell", report.getReason());
 	}
+	@Test
+	void test_Report_Users_ManyToOne_ForTheReported_mapping() {
+		assertNotNull(report);
+		assertNotNull(report.getReported());
+		assertEquals(2, report.getReported().getId());
+	}
+	@Test
+	void test_Report_Users_ManyToOne_ForTheReporter_mapping() {
+		assertNotNull(report);
+		assertNotNull(report.getReporter());
+		assertEquals(1, report.getReporter().getId());
+	}
 }

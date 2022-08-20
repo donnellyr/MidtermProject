@@ -2,6 +2,7 @@ package com.skilldistillery.handmerounds.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -47,4 +48,9 @@ class AdditionalImageTest {
 		assertEquals(1, aI.getId());
 	}
 
+	@Test
+	void test_AdditionalImage_Item_ManyToOne_mapping() {
+		assertNotNull(aI);
+		assertEquals(1, aI.getItem().getId());
+	}
 }
