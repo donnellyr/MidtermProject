@@ -1,17 +1,12 @@
 package com.skilldistillery.handmerounds.data;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
-import org.apache.catalina.realm.UserDatabaseRealm;
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.handmerounds.entities.Address;
 import com.skilldistillery.handmerounds.entities.User;
 
 @Service
@@ -51,5 +46,19 @@ public class UserDAOImpl implements UserDAO {
 	public User updateUser(int userId, User user) {
 		// not necessary
 		return null;
+	}
+
+	@Override
+	public User newAccount(String username, String password, String firstName, String lastName, String street,
+			String city, String state, int postalCode) {
+		Address address = new Address(street,city,state,postalCode);
+		
+		em.persist(address);
+		System.out.println(address);
+		User user = new User(username,password,firstName,lastName,address);
+		System.out.println(user);
+		em.persist(user);
+		
+		return user;
 	}
 }

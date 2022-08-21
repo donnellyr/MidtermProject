@@ -11,4 +11,8 @@ public interface UserDAO {
 //	User findUserById(int userId);
 
 	User updateUser(int userId, User user);
+	
+	User newAccount(String username, String password, String firstName, String lastName, String street, String city, String state, int postalCode); 
+
+
 }

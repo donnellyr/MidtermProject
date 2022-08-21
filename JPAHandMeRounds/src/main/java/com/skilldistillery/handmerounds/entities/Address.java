@@ -34,6 +34,13 @@ public class Address {
 		super();
 	}
 
+	public Address(String street, String city, String state, int postalCode) {
+	this.street = street;
+	this.city = city;
+	this.state = state;
+	this.postalCode = postalCode;
+	}
+
 	public int getId() {
 		return id;
 	}
