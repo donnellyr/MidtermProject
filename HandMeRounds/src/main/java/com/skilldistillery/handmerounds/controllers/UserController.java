@@ -32,6 +32,7 @@ public class UserController {
 
 			return "login";
 		}
+		
 	}
 
 	@RequestMapping(path = "loggedIn.do", method = RequestMethod.POST)
@@ -60,5 +61,16 @@ public class UserController {
 
 		return "home";
 
+	}
+	@RequestMapping(path="register.do")
+	public String register() {
+		return"register";
+	}
+	@RequestMapping(path="newAccount.do")
+	public String newAccount(String username, String password, String firstName, String lastName, String street, String city, String state, int postalCode) {
+		System.out.println(username+" " +password+" " + firstName+ " " +lastName+ " " +street+ " " +city+ " " +state+ " " +postalCode);
+		userDAO.newAccount(username, password, firstName, lastName, street, city, state, postalCode);
+		
+		return "login";
 	}
 }

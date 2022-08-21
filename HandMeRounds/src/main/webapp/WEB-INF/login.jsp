@@ -15,7 +15,7 @@
 	
 	
 	</form>
-
+<a href="register.do">Click here to register an account</a>
 
 </body>
 </html>
