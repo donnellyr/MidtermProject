@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<jsp:include page="bootstraphead.jsp" />
+<jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
 <jsp:include page="navbar.jsp" />
