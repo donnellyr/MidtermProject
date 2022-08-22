@@ -5,8 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Post item</title>
+<jsp:include page="bootstraphead.jsp" />
 </head>
 <body>
+<jsp:include page="navbar.jsp" />
 
 	<h1>List your item!</h1>
 
@@ -53,6 +55,6 @@
 
 	</form>
 
-
+<jsp:include page="bootstrapfoot.jsp" />
 </body>
 </html>
