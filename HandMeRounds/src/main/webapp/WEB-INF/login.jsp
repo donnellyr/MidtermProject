@@ -19,6 +19,6 @@
 	
 	</form>
 <a href="register.do">Click here to register an account</a>
-<jsp:include page="bootstrapfoot.jsp" />
+<jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>
