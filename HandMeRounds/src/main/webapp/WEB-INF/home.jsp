@@ -9,6 +9,8 @@
 <body>
 	<h1>Get in the van</h1>
 	<a href="login.do" >Login</a>
+	
+	<a href="postitem.do" >Post Item</a>
 	<--button on login page
 	${SMOKETEST }
 </body>
