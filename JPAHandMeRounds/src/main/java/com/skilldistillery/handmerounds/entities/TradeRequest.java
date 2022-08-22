@@ -46,6 +46,14 @@ public class TradeRequest {
 		super();
 	}
 
+	public TradeRequest(boolean trade, String remarks, User owener, Item requested) {
+		this.tradeRequest = trade;
+		this.remarks = remarks;
+		this.user = owener;
+		this.item = requested;
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getId() {
 		return id;
 	}
