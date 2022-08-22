@@ -31,9 +31,23 @@ public class ItemController {
 		System.out.println(trade);
 		Item item = itemDAO.createItem(name, image, typeid, size, condition,trade);
 		System.out.println("******");
+		System.out.println(item.getId());
 		model.addAttribute("item",item);
 		return "showlisting";
 	}
-
-
+@RequestMapping(path="edititem.do")
+public String editItem(Model model, int id) {
+	Item item = itemDAO.getById(id);
+	System.out.println(item);
+	model.addAttribute("item",item);
+	return "edititem";
+}
+@RequestMapping(path="updateitem.do")
+public String updateItem(Model model,int id, String name, String image, int typeid, int size, int condition,boolean trade) {
+	Item item = itemDAO.editItem(id, name, image, typeid, size, condition, trade);
+	model.addAttribute("item",item);
+	System.out.println(item);
+	return "showlisting";
+	
+}
 }

@@ -12,8 +12,20 @@
 
 
 
-<a href="edititem.do">edit listing</a>
 ${item.name }
-
+<br>
+${item.type.name}
+<br>
+${item.size.size}
+<br>
+${item.condition.name}
+<br>
+<c:if test="${item.trade == true }">Item is for trade</c:if>
+<c:if test="${item.trade == true }">Item is for donation</c:if>
+<br>
+<form action="edititem.do">
+<input type="hidden" name="id" value = "${item.id}">
+<input type="submit" value ="Edit item">
+</form>
 </body>
 </html>
