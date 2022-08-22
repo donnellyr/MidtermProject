@@ -10,7 +10,7 @@ import com.skilldistillery.handmerounds.entities.Size;
 public interface ItemDAO {
 	
 	//add stretch goal Type type
-	Item createItem(String name, String image, List<AdditionalImage> images, Size size, ItemCondition itemCondition);
+	Item createItem(String name, String image, int typeid, int size, int itemCondition);
 
 
 }
