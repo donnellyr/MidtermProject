@@ -49,6 +49,9 @@ public class Item {
 	@ManyToOne
 	@JoinColumn(name = "condition_id")
 	private ItemCondition condition;
+	
+	@ManyToMany(mappedBy = "items")
+	private List<DeliveryOption> deliveryOptions;
 
 	@ManyToOne
 	@JoinColumn(name = "size_id")
@@ -141,6 +144,14 @@ public class Item {
 
 	public void setType(Type type) {
 		this.type = type;
+	}
+
+	public List<DeliveryOption> getDeliveryOptions() {
+		return deliveryOptions;
+	}
+
+	public void setDeliveryOptions(List<DeliveryOption> deliveryOptions) {
+		this.deliveryOptions = deliveryOptions;
 	}
 
 	public List<User> getUsers() {

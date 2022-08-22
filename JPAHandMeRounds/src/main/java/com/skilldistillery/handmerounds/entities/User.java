@@ -24,10 +24,10 @@ public class User {
 	private String password;
 	private Boolean enabled;
 	private String role;
-	@Column(name="first_name")
+	@Column(name = "first_name")
 	private String firstName;
-	
-	@Column(name="last_name")
+
+	@Column(name = "last_name")
 	private String lastName;
 	@OneToOne
 	@JoinColumn(name = "address_id")
@@ -47,10 +47,22 @@ public class User {
 
 	@OneToMany(mappedBy = "user")
 	private List<TradeRequestComment> tradeRequestComments;
-	
 
 	public User() {
 		super();
+	}
+
+	public User(int id, String username, String password, Boolean enabled, String role, String firstName,
+			String lastName, Address address) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.enabled = enabled;
+		this.role = role;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
 	}
 
 	public User(String username, String password, String firstName, String lastName, Address address) {
