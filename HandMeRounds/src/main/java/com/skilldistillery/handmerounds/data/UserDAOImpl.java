@@ -20,10 +20,10 @@ public class UserDAOImpl implements UserDAO {
 
 	}
 
-//	@Override
-//	public User findById(int userId) {
-//		return em.find(User.class, userId);
-//	}
+	@Override
+	public User getUserById(int userId) {
+		return em.find(User.class, userId);
+	}
 
 	@Override
 	public User getUserByUserName(String username) {
@@ -35,30 +35,36 @@ public class UserDAOImpl implements UserDAO {
 		return u;
 	}
 
-//	@Override
-//	public User findUserById(int userId) {
-//		User u = users.get(userId);
-//
-//		return u;
-//	}
-
 	@Override
-	public User updateUser(int userId, User user) {
-		// not necessary
-		return null;
+	public User updateAccount(int uid, String username, String password, boolean enabled, String role, String firstName,
+			String lastName, String street, String city, String state, int postalCode) {
+		User user = em.find(User.class, uid);
+		if (user != null) {
+			// user.setUsername(username);
+			user.setPassword(password);
+			user.setEnabled(enabled);
+			user.setRole(role);
+			user.setFirstName(firstName);
+			user.setLastName(lastName);
+			user.getAddress().setCity(city);
+			user.getAddress().setStreet(street);
+			user.getAddress().setState(state);
+			user.getAddress().setPostalCode(postalCode);
+		}
+		return user;
 	}
 
 	@Override
 	public User newAccount(String username, String password, String firstName, String lastName, String street,
 			String city, String state, int postalCode) {
-		Address address = new Address(street,city,state,postalCode);
-		
+		Address address = new Address(street, city, state, postalCode);
+
 		em.persist(address);
 		System.out.println(address);
-		User user = new User(username,password,firstName,lastName,address);
+		User user = new User(username, password, firstName, lastName, address);
 		System.out.println(user);
 		em.persist(user);
-		
+
 		return user;
 	}
 }
