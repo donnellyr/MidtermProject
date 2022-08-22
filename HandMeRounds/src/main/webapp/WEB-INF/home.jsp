@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Hand Me Rounds</title>
-<jsp:include page="bootstraphead.jsp" />
+<jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
 
