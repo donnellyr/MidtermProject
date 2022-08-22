@@ -27,9 +27,9 @@ public class ItemController {
 	
 	
 	@RequestMapping(path =  "additem.do")
-	public String addItem(Model model, String name, String image, int typeid, int size, int condition) {
-		
-		Item item = itemDAO.createItem(name, image, typeid, size, condition);
+	public String addItem(Model model, String name, String image, int typeid, int size, int condition,boolean trade) {
+		System.out.println(trade);
+		Item item = itemDAO.createItem(name, image, typeid, size, condition,trade);
 		System.out.println("******");
 		model.addAttribute("item",item);
 		return "showlisting";
