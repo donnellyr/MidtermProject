@@ -59,6 +59,15 @@ public class Item {
 		super();
 	}
 
+	public Item(String name, String image, List<AdditionalImage> images, Size size, ItemCondition itemCondition) {
+		this.name = name;
+		this.image = image;
+		this.images = images;
+		this.size = size;
+		this.condition = itemCondition;
+		
+	}
+
 	public int getId() {
 		return id;
 	}
