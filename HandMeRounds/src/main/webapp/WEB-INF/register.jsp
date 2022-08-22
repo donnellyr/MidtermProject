@@ -7,17 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="newAccount.do">
-User name: <input type = "text" name="username">
-Password: <input type = "text" name="password">
-First Name: <input type = "text" name="firstName">
-Last Name: <input type = "text" name="lastName">
-Address: <input type = "text" name="address">
-City: <input type = "text" name="city">
-State: <input type = "text" name="state">
-ZIP Code: <input type = "text" name="postalCode">
-<input type = "submit" value="create account">
-
-</form>
+	<form action="newAccount.do">
+		User name: <input type = "text" name="username"><br>
+		Password: <input type = "text" name="password"><br>
+		First Name: <input type = "text" name="firstName"><br>
+		Last Name: <input type = "text" name="lastName"><br>
+		Address: <input type = "text" name="address"><br>
+		City: <input type = "text" name="city"><br>
+		State: <input type = "text" name="state"><br>
+		ZIP Code: <input type = "text" name="postalCode"><br>
+		<input type = "submit" value="create account"><br>
+	</form>
 </body>
 </html>

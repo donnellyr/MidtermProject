@@ -32,7 +32,6 @@ public class UserController {
 
 			return "login";
 		}
-		
 	}
 
 	@RequestMapping(path = "loggedIn.do", method = RequestMethod.POST)
@@ -46,13 +45,11 @@ public class UserController {
 				session.setAttribute("loggedInUser", user);
 				return "account";
 			} else {
-				
 				return "home";
 			}
 		} catch (Exception e) {
 			return "home";
 		}
-
 	}
 
 	@RequestMapping(path = "logout.do", method = RequestMethod.GET)
@@ -62,15 +59,37 @@ public class UserController {
 		return "home";
 
 	}
-	@RequestMapping(path="register.do")
+
+	@RequestMapping(path = "register.do")
 	public String register() {
-		return"register";
+		return "register";
 	}
-	@RequestMapping(path="newAccount.do")
-	public String newAccount(String username, String password, String firstName, String lastName, String street, String city, String state, int postalCode) {
-		System.out.println(username+" " +password+" " + firstName+ " " +lastName+ " " +street+ " " +city+ " " +state+ " " +postalCode);
+
+	@RequestMapping(path = "newAccount.do")
+	public String newAccount(String username, String password, String firstName, String lastName, String street,
+			String city, String state, int postalCode) {
+		System.out.println(username + " " + password + " " + firstName + " " + lastName + " " + street + " " + city
+				+ " " + state + " " + postalCode);
 		userDAO.newAccount(username, password, firstName, lastName, street, city, state, postalCode);
-		
+
 		return "login";
 	}
+
+	@RequestMapping(path = "goToUpdate.do")
+	public String goToUpdateAccount(HttpSession session) {
+		User user = (User) session.getAttribute("loggedInUser");
+		session.setAttribute("loggedInUser", user);
+		return "updateAccount";
+	}
+
+	@RequestMapping(path = "updateAccount.do")
+	public String updateAccount(int uid, String userName, String password, Boolean enabled, String role,
+			String firstName, String lastName, String street, String city, String state, int postalCode,
+			HttpSession session) {
+		User user = userDAO.updateAccount(uid, userName, password, Boolean.TRUE, role, firstName, lastName, street,
+				city, state, postalCode);
+		session.setAttribute("loggedInUser", user);
+		return "account";
+	}
+
 }
