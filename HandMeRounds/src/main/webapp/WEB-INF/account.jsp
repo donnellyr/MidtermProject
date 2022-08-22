@@ -5,8 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Account Info</title>
+<jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
+	<jsp:include page="navbar.jsp" />
 	<h1>You are logged in</h1>
 	<h1>Account Details</h1>
 	<br>ID: ${loggedInUser.id}
@@ -29,5 +31,6 @@
 		<input class="form-control" type="text" hidden="true" name="uid" value="${loggedInUser.id }"> 
 		<input class="btn btn-primary btn-sm" type="submit" value="Edit Account" />
 	</form>
+ 	<jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>

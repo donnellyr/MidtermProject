@@ -5,7 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<jsp:include page="bootstrapHead.jsp" />
 </head>
+
+<jsp:include page="navbar.jsp" />
 <body>
 
 	<form action="loggedIn.do" method="post">
@@ -16,6 +19,6 @@
 	
 	</form>
 <a href="register.do">Click here to register an account</a>
-
+<jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>
