@@ -1,7 +1,6 @@
 package com.skilldistillery.handmerounds.entities;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -46,6 +45,14 @@ class DeliveryOptionTest {
 		assertNotNull(dO);
 		assertEquals("Meet up", dO.getName());
 		assertEquals("Firestation or Police station", dO.getDescription());
+	}
+	
+	@Test
+	void test_DeliveryOption_Item_ManyToMany_mapping() {
+		
+		assertNotNull(dO);
+		assertNotNull(dO.getItems());
+		assertTrue(dO.getItems().size() > 0);
 	}
 
 }
