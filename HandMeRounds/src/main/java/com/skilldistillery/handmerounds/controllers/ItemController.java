@@ -2,19 +2,16 @@ package com.skilldistillery.handmerounds.controllers;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.handmerounds.data.ItemDAO;
 import com.skilldistillery.handmerounds.entities.AdditionalImage;
+import com.skilldistillery.handmerounds.entities.Item;
 import com.skilldistillery.handmerounds.entities.ItemCondition;
 import com.skilldistillery.handmerounds.entities.Size;
-import com.skilldistillery.handmerounds.entities.User;
 
 @Controller
 public class ItemController {
@@ -30,10 +27,11 @@ public class ItemController {
 	
 	
 	@RequestMapping(path =  "additem.do")
-	public String addItem(Model model, String name, String image, List<AdditionalImage> images, Size size, ItemCondition itemCondition) {
+	public String addItem(Model model, String name, String image, int typeid, int size, int condition) {
 		
-		itemDAO.createItem(name, image, images, size, itemCondition);
-		
+		Item item = itemDAO.createItem(name, image, typeid, size, condition);
+		System.out.println("******");
+		model.addAttribute("item",item);
 		return "showlisting";
 	}
 
