@@ -4,15 +4,14 @@ import com.skilldistillery.handmerounds.entities.User;
 
 public interface UserDAO {
 
-//	User findById(int userId);
+	User getUserById(int userId);
 
 	User getUserByUserName(String username);
 
-//	User findUserById(int userId);
+	User updateAccount(int uid, String username, String password, boolean enabled, String role, String firstName,
+			String lastName, String street, String city, String state, int postalCode);
 
-	User updateUser(int userId, User user);
-	
-	User newAccount(String username, String password, String firstName, String lastName, String street, String city, String state, int postalCode); 
-
+	User newAccount(String username, String password, String firstName, String lastName, String street, String city,
+			String state, int postalCode);
 
 }

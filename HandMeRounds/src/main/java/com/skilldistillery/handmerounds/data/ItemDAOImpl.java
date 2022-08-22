@@ -11,6 +11,7 @@ import com.skilldistillery.handmerounds.entities.Item;
 import com.skilldistillery.handmerounds.entities.ItemCondition;
 import com.skilldistillery.handmerounds.entities.Size;
 import com.skilldistillery.handmerounds.entities.Type;
+import com.skilldistillery.handmerounds.entities.User;
 
 @Service
 @Transactional
@@ -23,11 +24,13 @@ public class ItemDAOImpl implements ItemDAO {
 	}
 
 	@Override
-	public Item createItem(String name, String image, int typeid, int size, int itemCondition, boolean trade) {
+	public Item createItem(String name, String image, int typeid, int size, int itemCondition, boolean trade,int userid) {
 		Size itemSize = em.find(Size.class, size);
 		Type itemType = em.find(Type.class, typeid);
+		User user = em.find(User.class, userid);
 		ItemCondition condition = em.find(ItemCondition.class, itemCondition);
-		Item item = new Item( name, image, itemType, itemSize, condition,trade);
+		Item item = new Item( name, image, itemType, itemSize, condition,trade,user);
+		em.persist(item);
 		return item;
 	}
 
