@@ -66,12 +66,13 @@ public class Item {
 
 	}
 
-	public Item(String name, String image, Type itemType, Size itemSize, ItemCondition condition) {
+	public Item(String name, String image, Type itemType, Size itemSize, ItemCondition condition, boolean trade) {
 		this.name = name;
 		this.image = image;
 		this.type = itemType;
 		this.size = itemSize;
 		this.condition = condition;
+		this.trade = trade;
 	}
 
 
