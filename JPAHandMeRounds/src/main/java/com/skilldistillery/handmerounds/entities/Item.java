@@ -57,6 +57,9 @@ public class Item {
 	@JoinColumn(name = "size_id")
 	private Size size;
 
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
 	public Item() {
 		super();
 	}
@@ -77,8 +80,8 @@ public class Item {
 		this.size = itemSize;
 		this.condition = condition;
 		this.trade = trade;
+		this.user = user;
 		this.users = new ArrayList<>();
-		users.add(user);
 	}
 
 
@@ -176,6 +179,14 @@ public class Item {
 
 	public void setSize(Size size) {
 		this.size = size;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override

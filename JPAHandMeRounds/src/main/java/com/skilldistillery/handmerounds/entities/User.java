@@ -47,6 +47,8 @@ public class User {
 
 	@OneToMany(mappedBy = "user")
 	private List<TradeRequestComment> tradeRequestComments;
+	@OneToMany(mappedBy = "user")
+	private List<Item> listeditems;
 
 	public User() {
 		super();
@@ -175,6 +177,14 @@ public class User {
 
 	public void setTradeRequestComments(List<TradeRequestComment> tradeRequestComments) {
 		this.tradeRequestComments = tradeRequestComments;
+	}
+
+	public List<Item> getListeditems() {
+		return listeditems;
+	}
+
+	public void setListeditems(List<Item> listeditems) {
+		this.listeditems = listeditems;
 	}
 
 	@Override
