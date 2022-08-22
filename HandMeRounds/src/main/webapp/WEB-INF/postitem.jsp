@@ -13,7 +13,7 @@
 	<h1>List your item!</h1>
 
 	<form action="additem.do">
-
+<input type="hidden" name ="userid" value="${loggedInUser.id }">
 		<label>Name of item</label> 
 		<input type="text" name="name"placeholder="item name">
 		 <label>Add an image</label> <input type="text" name="image" placeholder="image url"> 

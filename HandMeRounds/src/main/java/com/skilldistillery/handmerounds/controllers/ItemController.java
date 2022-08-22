@@ -1,6 +1,6 @@
 package com.skilldistillery.handmerounds.controllers;
 
-import java.util.List;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,10 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.handmerounds.data.ItemDAO;
-import com.skilldistillery.handmerounds.entities.AdditionalImage;
 import com.skilldistillery.handmerounds.entities.Item;
-import com.skilldistillery.handmerounds.entities.ItemCondition;
-import com.skilldistillery.handmerounds.entities.Size;
 
 @Controller
 public class ItemController {
@@ -27,9 +24,9 @@ public class ItemController {
 	
 	
 	@RequestMapping(path =  "additem.do")
-	public String addItem(Model model, String name, String image, int typeid, int size, int condition,boolean trade) {
+	public String addItem(HttpSession session, Model model, String name, String image, int typeid, int size, int condition,boolean trade, int userid) {
 		System.out.println(trade);
-		Item item = itemDAO.createItem(name, image, typeid, size, condition,trade);
+		Item item = itemDAO.createItem(name, image, typeid, size, condition,trade,userid);
 		System.out.println("******");
 		System.out.println(item.getId());
 		model.addAttribute("item",item);
