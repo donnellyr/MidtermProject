@@ -32,9 +32,25 @@ public class ItemDAOImpl implements ItemDAO {
 	}
 
 	@Override
-	public Item editItem(int id,String name, String image, int typeid, int size, int itemCondition) {
-		em.persist(image);
-		return null;
+	public Item editItem(int id,String name, String image, int typeid, int size, int itemCondition, boolean trade) {
+		Item item = em.find(Item.class, id);
+		Size itemSize = em.find(Size.class, size);
+		Type itemType = em.find(Type.class, typeid);
+		ItemCondition condition = em.find(ItemCondition.class, itemCondition);
+		item.setName(name);
+		item.setImage(image);
+		item.setType(itemType);
+		item.setSize(itemSize);
+		item.setCondition(condition);
+		item.setTrade(trade);
+		em.persist(item);
+		return item;
+	}
+
+	@Override
+	public Item getById(int id) {
+		Item item = em.find(Item.class, id);
+		return item;
 	}
 
 }

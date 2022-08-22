@@ -16,6 +16,6 @@
 	<a href="postitem.do" >Post Item</a>
 	<--button on login page
 	${SMOKETEST }
-	<jsp:include page="bootstrapfoot.jsp" />
+	<jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>
