@@ -1,12 +1,19 @@
 package com.skilldistillery.handmerounds.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.ManyToAny;
 
 @Entity
 @Table(name = "delivery_option")
@@ -19,6 +26,18 @@ public class DeliveryOption {
 	private String name;
 
 	private String description;
+	
+	@ManyToMany
+	@JoinTable(name = "delivery_option_has_item", joinColumns = @JoinColumn(name = "delivery_option_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
+	private List<Item> items;
+
+	public List<Item> getItems() {
+		return items;
+	}
+
+	public void setItems(List<Item> items) {
+		this.items = items;
+	}
 
 	public DeliveryOption() {
 		super();

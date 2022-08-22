@@ -68,5 +68,13 @@ class ItemTest {
 		assertNotNull(item);
 		assertEquals("Newborn", item.getSize().getSize());
 	}
+	
+	@Test
+	void test_Item_DeliveryOption_ManyToMany_mapping() {
+		
+		assertNotNull(item);
+		assertNotNull(item.getDeliveryOptions());
+		assertTrue(item.getDeliveryOptions().size() > 0);
+	}
 
 }
