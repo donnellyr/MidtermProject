@@ -10,6 +10,6 @@
 <body>
 <jsp:include page="navbar.jsp" />
  <h1>You are logged in</h1>
- <jsp:include page="bootstrapfoot.jsp" />
+ <jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>
