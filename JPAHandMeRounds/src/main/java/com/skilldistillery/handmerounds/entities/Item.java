@@ -33,28 +33,26 @@ public class Item {
 	private LocalDateTime datePosted;
 
 	private String image;
-	
+
 	@OneToMany(mappedBy = "item")
 	private List<AdditionalImage> images;
-	
+
 	@OneToOne
-	@JoinColumn(name= "type_id")
+	@JoinColumn(name = "type_id")
 	private Type type;
-	
+
 	@ManyToMany
-	@JoinTable(name="wishlist",
-	joinColumns = @JoinColumn(name="item_id"), 
-	inverseJoinColumns = @JoinColumn (name = "user_id"))
+	@JoinTable(name = "wishlist", joinColumns = @JoinColumn(name = "item_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private List<User> users;
-	
+
 	@ManyToOne
-	@JoinColumn(name="condition_id") 
+	@JoinColumn(name = "condition_id")
 	private ItemCondition condition;
-	
+
 	@ManyToOne
-	@JoinColumn(name="size_id")
+	@JoinColumn(name = "size_id")
 	private Size size;
-	
+
 	public Item() {
 		super();
 	}
@@ -65,8 +63,17 @@ public class Item {
 		this.images = images;
 		this.size = size;
 		this.condition = itemCondition;
-		
+
 	}
+
+	public Item(String name, String image, Type itemType, Size itemSize, ItemCondition condition) {
+		this.name = name;
+		this.image = image;
+		this.type = itemType;
+		this.size = itemSize;
+		this.condition = condition;
+	}
+
 
 	public int getId() {
 		return id;
