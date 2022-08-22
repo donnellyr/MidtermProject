@@ -6,10 +6,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>View Listing</title>
+
 </head>
 <body>
+
+
+
 <a href="edititem.do">edit listing</a>
 ${item.name }
+>>>>>>> 67b0efacaaa1ddc6281d5e752ae5b69b327f19ed
 </body>
 </html>

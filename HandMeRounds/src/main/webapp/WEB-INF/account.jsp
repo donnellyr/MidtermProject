@@ -5,8 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<jsp:include page="bootstraphead.jsp" />
 </head>
 <body>
+<jsp:include page="navbar.jsp" />
  <h1>You are logged in</h1>
+ <jsp:include page="bootstrapfoot.jsp" />
 </body>
 </html>
