@@ -25,7 +25,7 @@ public class TradeRequestController {
 	public String postItem(int id, Model model) {
 		Item item = itemDAO.getById(id);
 		model.addAttribute("item", item);
-		return "postitem";
+		return "posttrade";
 	}
 
 	@RequestMapping(path = "addtrade.do")

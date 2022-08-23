@@ -26,7 +26,7 @@
 						<c:forEach var="i" items="${items}">
 
 							<tr>
-								<td><a href="getById.do?iid=${i.id}">${i.name} </a></td>
+								<td><a href="getById.do?id=${i.id}">${i.name} </a></td>
 								<td>${i.name}</td>
 								<td>${i.description}</td>
 							</tr>
