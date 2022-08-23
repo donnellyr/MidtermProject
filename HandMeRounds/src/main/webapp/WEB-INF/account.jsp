@@ -70,6 +70,11 @@
 			value="${loggedInUser.id }"> <input
 			class="btn btn-primary btn-sm" type="submit" value="Edit Account" />
 	</form>
+	<form action="displayrequestowner.do" method="GET">
+		<input class="form-control" type="text" hidden="true" name="id"
+			value="${loggedInUser.id }"> <input
+			class="btn btn-primary btn-sm" type="submit" value="View Trade Requests" />
+	</form>
 	<jsp:include page="bootstrapFoot.jsp" />
 	
 </body>
