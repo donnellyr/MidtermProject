@@ -18,9 +18,9 @@ public class TradeRequestDAOImpl implements TradeRequestDAO {
 
 	@Override
 	public TradeRequest createRequest(boolean trade, String remarks, int item, int user) {
-		User owener = em.find(User.class, user);
+		User owner = em.find(User.class, user);
 		Item requested = em.find(Item.class, item);
-		TradeRequest request = new TradeRequest(trade, remarks, owener, requested);
+		TradeRequest request = new TradeRequest(trade, remarks, owner, requested);
 		em.persist(request);
 		return request;
 	}
