@@ -10,7 +10,6 @@
 </head>
 <body>
 
-<<<<<<< HEAD
 ${item.id }
 
 ${item.name }
