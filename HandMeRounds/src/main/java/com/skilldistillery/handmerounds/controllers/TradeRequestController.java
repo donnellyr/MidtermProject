@@ -18,10 +18,10 @@ public class TradeRequestController {
 	@Autowired
 	private TradeRequestDAO tradeDAO;
 
-	@RequestMapping(path =  "postitem.do")
+	@RequestMapping(path =  "posttrade.do")
 	public String postItem(Model model) {
 		
-		return "postitem";
+		return "posttrade";
 	}
 	
 	
@@ -48,7 +48,7 @@ public class TradeRequestController {
 		return "showtrade";
 		
 	}
-	@RequestMapping(path ="deleteTrade")
+	@RequestMapping(path ="deletetrade")
 	public String deleteTrade(int id) {
 		tradeDAO.deleteRequest(id);
 		return "home";

@@ -54,6 +54,16 @@ public String listAll(Model model) {
 	model.addAttribute("items", itemDAO.listAll());
 	return "listall";
 }
+@RequestMapping(path= "listalltrade.do")
+public String listAllTrade(Model model) {
+	model.addAttribute("items", itemDAO.listAll());
+	return "listalltrade";
+}
+@RequestMapping(path= "listalldonate.do")
+public String listAllDonate(Model model) {
+	model.addAttribute("items", itemDAO.listAll());
+	return "listalldonate";
+}
 
 }
 

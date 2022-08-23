@@ -21,7 +21,7 @@ ${item.size.size}
 ${item.condition.name}
 <br>
 <c:if test="${item.trade == true }">Item is for trade</c:if>
-<c:if test="${item.trade == true }">Item is for donation</c:if>
+<c:if test="${item.trade == false }">Item is for donation</c:if>
 <br>
 <form action="edititem.do">
 <input type="hidden" name="id" value = "${item.id}">
