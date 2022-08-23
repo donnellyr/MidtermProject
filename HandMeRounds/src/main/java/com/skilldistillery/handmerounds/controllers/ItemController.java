@@ -33,13 +33,7 @@ public class ItemController {
 		return "showlisting";
 	}
 
-	@RequestMapping(path = "edititem.do")
-	public String editItem(Model model, int id) {
-		Item item = itemDAO.getById(id);
-		System.out.println(item);
-		model.addAttribute("item", item);
-		return "edititem";
-	}
+
 
 	@RequestMapping(path = "updateitem.do")
 	public String updateItem(Model model, int id, String name, String image, int typeid, int size, int condition,
@@ -55,6 +49,16 @@ public class ItemController {
 	public String listAll(Model model) {
 		model.addAttribute("items", itemDAO.listAll());
 		return "listall";
+	}
+	@RequestMapping(path = "listalltrade.do")
+	public String listAllTrade(Model model) {
+		model.addAttribute("items", itemDAO.listAll());
+		return "listalltrade";
+	}
+	@RequestMapping(path = "listalldonate.do")
+	public String listAllDonate(Model model) {
+		model.addAttribute("items", itemDAO.listAll());
+		return "listalldonate";
 	}
 
 	@RequestMapping(path = "getById.do")

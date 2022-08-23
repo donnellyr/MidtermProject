@@ -12,7 +12,13 @@
 		" value="additem" class="btn btn-primary" id="navbarbuttons">List my items</button></a>
 		
 <a href="listall.do"><button type="button" style="float: left"
-		" value="Home" class="btn btn-primary" id="navbarbuttons">Browse Listings</button></a>
+		" value="Home" class="btn btn-primary" id="navbarbuttons">Browse All Listings</button></a>
+
+<a href="listalltrade.do"><button type="button" style="float: left"
+		" value="Home" class="btn btn-primary" id="navbarbuttons">Browse Trades</button></a>
+
+<a href="listalldonate.do"><button type="button" style="float: left"
+		" value="Home" class="btn btn-primary" id="navbarbuttons">Browse Donations</button></a>
 		
 <a href="index.do"><button type="button" style="float: left"
 		" value="Home" class="btn btn-primary"id="navbarbuttons">Community Drop-off locations</button></a>
