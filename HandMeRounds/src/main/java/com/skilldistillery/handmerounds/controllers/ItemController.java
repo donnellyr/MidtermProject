@@ -50,6 +50,16 @@ public class ItemController {
 		model.addAttribute("items", itemDAO.listAll());
 		return "listall";
 	}
+	@RequestMapping(path = "listalltrade.do")
+	public String listAllTrade(Model model) {
+		model.addAttribute("items", itemDAO.listAll());
+		return "listalltrade";
+	}
+	@RequestMapping(path = "listalldonate.do")
+	public String listAllDonate(Model model) {
+		model.addAttribute("items", itemDAO.listAll());
+		return "listalldonate";
+	}
 
 	@RequestMapping(path = "getById.do")
 	public String listItem(int id, Model model) {

@@ -17,7 +17,7 @@
 <a href="listalltrade.do"><button type="button" style="float: left"
 		" value="Home" class="btn btn-primary" id="navbarbuttons">Browse Trades</button></a>
 
-<a href="listalldonateß.do"><button type="button" style="float: left"
+<a href="listalldonate.do"><button type="button" style="float: left"
 		" value="Home" class="btn btn-primary" id="navbarbuttons">Browse Donations</button></a>
 		
 <a href="index.do"><button type="button" style="float: left"
