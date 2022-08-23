@@ -1,5 +1,7 @@
 package com.skilldistillery.handmerounds.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +23,16 @@ public class TradeRequestController {
 	@Autowired
 	private ItemDAO itemDAO;
 
-
+		
+	@RequestMapping(path = "posttrade.do")
+	public String postItem(int id, Model model) {
+		Item item = itemDAO.getById(id);
+		model.addAttribute("item", item);
+		return "posttrade";
+	}
 
 	@RequestMapping(path = "addtrade.do")
-	public String createRequest(HttpSession sessionm, Model model, boolean trade, String remarks, int item, int user) {
+	public String createRequest(HttpSession session, Model model, boolean trade, String remarks, int item, int user) {
 		TradeRequest request = tradeDAO.createRequest(trade, remarks, item, user);
 		model.addAttribute("request", request);
 		return "showtrade";
@@ -46,4 +54,16 @@ public class TradeRequestController {
 		return "showtrade";
 	}
 
+	@RequestMapping(path = "deletetrade.do")
+	public String deleteTrade(int id) {
+		tradeDAO.deleteRequest(id);
+		return "home";
+	}
+	@RequestMapping(path ="displayrequestowner.do")
+	public String displayRequestsOwner(Model model, int id) {
+		List<TradeRequest> request = tradeDAO.displayAllbyUserId(id);
+		model.addAttribute("request", request);
+		return "displayrequestowner";
+		
+	}
 }

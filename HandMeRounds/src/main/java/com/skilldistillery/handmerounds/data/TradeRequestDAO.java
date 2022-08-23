@@ -1,5 +1,7 @@
 package com.skilldistillery.handmerounds.data;
 
+import java.util.List;
+
 import com.skilldistillery.handmerounds.entities.TradeRequest;
 
 public interface TradeRequestDAO {
@@ -12,4 +14,6 @@ public interface TradeRequestDAO {
 	TradeRequest deleteRequest(int id);
 
 	TradeRequest findById(int id);
+	
+	List<TradeRequest> displayAllbyUserId(int id);
 }
