@@ -26,8 +26,9 @@
 						<c:forEach var="request" items="${request}">
 
 							<tr>
-								<td>${request.item.name}</td>
+							<td><a href="gettradebyid.do?id=${request.id}">${request.item.name} </a></td>
 								<td>${request.user.username}</td>
+								<td>${request.remarks }
 							</tr>
 						</c:forEach>
 

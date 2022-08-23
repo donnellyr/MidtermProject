@@ -66,4 +66,10 @@ public class TradeRequestController {
 		return "displayrequestowner";
 		
 	}
+	@RequestMapping(name="gettradebyid.do")
+	public String findTradeById(Model model, int id) {
+		TradeRequest request = tradeDAO.findById(id);
+		model.addAttribute("request", request);
+		return"showtrade";
+	}
 }
