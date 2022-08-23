@@ -10,23 +10,24 @@
 </head>
 <body>
 
-	${item.id } ${item.name }
-	<br> ${item.type.name}
-	<br> ${item.size.size}
-	<br> ${item.condition.name}
-	<br>
-	<c:if test="${item.trade == true }">Item is for trade</c:if>
-	<c:if test="${item.trade == false }">Item is for donation</c:if>
-	<br>
-	
-	<form action="posttrade.do">
-		<input type="hidden" name="id" value="${item.id}"> 
-		<input type="submit" value="Post Trade">
-	</form>
-	
-	<form action="edititem.do">
-		<input type="hidden" name="id" value="${item.id}"> 
-		<input type="submit" value="Edit item">
-	</form>
+<<<<<<< HEAD
+${item.id }
+
+${item.name }
+<br>
+${item.type.name}
+<br>
+${item.size.size}
+<br>
+${item.condition.name}
+<br>
+<c:if test="${item.trade == true }">Item is for trade</c:if>
+<c:if test="${item.trade == false }">Item is for donation</c:if>
+<br>
+<form action="edititem.do">
+<input type="hidden" name="id" value = "${item.id}">
+<input type="submit" value ="Edit item">
+</form>
+=
 </body>
 </html>

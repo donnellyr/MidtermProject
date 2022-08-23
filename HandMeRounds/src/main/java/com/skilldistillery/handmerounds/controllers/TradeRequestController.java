@@ -21,12 +21,7 @@ public class TradeRequestController {
 	@Autowired
 	private ItemDAO itemDAO;
 
-	@RequestMapping(path = "posttrade.do")
-	public String postItem(int id, Model model) {
-		Item item = itemDAO.getById(id);
-		model.addAttribute("item", item);
-		return "posttrade";
-	}
+
 
 	@RequestMapping(path = "addtrade.do")
 	public String createRequest(HttpSession sessionm, Model model, boolean trade, String remarks, int item, int user) {
@@ -51,9 +46,4 @@ public class TradeRequestController {
 		return "showtrade";
 	}
 
-	@RequestMapping(path = "deletetrade.do")
-	public String deleteTrade(int id) {
-		tradeDAO.deleteRequest(id);
-		return "home";
-	}
 }
