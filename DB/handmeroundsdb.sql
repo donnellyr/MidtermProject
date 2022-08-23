@@ -221,7 +221,8 @@ DROP TABLE IF EXISTS `trade_request_comment` ;
 
 CREATE TABLE IF NOT EXISTS `trade_request_comment` (
   `id` INT NOT NULL,
-  `comment` VARCHAR(1000) NULL,
+  `owner_comment` VARCHAR(1000) NULL,
+  `requestor_comment` VARCHAR(1000) NULL,
   `comment_date` DATETIME NULL,
   `trade_request_id` INT NOT NULL,
   `user_id` INT NOT NULL,
@@ -493,7 +494,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `handmeroundsdb`;
-INSERT INTO `trade_request_comment` (`id`, `comment`, `comment_date`, `trade_request_id`, `user_id`) VALUES (1, 'Would like to meet at Fiehouse #2', '2014-05-26 23:57:41', 1, 2);
+INSERT INTO `trade_request_comment` (`id`, `owner_comment`, `requestor_comment`, `comment_date`, `trade_request_id`, `user_id`) VALUES (1, NULL, 'Would like to meet at Firehouse #2', '2014-05-26 23:57:41', 1, 2);
 
 COMMIT;
 
