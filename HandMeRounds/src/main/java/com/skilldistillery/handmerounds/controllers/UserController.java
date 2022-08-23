@@ -84,10 +84,10 @@ public class UserController {
 
 	@RequestMapping(path = "updateAccount.do")
 	public String updateAccount(int uid, String userName, String password, Boolean enabled, String role,
-			String firstName, String lastName, String street, String city, String state, int postalCode,
-			HttpSession session) {
+			String firstName, String lastName, String street, String city, String state, int postalCode, String image,
+			String aboutMe, HttpSession session) {
 		User user = userDAO.updateAccount(uid, userName, password, Boolean.TRUE, role, firstName, lastName, street,
-				city, state, postalCode);
+				city, state, postalCode, image, aboutMe);
 		session.setAttribute("loggedInUser", user);
 		return "account";
 	}
