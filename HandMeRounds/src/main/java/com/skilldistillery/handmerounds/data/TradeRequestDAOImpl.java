@@ -1,5 +1,7 @@
 package com.skilldistillery.handmerounds.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -46,6 +48,14 @@ public class TradeRequestDAOImpl implements TradeRequestDAO {
 	public TradeRequest findById(int id) {
 		TradeRequest request = em.find(TradeRequest.class, id);
 		return request;
+	}
+
+	@Override
+	public List<TradeRequest> displayAllbyUserId(int id) {
+		User user = em.find(User.class, id);
+		String jpql = "SELECT t FROM TradeRequest t JOIN Item i ON t.item.id = i.id WHERE i.user.id = :userid";
+		List<TradeRequest> requests = em.createQuery(jpql,TradeRequest.class).setParameter("userid", user.getId()).getResultList();
+		return requests;
 	}
 
 }
