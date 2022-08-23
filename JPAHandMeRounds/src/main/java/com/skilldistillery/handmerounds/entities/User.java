@@ -21,17 +21,27 @@ public class User {
 	private int id;
 
 	private String username;
+	
 	private String password;
+	
 	private Boolean enabled;
+	
 	private String role;
+	
 	@Column(name = "first_name")
 	private String firstName;
 
 	@Column(name = "last_name")
 	private String lastName;
+	
 	@OneToOne
 	@JoinColumn(name = "address_id")
 	private Address address;
+	
+	private String image;
+	
+	@Column(name = "about_me")
+	private String aboutMe;
 
 	@ManyToMany(mappedBy = "users")
 	private List<Item> items;
@@ -47,6 +57,7 @@ public class User {
 
 	@OneToMany(mappedBy = "user")
 	private List<TradeRequestComment> tradeRequestComments;
+	
 	@OneToMany(mappedBy = "user")
 	private List<Item> listeditems;
 
@@ -137,6 +148,22 @@ public class User {
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getAboutMe() {
+		return aboutMe;
+	}
+
+	public void setAboutMe(String aboutMe) {
+		this.aboutMe = aboutMe;
 	}
 
 	public List<Item> getItems() {

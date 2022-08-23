@@ -37,7 +37,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User updateAccount(int uid, String username, String password, boolean enabled, String role, String firstName,
-			String lastName, String street, String city, String state, int postalCode) {
+			String lastName, String street, String city, String state, int postalCode, String image, String aboutMe) {
 		User user = em.find(User.class, uid);
 		if (user != null) {
 			// user.setUsername(username);
@@ -50,6 +50,8 @@ public class UserDAOImpl implements UserDAO {
 			user.getAddress().setStreet(street);
 			user.getAddress().setState(state);
 			user.getAddress().setPostalCode(postalCode);
+			user.setImage(image);
+			user.setAboutMe(aboutMe);
 		}
 		return user;
 	}
