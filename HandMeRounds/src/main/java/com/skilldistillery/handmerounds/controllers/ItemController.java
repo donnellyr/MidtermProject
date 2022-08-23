@@ -1,5 +1,6 @@
 package com.skilldistillery.handmerounds.controllers;
 
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,4 +48,16 @@ public String updateItem(Model model,int id, String name, String image, int type
 	return "showlisting";
 	
 }
+
+@RequestMapping(path= "listall.do")
+public String listAll(Model model) {
+	model.addAttribute("items", itemDAO.listAll());
+	return "listall";
 }
+
+}
+
+
+
+
+
