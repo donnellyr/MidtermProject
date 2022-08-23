@@ -17,4 +17,6 @@ public interface ItemDAO {
 	List<Item> listAll();
 
 	Item deleteItem(int id);
+
+	
 }

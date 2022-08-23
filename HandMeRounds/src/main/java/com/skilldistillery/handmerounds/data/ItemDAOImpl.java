@@ -52,6 +52,8 @@ public class ItemDAOImpl implements ItemDAO {
 		em.persist(item);
 		return item;
 	}
+	
+	
 
 	@Override
 	public Item getById(int id) {
