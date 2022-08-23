@@ -75,11 +75,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `condition`
+-- Table `item_condition`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `condition` ;
+DROP TABLE IF EXISTS `item_condition` ;
 
-CREATE TABLE IF NOT EXISTS `condition` (
+CREATE TABLE IF NOT EXISTS `item_condition` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50) NULL,
   `description` VARCHAR(200) NULL,
@@ -116,8 +116,8 @@ CREATE TABLE IF NOT EXISTS `item` (
   `trade` TINYINT NULL,
   `size_id` INT NULL,
   `date_posted` DATETIME NULL,
-  `image` VARCHAR(2000) NULL,
   `description` VARCHAR(200) NULL,
+  `image` VARCHAR(2000) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_item_type1_idx` (`type_id` ASC),
   INDEX `fk_item_user1_idx` (`user_id` ASC),
@@ -136,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `item` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_item_condition1`
     FOREIGN KEY (`condition_id`)
-    REFERENCES `condition` (`id`)
+    REFERENCES `item_condition` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_item_size1`
@@ -417,14 +417,14 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `condition`
+-- Data for table `item_condition`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `handmeroundsdb`;
-INSERT INTO `condition` (`id`, `name`, `description`) VALUES (1, 'New', 'New with tags or in box');
-INSERT INTO `condition` (`id`, `name`, `description`) VALUES (2, 'Like New', NULL);
-INSERT INTO `condition` (`id`, `name`, `description`) VALUES (3, 'Used-Good', NULL);
-INSERT INTO `condition` (`id`, `name`, `description`) VALUES (4, 'Used-Fair', NULL);
+INSERT INTO `item_condition` (`id`, `name`, `description`) VALUES (1, 'New', 'New with tags or in box');
+INSERT INTO `item_condition` (`id`, `name`, `description`) VALUES (2, 'Like New', NULL);
+INSERT INTO `item_condition` (`id`, `name`, `description`) VALUES (3, 'Used-Good', NULL);
+INSERT INTO `item_condition` (`id`, `name`, `description`) VALUES (4, 'Used-Fair', NULL);
 
 COMMIT;
 
@@ -446,7 +446,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `handmeroundsdb`;
-INSERT INTO `item` (`id`, `name`, `available`, `type_id`, `user_id`, `condition_id`, `trade`, `size_id`, `date_posted`, `image`, `description`) VALUES (1, 'Diaper Changing Table', 1, 3, 1, 1, 1, NULL, '2014-05-26 23:57:41', NULL, 'Almost new modern style diaper changing table');
+INSERT INTO `item` (`id`, `name`, `available`, `type_id`, `user_id`, `condition_id`, `trade`, `size_id`, `date_posted`, `description`, `image`) VALUES (1, 'Diaper Changing Table', 1, 3, 1, 1, 1, NULL, '2014-05-26 23:57:41', 'Almost new modern style diaper changing table', NULL);
 
 COMMIT;
 
