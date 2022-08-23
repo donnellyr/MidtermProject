@@ -9,7 +9,7 @@ public interface UserDAO {
 	User getUserByUserName(String username);
 
 	User updateAccount(int uid, String username, String password, boolean enabled, String role, String firstName,
-			String lastName, String street, String city, String state, int postalCode);
+			String lastName, String street, String city, String state, int postalCode, String image, String aboutMe);
 
 	User newAccount(String username, String password, String firstName, String lastName, String street, String city,
 			String state, int postalCode);
