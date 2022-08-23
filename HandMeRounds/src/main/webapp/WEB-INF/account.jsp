@@ -71,5 +71,6 @@
 			class="btn btn-primary btn-sm" type="submit" value="Edit Account" />
 	</form>
 	<jsp:include page="bootstrapFoot.jsp" />
+	
 </body>
 </html>
