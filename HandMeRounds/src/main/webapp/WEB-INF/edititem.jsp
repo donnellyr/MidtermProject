@@ -41,6 +41,10 @@
 		<input type="submit" value="Update changes">
 
 	</form>
-	<a href="deleteitem.do" type="submit" value="Delete this item"></a>
+	<form action="deleteitem.do">
+		<!-- <a href="deleteitem.do" type="submit" value="Delete this item">link here</a> -->
+		<input type="hidden" name="id" value="${item.id}">
+		<input type="submit" value="Delete Item">
+	</form>
 </body>
 </html>

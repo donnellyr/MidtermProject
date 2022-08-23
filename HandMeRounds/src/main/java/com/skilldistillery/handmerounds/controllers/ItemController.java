@@ -57,6 +57,13 @@ public class ItemController {
 		return "listall";
 	}
 
+	@RequestMapping(path = "getById.do")
+	public String listItem(int id, Model model) {
+//		Item item = itemDAO.getById(iid);
+		model.addAttribute("item", itemDAO.getById(id));
+		return "showlisting";
+	}
+
 	@RequestMapping(path = "deleteitem.do")
 	public String deleteItem(int id) {
 		itemDAO.deleteItem(id);
