@@ -65,4 +65,11 @@ public class ItemDAOImpl implements ItemDAO {
 		return em.createQuery(jpql, Item.class).getResultList();
 	}
 
+	@Override
+	public Item deleteItem(int id) {
+		Item deleted = em.find(Item.class, id);
+		em.remove(deleted);
+		return null;
+	}
+
 }

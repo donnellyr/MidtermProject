@@ -17,41 +17,33 @@ public class TradeRequestController {
 
 	@Autowired
 	private TradeRequestDAO tradeDAO;
+	
+	@Autowired
+	private ItemDAO itemDAO;
 
-	@RequestMapping(path =  "posttrade.do")
-	public String postItem(Model model) {
-		
-		return "posttrade";
-	}
-	
-	
-	@RequestMapping(path =  "addtrade.do")
+
+
+	@RequestMapping(path = "addtrade.do")
 	public String createRequest(HttpSession sessionm, Model model, boolean trade, String remarks, int item, int user) {
 		TradeRequest request = tradeDAO.createRequest(trade, remarks, item, user);
 		model.addAttribute("request", request);
 		return "showtrade";
 	}
-	@RequestMapping(path= "edittrade.do")
+
+	@RequestMapping(path = "edittrade.do")
 	public String editTrade(Model model, int id) {
 		TradeRequest request = tradeDAO.findById(id);
 		model.addAttribute("request", request);
-		
+
 		return "editrade";
-		
 	}
-	@RequestMapping(path="updatetrade.do")
+
+	@RequestMapping(path = "updatetrade.do")
 	public String updateTrade(Model model, int id, boolean trade, String remarks) {
 		TradeRequest request = tradeDAO.editRequest(id, trade, remarks);
 		model.addAttribute("request", request);
-		
-		
+
 		return "showtrade";
-		
 	}
-	@RequestMapping(path ="deletetrade")
-	public String deleteTrade(int id) {
-		tradeDAO.deleteRequest(id);
-		return "home";
-		
-	}
+
 }
