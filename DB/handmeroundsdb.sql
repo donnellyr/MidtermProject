@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NULL,
   `enabled` TINYINT NULL,
-  `role` VARCHAR(45) NULL,
+  `role` INT NULL,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
   `image` VARCHAR(2000) NULL,
@@ -277,6 +277,7 @@ CREATE TABLE IF NOT EXISTS `exchange` (
   `owner_rating_comment` VARCHAR(200) NULL,
   `requestor_rating` INT NULL,
   `requestor_rating_comment` VARCHAR(200) NULL,
+  `iscomplete` TINYINT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_exchange_trade_request1_idx` (`trade_request_id` ASC),
   INDEX `fk_exchange_meeting_location1_idx` (`meeting_location_id` ASC),
@@ -388,6 +389,7 @@ USE `handmeroundsdb`;
 INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state_province`, `postal_code`) VALUES (1, '123 Elm St', NULL, 'SomeCity', 'SomeState', 80000);
 INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state_province`, `postal_code`) VALUES (2, '222 EZ St', NULL, 'SomeCity', 'SomeState', 80000);
 INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state_province`, `postal_code`) VALUES (3, '555 Downing Ave', NULL, 'SomeCity', 'SomeState', 80000);
+INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state_province`, `postal_code`) VALUES (4, '777 Van St', NULL, 'SomeCity', 'SomeState', 80000);
 
 COMMIT;
 
@@ -397,8 +399,10 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `handmeroundsdb`;
-INSERT INTO `user` (`id`, `address_id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `image`, `about_me`) VALUES (1, 1, 'admin', 'admin', 1, 'admin', NULL, NULL, NULL, NULL);
-INSERT INTO `user` (`id`, `address_id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `image`, `about_me`) VALUES (2, 2, 'admin2', 'admin2', 1, 'admin', NULL, NULL, NULL, NULL);
+INSERT INTO `user` (`id`, `address_id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `image`, `about_me`) VALUES (1, 1, 'admin', 'admin', 1, 1, 'bob', 'dobbs', NULL, NULL);
+INSERT INTO `user` (`id`, `address_id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `image`, `about_me`) VALUES (2, 2, 'admin2', 'admin2', 1, 1, 'frank', 'sanders', NULL, NULL);
+INSERT INTO `user` (`id`, `address_id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `image`, `about_me`) VALUES (3, 3, 'employee', 'employee', 1, 2, 'sally', 'green', NULL, NULL);
+INSERT INTO `user` (`id`, `address_id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `image`, `about_me`) VALUES (4, 4, 'user', 'user', 1, 3, 'dan', 'vanman', NULL, NULL);
 
 COMMIT;
 
@@ -469,6 +473,7 @@ COMMIT;
 START TRANSACTION;
 USE `handmeroundsdb`;
 INSERT INTO `trade_request` (`id`, `trade_request`, `remarks`, `item_id`, `user_id`, `request_date`) VALUES (1, 1, 'Willing to trade locally', 1, 1, '2014-05-26 23:57:41');
+INSERT INTO `trade_request` (`id`, `trade_request`, `remarks`, `item_id`, `user_id`, `request_date`) VALUES (2, 2, 'I can meet you at the van', 1, 1, '2014-05-26 23:57:41');
 
 COMMIT;
 
@@ -508,7 +513,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `handmeroundsdb`;
-INSERT INTO `exchange` (`id`, `exchange_date`, `trade_request_id`, `meeting_location_id`, `delivery_option_id`, `owner_rating`, `owner_rating_comment`, `requestor_rating`, `requestor_rating_comment`) VALUES (1, '2014-05-26 23:57:41', 1, 1, 1, 3, 'It\'s ok', 3, 'We exchange stuff');
+INSERT INTO `exchange` (`id`, `exchange_date`, `trade_request_id`, `meeting_location_id`, `delivery_option_id`, `owner_rating`, `owner_rating_comment`, `requestor_rating`, `requestor_rating_comment`, `iscomplete`) VALUES (1, '2014-05-26 23:57:41', 1, 1, 1, 3, 'It\'s ok', 3, 'We exchange stuff', 1);
+INSERT INTO `exchange` (`id`, `exchange_date`, `trade_request_id`, `meeting_location_id`, `delivery_option_id`, `owner_rating`, `owner_rating_comment`, `requestor_rating`, `requestor_rating_comment`, `iscomplete`) VALUES (2, '2014-05-26 23:57:41', 2, 1, 1, NULL, NULL, NULL, NULL, 0);
 
 COMMIT;
 
