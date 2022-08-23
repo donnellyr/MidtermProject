@@ -11,6 +11,7 @@
 <body>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<jsp:include page="navbar.jsp" />
 	${item.id } ${item.name }
 	<br> ${item.type.name}
@@ -36,6 +37,8 @@
 	</form>
 
 =======
+=======
+>>>>>>> ba5a82676de2cea754b3045f7422f5d2d050a9e0
 ${item.id }
 
 ${item.name }
@@ -68,6 +71,9 @@ ${item.condition.name}
 		<input type="hidden" name="id" value="${item.id}"> 
 		<input type="submit" value="Edit item">
 	</form>
+<<<<<<< HEAD
 >>>>>>> 9990a19f78316de060c91a40834f658985e64376
+=======
+>>>>>>> ba5a82676de2cea754b3045f7422f5d2d050a9e0
 </body>
 </html>
