@@ -277,6 +277,7 @@ CREATE TABLE IF NOT EXISTS `exchange` (
   `owner_rating_comment` VARCHAR(200) NULL,
   `requestor_rating` INT NULL,
   `requestor_rating_comment` VARCHAR(200) NULL,
+  `iscomplete` TINYINT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_exchange_trade_request1_idx` (`trade_request_id` ASC),
   INDEX `fk_exchange_meeting_location1_idx` (`meeting_location_id` ASC),
@@ -472,6 +473,7 @@ COMMIT;
 START TRANSACTION;
 USE `handmeroundsdb`;
 INSERT INTO `trade_request` (`id`, `trade_request`, `remarks`, `item_id`, `user_id`, `request_date`) VALUES (1, 1, 'Willing to trade locally', 1, 1, '2014-05-26 23:57:41');
+INSERT INTO `trade_request` (`id`, `trade_request`, `remarks`, `item_id`, `user_id`, `request_date`) VALUES (2, 2, 'I can meet you at the van', 1, 1, '2014-05-26 23:57:41');
 
 COMMIT;
 
@@ -511,7 +513,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `handmeroundsdb`;
-INSERT INTO `exchange` (`id`, `exchange_date`, `trade_request_id`, `meeting_location_id`, `delivery_option_id`, `owner_rating`, `owner_rating_comment`, `requestor_rating`, `requestor_rating_comment`) VALUES (1, '2014-05-26 23:57:41', 1, 1, 1, 3, 'It\'s ok', 3, 'We exchange stuff');
+INSERT INTO `exchange` (`id`, `exchange_date`, `trade_request_id`, `meeting_location_id`, `delivery_option_id`, `owner_rating`, `owner_rating_comment`, `requestor_rating`, `requestor_rating_comment`, `iscomplete`) VALUES (1, '2014-05-26 23:57:41', 1, 1, 1, 3, 'It\'s ok', 3, 'We exchange stuff', 1);
+INSERT INTO `exchange` (`id`, `exchange_date`, `trade_request_id`, `meeting_location_id`, `delivery_option_id`, `owner_rating`, `owner_rating_comment`, `requestor_rating`, `requestor_rating_comment`, `iscomplete`) VALUES (2, '2014-05-26 23:57:41', 2, 1, 1, NULL, NULL, NULL, NULL, 0);
 
 COMMIT;
 
