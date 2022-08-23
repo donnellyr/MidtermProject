@@ -25,6 +25,8 @@ public class Item {
 	private int id;
 
 	private String name;
+	
+	private String description;
 
 	private boolean available;
 
@@ -71,6 +73,15 @@ public class Item {
 		this.size = size;
 		this.condition = itemCondition;
 
+	}
+	public Item(String name, String decription, String image, List<AdditionalImage> images, Size size, ItemCondition itemCondition) {
+		this.name = name;
+		this.description = description;
+		this.image = image;
+		this.images = images;
+		this.size = size;
+		this.condition = itemCondition;
+		
 	}
 
 	public Item(String name, String image, Type itemType, Size itemSize, ItemCondition condition, boolean trade, User user) {
@@ -187,6 +198,14 @@ public class Item {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	@Override

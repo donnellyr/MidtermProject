@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 
-<a href="index.do"><button type="button" style="float: left"
+<a href="home.do"><button type="button" style="float: left"
 		" value="Home" class="btn btn-primary" id="navbarbuttons">Home</button></a>
 		
 <a href="login.do"><button type="button" style="float: left"
@@ -11,7 +11,7 @@
 <a href="postitem.do"><button type="button" style="float: left"
 		" value="additem" class="btn btn-primary" id="navbarbuttons">List my items</button></a>
 		
-<a href="index.do"><button type="button" style="float: left"
+<a href="listall.do"><button type="button" style="float: left"
 		" value="Home" class="btn btn-primary" id="navbarbuttons">Browse Listings</button></a>
 		
 <a href="index.do"><button type="button" style="float: left"

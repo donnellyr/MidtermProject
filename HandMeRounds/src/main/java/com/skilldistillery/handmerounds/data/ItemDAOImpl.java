@@ -1,6 +1,8 @@
 package com.skilldistillery.handmerounds.data;
 
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -12,6 +14,7 @@ import com.skilldistillery.handmerounds.entities.ItemCondition;
 import com.skilldistillery.handmerounds.entities.Size;
 import com.skilldistillery.handmerounds.entities.Type;
 import com.skilldistillery.handmerounds.entities.User;
+
 
 @Service
 @Transactional
@@ -54,6 +57,12 @@ public class ItemDAOImpl implements ItemDAO {
 	public Item getById(int id) {
 		Item item = em.find(Item.class, id);
 		return item;
+	}
+	
+	@Override
+	public List<Item> listAll(){
+		String jpql = "SELECT i FROM Item i";
+		return em.createQuery(jpql, Item.class).getResultList();
 	}
 
 }

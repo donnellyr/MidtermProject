@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "item_condition")
+@Table(name = "condition")
 public class ItemCondition {
 
 	@Id
