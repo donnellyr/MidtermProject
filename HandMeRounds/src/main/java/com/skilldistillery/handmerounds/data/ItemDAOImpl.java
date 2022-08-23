@@ -1,6 +1,7 @@
 package com.skilldistillery.handmerounds.data;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,7 +10,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.skilldistillery.handmerounds.entities.Item; 
+import com.skilldistillery.handmerounds.entities.AdditionalImage;
+import com.skilldistillery.handmerounds.entities.Item;
 import com.skilldistillery.handmerounds.entities.ItemCondition;
 import com.skilldistillery.handmerounds.entities.Size;
 import com.skilldistillery.handmerounds.entities.Type;
@@ -52,10 +54,26 @@ public class ItemDAOImpl implements ItemDAO {
 		em.persist(item);
 		return item;
 	}
+	
+	@Override
+	public Item addAdditionalImages(int id, AdditionalImage image) {
+		Item item = em.find(Item.class,id);
+		if (item != null) {
+			image.setItem(item);
+			item.addAdditionalImage(image);
+			em.persist(image);
+		}
+		
+		return item;
+		
+		
+	}
 
 	@Override
 	public Item getById(int id) {
 		Item item = em.find(Item.class, id);
+		item.getImages().size();
+		
 		return item;
 	}
 	

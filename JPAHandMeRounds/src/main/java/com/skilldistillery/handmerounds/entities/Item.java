@@ -147,6 +147,17 @@ public class Item {
 	public void setImages(List<AdditionalImage> images) {
 		this.images = images;
 	}
+	
+	public void addAdditionalImage(AdditionalImage image) {
+		if (images == null) {
+			images = new ArrayList<>();
+			
+		}
+		if (!images.contains(image)) {
+			images.add(image);
+			image.setItem(this);
+		}
+	}
 
 	public void setImage(String image) {
 		this.image = image;

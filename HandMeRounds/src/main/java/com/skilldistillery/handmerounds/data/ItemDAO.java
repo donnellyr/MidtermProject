@@ -2,8 +2,8 @@ package com.skilldistillery.handmerounds.data;
 
 import java.util.List;
 
+import com.skilldistillery.handmerounds.entities.AdditionalImage;
 import com.skilldistillery.handmerounds.entities.Item;
-import com.skilldistillery.handmerounds.entities.TradeRequest;
 
 public interface ItemDAO {
 
@@ -17,4 +17,8 @@ public interface ItemDAO {
 	List<Item> listAll();
 
 	Item deleteItem(int id);
+
+	Item addAdditionalImages(int id, AdditionalImage image);
+
+	
 }
