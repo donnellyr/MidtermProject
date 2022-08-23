@@ -46,10 +46,10 @@ public class TradeRequest {
 		super();
 	}
 
-	public TradeRequest(boolean trade, String remarks, User owener, Item requested) {
+	public TradeRequest(boolean trade, String remarks, User owner, Item requested) {
 		this.tradeRequest = trade;
 		this.remarks = remarks;
-		this.user = owener;
+		this.user = owner;
 		this.item = requested;
 		// TODO Auto-generated constructor stub
 	}
