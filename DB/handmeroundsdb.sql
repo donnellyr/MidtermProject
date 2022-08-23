@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NULL,
   `enabled` TINYINT NULL,
-  `role` VARCHAR(45) NULL,
+  `role` INT NULL,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
   `image` VARCHAR(2000) NULL,
@@ -388,6 +388,7 @@ USE `handmeroundsdb`;
 INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state_province`, `postal_code`) VALUES (1, '123 Elm St', NULL, 'SomeCity', 'SomeState', 80000);
 INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state_province`, `postal_code`) VALUES (2, '222 EZ St', NULL, 'SomeCity', 'SomeState', 80000);
 INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state_province`, `postal_code`) VALUES (3, '555 Downing Ave', NULL, 'SomeCity', 'SomeState', 80000);
+INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state_province`, `postal_code`) VALUES (4, '777 Van St', NULL, 'SomeCity', 'SomeState', 80000);
 
 COMMIT;
 
@@ -397,8 +398,10 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `handmeroundsdb`;
-INSERT INTO `user` (`id`, `address_id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `image`, `about_me`) VALUES (1, 1, 'admin', 'admin', 1, 'admin', NULL, NULL, NULL, NULL);
-INSERT INTO `user` (`id`, `address_id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `image`, `about_me`) VALUES (2, 2, 'admin2', 'admin2', 1, 'admin', NULL, NULL, NULL, NULL);
+INSERT INTO `user` (`id`, `address_id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `image`, `about_me`) VALUES (1, 1, 'admin', 'admin', 1, 1, 'bob', 'dobbs', NULL, NULL);
+INSERT INTO `user` (`id`, `address_id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `image`, `about_me`) VALUES (2, 2, 'admin2', 'admin2', 1, 1, 'frank', 'sanders', NULL, NULL);
+INSERT INTO `user` (`id`, `address_id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `image`, `about_me`) VALUES (3, 3, 'employee', 'employee', 1, 2, 'sally', 'green', NULL, NULL);
+INSERT INTO `user` (`id`, `address_id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `image`, `about_me`) VALUES (4, 4, 'user', 'user', 1, 3, 'dan', 'vanman', NULL, NULL);
 
 COMMIT;
 
