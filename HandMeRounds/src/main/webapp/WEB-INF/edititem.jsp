@@ -10,8 +10,8 @@
 </head>
 <body>
 
-
-	<form action="updateitem.do">
+<jsp:include page="navbar.jsp" />
+	<form action="updateitem.do" method="post">
 		<input type="hidden" name="id" value="${item.id}"> <input
 			type="text" name="name" value="${item.name }"> <br> <label>Choose
 			what type of item you are listing</label> <select name="typeid"
@@ -41,8 +41,15 @@
 		<input type="submit" value="Update changes">
 
 	</form>
+	<form action="addimages.do" METHOD="post">
+		<input type="hidden" name="itemId" value="${item.id}">
+		<input type="text" name="image"> <br>
+		 <label>Add your image url here</label>
+		
+		
+		<input type="submit" value="Update images">
+	</form>
 	<form action="deleteitem.do">
-		<!-- <a href="deleteitem.do" type="submit" value="Delete this item">link here</a> -->
 		<input type="hidden" name="id" value="${item.id}">
 		<input type="submit" value="Delete Item">
 	</form>

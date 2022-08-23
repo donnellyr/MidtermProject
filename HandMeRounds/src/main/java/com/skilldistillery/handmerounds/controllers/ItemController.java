@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.handmerounds.data.ItemDAO;
+import com.skilldistillery.handmerounds.entities.AdditionalImage;
 import com.skilldistillery.handmerounds.entities.Item;
 
 @Controller
@@ -35,7 +37,14 @@ public class ItemController {
 
 
 
-	@RequestMapping(path = "updateitem.do")
+	@RequestMapping(path = "updateitem.do", method=RequestMethod.GET)
+	public String goToUpdateForm(int itemid, Model model) {
+		model.addAttribute("item", itemDAO.getById(itemid));
+		return "edititem";
+	}
+	
+	
+	@RequestMapping(path = "updateitem.do", method=RequestMethod.POST)
 	public String updateItem(Model model, int id, String name, String image, int typeid, int size, int condition,
 			boolean trade) {
 		Item item = itemDAO.editItem(id, name, image, typeid, size, condition, trade);
@@ -43,6 +52,14 @@ public class ItemController {
 		System.out.println(item);
 		return "showlisting";
 
+	}
+	
+	
+	@RequestMapping(path = "addimages.do", method=RequestMethod.POST)
+	public String addImages (int itemId, AdditionalImage image, Model model) {
+		Item item = itemDAO.addAdditionalImages(itemId, image);
+		model.addAttribute("item", item);
+		return "showlisting";
 	}
 
 	@RequestMapping(path = "listall.do")
