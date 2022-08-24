@@ -1,5 +1,7 @@
 package com.skilldistillery.handmerounds.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -7,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.handmerounds.entities.Address;
+import com.skilldistillery.handmerounds.entities.Item;
 import com.skilldistillery.handmerounds.entities.User;
 
 @Service
@@ -69,4 +72,21 @@ public class UserDAOImpl implements UserDAO {
 
 		return user;
 	}
+	@Override
+	public List<Item> listUserItem(int id){
+		String jpql = "SELECT i FROM Item i JOIN User u WHERE u.id = :id ";
+		return em.createQuery(jpql, Item.class).getResultList();
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
