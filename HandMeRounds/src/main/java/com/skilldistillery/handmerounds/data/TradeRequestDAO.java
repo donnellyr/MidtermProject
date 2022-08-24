@@ -14,6 +14,8 @@ public interface TradeRequestDAO {
 	Boolean deleteRequest(int requestId);
 
 	TradeRequest findById(int id);
+	
+	TradeRequest accept(int id, int choice);
 
 	List<TradeRequest> displayAllbyUserId(int id);
 }

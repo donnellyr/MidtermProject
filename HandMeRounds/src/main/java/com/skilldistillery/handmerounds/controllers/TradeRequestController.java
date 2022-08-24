@@ -73,4 +73,11 @@ public class TradeRequestController {
 		model.addAttribute("request", request);
 		return "showtrade";
 	}
+	@RequestMapping(path = "accept.do")
+	public String acceptTrade(Model model, int id, int choice) {
+		TradeRequest request = tradeDAO.accept(id, choice);
+		model.addAttribute("request", request);
+		return "showtrade";
+	}
+	
 }

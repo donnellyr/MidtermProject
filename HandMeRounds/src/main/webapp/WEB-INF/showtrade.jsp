@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,6 +44,25 @@
 			</tr>
 		</tbody>
 	</table>
+	<c:if test="${request.decision == 0}">
+	Trade Pending 
+	<form action="accept.do">
+	<input type="hidden"  name="id" value="${request.id}">
+	<input type="hidden"  name="choice" value="1">
+	<input type="submit"  value="accept">
+	</form>
+	<form action="accept.do">
+	<input type="hidden"  name="id" value="${request.id}">
+	<input type="hidden"  name="choice" value="2">
+	<input type="submit"  value="decline">
+	</form>
+	</c:if>
+	<c:if test="${request.decision == 1}">
+	Trade Accepted! 
+	</c:if>
+	<c:if test="${request.decision == 2}">
+	Trade Declined! 
+	</c:if>
 	
 	<form action="editTradeRequest.do" method="GET">
 		<input class="form-control" type="text" hidden="true" name="requestId" value="${request.id }"> 
