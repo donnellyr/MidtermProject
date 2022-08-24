@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.handmerounds.data.ItemDAO;
 import com.skilldistillery.handmerounds.data.TradeRequestDAO;
@@ -49,7 +48,6 @@ public class TradeRequestController {
 	public String updateTrade(Model model, int id, boolean trade, String remarks) {
 		TradeRequest request = tradeDAO.editRequest(id, trade, remarks);
 		model.addAttribute("request", request);
-
 		return "showtrade";
 	}
 
@@ -64,10 +62,9 @@ public class TradeRequestController {
 		List<TradeRequest> request = tradeDAO.displayAllbyUserId(id);
 		model.addAttribute("request", request);
 		return "displayrequestowner";
-
 	}
 
-	@RequestMapping(path="getTradeById.do")
+	@RequestMapping(path = "getTradeById.do")
 	public String getTradeById(Model model, int id) {
 		System.out.println(id);
 		System.out.println("*****in CONTROLLER****");
