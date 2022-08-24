@@ -42,6 +42,8 @@ public class User {
 	
 	@Column(name = "about_me")
 	private String aboutMe;
+	
+	private Boolean active;
 
 	@ManyToMany(mappedBy = "users")
 	private List<Item> items;
@@ -212,6 +214,14 @@ public class User {
 
 	public void setListeditems(List<Item> listeditems) {
 		this.listeditems = listeditems;
+	}
+
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 
 	@Override

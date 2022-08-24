@@ -12,7 +12,6 @@ import com.skilldistillery.handmerounds.entities.Address;
 import com.skilldistillery.handmerounds.entities.Item;
 import com.skilldistillery.handmerounds.entities.User;
 
-import net.bytebuddy.matcher.CollectionItemMatcher;
 
 @Service
 @Transactional
