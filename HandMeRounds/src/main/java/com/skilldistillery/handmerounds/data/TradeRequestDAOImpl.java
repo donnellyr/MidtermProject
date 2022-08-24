@@ -38,10 +38,14 @@ public class TradeRequestDAOImpl implements TradeRequestDAO {
 	}
 
 	@Override
-	public TradeRequest deleteRequest(int id) {
-		TradeRequest deleted = em.find(TradeRequest.class, id);
-		em.remove(deleted);
-		return null;
+	public Boolean deleteRequest(int requestId) {
+		TradeRequest deleted = em.find(TradeRequest.class, requestId);
+		if (deleted != null) {
+			System.out.println("IN DELETE");
+			em.remove(deleted);
+		}
+		System.out.println("IS DELETED: " + !em.contains(deleted));
+		return em.contains(deleted);
 	}
 
 	@Override
@@ -55,7 +59,8 @@ public class TradeRequestDAOImpl implements TradeRequestDAO {
 	public List<TradeRequest> displayAllbyUserId(int id) {
 		User user = em.find(User.class, id);
 		String jpql = "SELECT t FROM TradeRequest t JOIN Item i ON t.item.id = i.id WHERE i.user.id = :userid";
-		List<TradeRequest> requests = em.createQuery(jpql,TradeRequest.class).setParameter("userid", user.getId()).getResultList();
+		List<TradeRequest> requests = em.createQuery(jpql, TradeRequest.class).setParameter("userid", user.getId())
+				.getResultList();
 		return requests;
 	}
 

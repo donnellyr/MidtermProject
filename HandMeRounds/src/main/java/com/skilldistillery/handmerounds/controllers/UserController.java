@@ -96,8 +96,8 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "listUserItem.do")
-	public String listUserItem(int id) {
-		userDAO.listUserItem(id);
+	public String listUserItem(int uid, Model model) {
+		model.addAttribute("items",userDAO.listUserItem(uid));
 		return "listall";
 	}
 
