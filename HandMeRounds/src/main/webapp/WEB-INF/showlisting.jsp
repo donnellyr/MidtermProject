@@ -33,6 +33,16 @@
         <input type="hidden" name="itemid" value="${item.id}"> <input
             type="submit" value="Edit item">
     </form>
+    
+    <form action="posttrade.do">
+        <input type="hidden" name="id" value="${item.id}"> <input
+            type="submit" value="Post Trade">
+    </form>
+
+    <form action="edititem.do">
+        <input type="hidden" name="id" value="${item.id}"> <input
+            type="submit" value="Edit item">
+    </form>
 
 
 </body>
