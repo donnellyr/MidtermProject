@@ -84,7 +84,7 @@ public class Item {
 		
 	}
 
-	public Item(String name, String image, Type itemType, Size itemSize, ItemCondition condition, boolean trade, User user) {
+	public Item(String name, String image, Type itemType, Size itemSize, ItemCondition condition, boolean trade, User user, DeliveryOption meetup, DeliveryOption dropoff) {
 		this.name = name;
 		this.image = image;
 		this.type = itemType;
@@ -97,7 +97,7 @@ public class Item {
 
 
 	public Item(String name, String image, Type itemType, Size itemSize, ItemCondition condition, boolean trade,
-			User user, DeliveryOption meetup, DeliveryOption dropoff, DeliveryOption ship) {
+			User user, DeliveryOption meetup, DeliveryOption dropoff, DeliveryOption ship, String description) {
 		this.name = name;
 		this.image = image;
 		this.type = itemType;
@@ -105,17 +105,31 @@ public class Item {
 		this.condition = condition;
 		this.trade = trade;
 		this.user = user;
+		this.description = description;
 		this.deliveryOptions = new ArrayList<>();
 		if(meetup != null) {
+			meetup.addItem(this);
 		deliveryOptions.add(meetup);
+		
 		}
 		if(dropoff != null) {
+			dropoff.addItem(this);
 		deliveryOptions.add(dropoff);
 		}
 		if(ship != null) {
+			ship.addItem(this);
 		deliveryOptions.add(ship);
 		}
 		System.out.println(deliveryOptions);
+	}
+	public void addDeliveryOptions(DeliveryOption deliveryOption) {
+		if(deliveryOptions == null) {
+			deliveryOptions = new ArrayList<>();
+		}
+		if(!deliveryOptions.contains(deliveryOption)) {
+			deliveryOptions.add(deliveryOption);
+			deliveryOption.addItem(this);
+		}
 	}
 
 	public int getId() {
