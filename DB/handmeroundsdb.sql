@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `address_id` INT NOT NULL,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NULL,
-  `enabled` TINYINT NULL,
+  `enabled` TINYINT NULL DEFAULT 1,
   `role` INT NULL,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
@@ -173,6 +173,8 @@ CREATE TABLE IF NOT EXISTS `trade_request` (
   `item_id` INT NOT NULL,
   `user_id` INT NOT NULL,
   `request_date` DATETIME NULL,
+  `image` VARCHAR(2000) NULL,
+  `decision` INT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   INDEX `fk_trade_request_item1_idx` (`item_id` ASC),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
@@ -473,8 +475,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `handmeroundsdb`;
-INSERT INTO `trade_request` (`id`, `trade_request`, `remarks`, `item_id`, `user_id`, `request_date`) VALUES (1, 1, 'Willing to trade locally', 1, 1, '2014-05-26 23:57:41');
-INSERT INTO `trade_request` (`id`, `trade_request`, `remarks`, `item_id`, `user_id`, `request_date`) VALUES (2, 2, 'I can meet you at the van', 1, 1, '2014-05-26 23:57:41');
+INSERT INTO `trade_request` (`id`, `trade_request`, `remarks`, `item_id`, `user_id`, `request_date`, `image`, `decision`) VALUES (1, 1, 'Willing to trade locally', 1, 1, '2014-05-26 23:57:41', NULL, NULL);
+INSERT INTO `trade_request` (`id`, `trade_request`, `remarks`, `item_id`, `user_id`, `request_date`, `image`, `decision`) VALUES (2, 2, 'I can meet you at the van', 1, 1, '2014-05-26 23:57:41', NULL, NULL);
 
 COMMIT;
 

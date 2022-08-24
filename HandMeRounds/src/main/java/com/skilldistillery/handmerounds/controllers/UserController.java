@@ -1,6 +1,5 @@
 package com.skilldistillery.handmerounds.controllers;
 
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,22 +38,24 @@ public class UserController {
 	public String userLogin(String username, String password, HttpSession session) {
 		// compare returned users password with password in this method
 		System.out.println(username + password);
-		
+
 		try {
 			// find user by username
 			User user = userDAO.getUserByUserName(username);
-			if (user.getPassword().equals(password)) {
-				if (user.getEnabled()) {	
+			if (user.getPassword().equals(password) && user.getEnabled()) {
 				session.setAttribute("loggedInUser", user);
 				return "account";
-				}
 			} else {
-				return "home";
+				return "accountinactive";
 			}
+
+//			 else {
+//				return "home";
+//			
+//			 } 
 		} catch (Exception e) {
 			return "home";
 		}
-		return "accountinactive";
 	}
 
 	@RequestMapping(path = "logout.do", method = RequestMethod.GET)
@@ -69,11 +70,12 @@ public class UserController {
 	public String register() {
 		return "register";
 	}
-	
+
 	@RequestMapping(path = "inactivateUser.do")
 	public String inactivateUser(int uid, Model model, HttpSession session) {
 		model.addAttribute("loggedInUser", userDAO.inactivateUser(uid));
-		return "home";
+		session.removeAttribute("loggedInUser");
+		return "loggedout";
 	}
 
 	@RequestMapping(path = "newAccount.do")
@@ -100,15 +102,23 @@ public class UserController {
 		User user = userDAO.updateAccount(uid, userName, password, Boolean.TRUE, role, firstName, lastName, street,
 				city, state, postalCode, image, aboutMe);
 		if (user != null && user.getEnabled())
-		session.setAttribute("loggedInUser", user);
+			session.setAttribute("loggedInUser", user);
 		return "account";
 	}
-	
+
 	@RequestMapping(path = "listUserItem.do")
 	public String listUserItem(int uid, Model model) {
-		model.addAttribute("items", userDAO.listUserItem(uid));
-		return "listall";
+		User user = userDAO.getUserById(uid);
+		System.out.println(user);
+		if (user != null && user.getEnabled()) {
+			model.addAttribute("items", userDAO.listUserItem(uid));
+			System.out.println("inside the if");
+			return "listall";
+		} else {
+			System.out.println("inside the else");
+			return "home";
+
+		}
 	}
-	
 
 }
