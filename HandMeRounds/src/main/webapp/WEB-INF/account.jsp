@@ -70,6 +70,11 @@
 			value="${loggedInUser.id }"> <input
 			class="btn btn-primary btn-sm" type="submit" value="Edit Account" />
 	</form>
+	<form action="listUserItem.do" method="GET">
+		<input class="form-control" type="text" hidden="true" name="uid"
+			value="${loggedInUser.id }"> <input
+			class="btn btn-primary btn-sm" type="submit" value="View your listed items" />
+	</form>
 	<form action="displayrequestowner.do" method="GET">
 		<input class="form-control" type="text" hidden="true" name="id"
 			value="${loggedInUser.id }"> <input
