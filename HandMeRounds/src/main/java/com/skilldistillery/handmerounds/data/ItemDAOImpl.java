@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.handmerounds.entities.AdditionalImage;
+import com.skilldistillery.handmerounds.entities.DeliveryOption;
 import com.skilldistillery.handmerounds.entities.Item;
 import com.skilldistillery.handmerounds.entities.ItemCondition;
 import com.skilldistillery.handmerounds.entities.Size;
@@ -29,12 +30,24 @@ public class ItemDAOImpl implements ItemDAO {
 	}
 
 	@Override
-	public Item createItem(String name, String image, int typeid, int size, int itemCondition, boolean trade,int userid) {
+	public Item createItem(String name, String image, int typeid, int size, int itemCondition, boolean trade,int userid,Integer meet, Integer drop, Integer shipping) {
 		Size itemSize = em.find(Size.class, size);
 		Type itemType = em.find(Type.class, typeid);
 		User user = em.find(User.class, userid);
+		if(meet == null) {
+			meet = 0;
+		}
+		if(drop == null) {
+			drop = 0;
+		}
+		if(shipping == null) {
+			shipping = 0;
+		}
+		DeliveryOption meetup = em.find(DeliveryOption.class, meet);
+		DeliveryOption dropoff = em.find(DeliveryOption.class, drop);
+		DeliveryOption ship = em.find(DeliveryOption.class, meet);
 		ItemCondition condition = em.find(ItemCondition.class, itemCondition);
-		Item item = new Item( name, image, itemType, itemSize, condition,trade,user);
+		Item item = new Item( name, image, itemType, itemSize, condition,trade,user, meetup,  dropoff,  ship);
 		em.persist(item);
 		return item;
 	}

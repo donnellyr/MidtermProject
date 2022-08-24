@@ -44,12 +44,12 @@
 			<option value="0">Donate</option>
 		</select> 
 		<label>Meet up</label>
-		 <input type="checkbox" name="deliveryoption"
+		 <input type="checkbox" name="meet"
 			value="1"> 
 			<label>Shipping</label> 
-			<input type="checkbox"name="deliveryoption" value="2"> 
+			<input type="checkbox"name="shipping" value="2"> 
 			<label>Drop off</label> 
-			<input type="checkbox" name="deliveryoption" value="3"> 
+			<input type="checkbox" name="drop" value="3"> 
 			<input type="submit" value="submititem" id="button1">
 
 

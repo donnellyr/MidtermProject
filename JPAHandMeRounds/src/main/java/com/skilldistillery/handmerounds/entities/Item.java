@@ -96,6 +96,28 @@ public class Item {
 	}
 
 
+	public Item(String name, String image, Type itemType, Size itemSize, ItemCondition condition, boolean trade,
+			User user, DeliveryOption meetup, DeliveryOption dropoff, DeliveryOption ship) {
+		this.name = name;
+		this.image = image;
+		this.type = itemType;
+		this.size = itemSize;
+		this.condition = condition;
+		this.trade = trade;
+		this.user = user;
+		this.deliveryOptions = new ArrayList<>();
+		if(meetup != null) {
+		deliveryOptions.add(meetup);
+		}
+		if(dropoff != null) {
+		deliveryOptions.add(dropoff);
+		}
+		if(ship != null) {
+		deliveryOptions.add(ship);
+		}
+		System.out.println(deliveryOptions);
+	}
+
 	public int getId() {
 		return id;
 	}
