@@ -1,5 +1,7 @@
 package com.skilldistillery.handmerounds.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +28,12 @@ public class ItemController {
 
 	@RequestMapping(path = "additem.do")
 	public String addItem(HttpSession session, Model model, String name, String image, int typeid, int size,
-			int condition, boolean trade, int userid) {
+			int condition, boolean trade, int userid, Integer meet, Integer drop, Integer shipping) {
+		System.out.println(shipping);
+		System.out.println(drop);
+		System.out.println(meet);
 		System.out.println(trade);
-		Item item = itemDAO.createItem(name, image, typeid, size, condition, trade, userid);
+		Item item = itemDAO.createItem(name, image, typeid, size, condition, trade, userid,meet,drop,shipping);
 		System.out.println("******");
 		System.out.println(item.getId());
 		model.addAttribute("item", item);

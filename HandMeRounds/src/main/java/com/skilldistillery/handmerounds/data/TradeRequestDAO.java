@@ -11,9 +11,9 @@ public interface TradeRequestDAO {
 
 	TradeRequest editRequest(int id, boolean trade, String remarks);
 
-	TradeRequest deleteRequest(int id);
+	Boolean deleteRequest(int requestId);
 
 	TradeRequest findById(int id);
-	
+
 	List<TradeRequest> displayAllbyUserId(int id);
 }
