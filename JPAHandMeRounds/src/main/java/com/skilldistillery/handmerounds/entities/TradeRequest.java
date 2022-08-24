@@ -30,6 +30,12 @@ public class TradeRequest {
 
 	@Column(name = "request_date")
 	private LocalDateTime requestDate;
+	
+	private String image;
+	
+	private Integer decision;
+	
+	private Boolean active;
 
 	@OneToOne
 	@JoinColumn(name = "item_id")
@@ -108,6 +114,30 @@ public class TradeRequest {
 
 	public void setTradeRequestComments(List<TradeRequestComment> tradeRequestComments) {
 		this.tradeRequestComments = tradeRequestComments;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public Integer getDecision() {
+		return decision;
+	}
+
+	public void setDecision(Integer decision) {
+		this.decision = decision;
+	}
+
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 
 	@Override
