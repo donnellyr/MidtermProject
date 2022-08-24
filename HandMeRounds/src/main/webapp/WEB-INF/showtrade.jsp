@@ -42,11 +42,10 @@
 			</tr>
 		</tbody>
 	</table>
-	<%-- <form action="goToUpdate.do" method="GET">
-		<input class="form-control" type="text" hidden="true" name="uid"
-			value="${loggedInUser.id }"> <input
-			class="btn btn-primary btn-sm" type="submit" value="Edit Account" />
-	</form> --%>
+	<form action="deletetraderequest.do" method="GET">
+		<input class="form-control" type="text" hidden="true" name="requestId" value="${request.id }"> 
+		<input class="btn btn-primary btn-sm" type="submit" value="Delete Trade Request" />
+	</form>
 	<jsp:include page="bootstrapFoot.jsp" />	
 </body>
 </html>

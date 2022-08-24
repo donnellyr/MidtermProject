@@ -51,9 +51,9 @@ public class TradeRequestController {
 		return "showtrade";
 	}
 
-	@RequestMapping(path = "deletetrade.do")
-	public String deleteTrade(int id) {
-		tradeDAO.deleteRequest(id);
+	@RequestMapping(path = "deletetraderequest.do")
+	public String deleteTrade(int requestId) {
+		tradeDAO.deleteRequest(requestId);
 		return "home";
 	}
 
