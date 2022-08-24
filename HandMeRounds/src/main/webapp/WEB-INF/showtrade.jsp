@@ -19,6 +19,10 @@
 				<td>${request.tradeRequest}</td>
 			</tr>
 			<tr>
+				<th>Picture of item to Trade</th>
+				<td><img src="${request.image}"></td>
+			</tr>
+			<tr>
 				<th>Remarks</th>
 				<td>${request.remarks}</td>
 			</tr>

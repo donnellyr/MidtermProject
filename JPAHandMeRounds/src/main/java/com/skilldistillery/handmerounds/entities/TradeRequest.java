@@ -52,11 +52,12 @@ public class TradeRequest {
 		super();
 	}
 
-	public TradeRequest(boolean trade, String remarks, User owner, Item requested) {
+	public TradeRequest(boolean trade, String remarks, User owner, Item requested, String image) {
 		this.tradeRequest = trade;
 		this.remarks = remarks;
 		this.user = owner;
 		this.item = requested;
+		this.image = image;
 		// TODO Auto-generated constructor stub
 	}
 

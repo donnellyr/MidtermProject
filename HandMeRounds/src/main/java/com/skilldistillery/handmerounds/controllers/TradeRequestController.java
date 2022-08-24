@@ -31,8 +31,8 @@ public class TradeRequestController {
 	}
 
 	@RequestMapping(path = "addtrade.do")
-	public String createRequest(HttpSession session, Model model, boolean trade, String remarks, int item, int user) {
-		TradeRequest request = tradeDAO.createRequest(trade, remarks, item, user);
+	public String createRequest(HttpSession session, Model model, boolean trade, String remarks, int item, int user, String image) {
+		TradeRequest request = tradeDAO.createRequest(trade, remarks, item, user, image);
 		model.addAttribute("request", request);
 		return "showtrade";
 	}
