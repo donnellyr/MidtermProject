@@ -118,6 +118,7 @@ CREATE TABLE IF NOT EXISTS `item` (
   `date_posted` DATETIME NULL,
   `description` VARCHAR(200) NULL,
   `image` VARCHAR(2000) NULL,
+  `active` TINYINT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   INDEX `fk_item_type1_idx` (`type_id` ASC),
   INDEX `fk_item_user1_idx` (`user_id` ASC),
@@ -175,6 +176,7 @@ CREATE TABLE IF NOT EXISTS `trade_request` (
   `request_date` DATETIME NULL,
   `image` VARCHAR(2000) NULL,
   `decision` INT NULL DEFAULT 0,
+  `active` TINYINT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   INDEX `fk_trade_request_item1_idx` (`item_id` ASC),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
@@ -453,7 +455,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `handmeroundsdb`;
-INSERT INTO `item` (`id`, `name`, `available`, `type_id`, `user_id`, `condition_id`, `trade`, `size_id`, `date_posted`, `description`, `image`) VALUES (1, 'Diaper Changing Table', 1, 3, 1, 1, 1, NULL, '2014-05-26 23:57:41', 'Almost new modern style diaper changing table', NULL);
+INSERT INTO `item` (`id`, `name`, `available`, `type_id`, `user_id`, `condition_id`, `trade`, `size_id`, `date_posted`, `description`, `image`, `active`) VALUES (1, 'Diaper Changing Table', 1, 3, 1, 1, 1, NULL, '2014-05-26 23:57:41', 'Almost new modern style diaper changing table', NULL, NULL);
 
 COMMIT;
 
@@ -475,8 +477,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `handmeroundsdb`;
-INSERT INTO `trade_request` (`id`, `trade_request`, `remarks`, `item_id`, `user_id`, `request_date`, `image`, `decision`) VALUES (1, 1, 'Willing to trade locally', 1, 1, '2014-05-26 23:57:41', NULL, NULL);
-INSERT INTO `trade_request` (`id`, `trade_request`, `remarks`, `item_id`, `user_id`, `request_date`, `image`, `decision`) VALUES (2, 2, 'I can meet you at the van', 1, 1, '2014-05-26 23:57:41', NULL, NULL);
+INSERT INTO `trade_request` (`id`, `trade_request`, `remarks`, `item_id`, `user_id`, `request_date`, `image`, `decision`, `active`) VALUES (1, 1, 'Willing to trade locally', 1, 1, '2014-05-26 23:57:41', NULL, NULL, NULL);
+INSERT INTO `trade_request` (`id`, `trade_request`, `remarks`, `item_id`, `user_id`, `request_date`, `image`, `decision`, `active`) VALUES (2, 2, 'I can meet you at the van', 1, 1, '2014-05-26 23:57:41', NULL, NULL, NULL);
 
 COMMIT;
 
