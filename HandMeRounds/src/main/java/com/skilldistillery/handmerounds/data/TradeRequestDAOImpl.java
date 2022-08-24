@@ -46,6 +46,7 @@ public class TradeRequestDAOImpl implements TradeRequestDAO {
 
 	@Override
 	public TradeRequest findById(int id) {
+		System.out.println("*****IN FIND BY ID****");
 		TradeRequest request = em.find(TradeRequest.class, id);
 		return request;
 	}

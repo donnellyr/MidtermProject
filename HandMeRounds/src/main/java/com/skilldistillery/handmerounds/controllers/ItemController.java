@@ -34,7 +34,7 @@ public class ItemController {
 		model.addAttribute("item", item);
 		return "showlisting";
 	}
-
+	
 
 
 	@RequestMapping(path = "updateitem.do", method=RequestMethod.GET)
