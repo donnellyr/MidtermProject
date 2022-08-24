@@ -16,7 +16,8 @@
 <input type="hidden" name ="userid" value="${loggedInUser.id }">
 		<label>Name of item</label> 
 		<input type="text" name="name"placeholder="item name">
-		 <label>Add an image</label> <input type="text" name="image" placeholder="image url"> 
+		<label> Description</label> 
+		<input type="text" name="description"placeholder="item description">
 		 <label>Choose what type of item you are listing</label> 
 		 <select name="typeid">
 			<option value="1">Clothing</option>

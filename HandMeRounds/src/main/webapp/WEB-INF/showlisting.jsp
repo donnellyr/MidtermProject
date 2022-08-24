@@ -13,11 +13,13 @@
     <jsp:include page="navbar.jsp" />
     ${item.id } ${item.name }
     <br> ${item.type.name}
+    <br> ${item.description}
     <br> ${item.size.size}
     <br> ${item.condition.name}
     <br>
+    <br>
     <c:forEach var="option" items="${item.deliveryOptions}">
-    <br> Item is available for ${option.name}
+    <br>   Available for ${option.name}
     </c:forEach>
     <h3>Item images</h3>
     <c:forEach var="i" items="${item.images}" >

@@ -1,5 +1,6 @@
 package com.skilldistillery.handmerounds.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -41,8 +42,20 @@ public class DeliveryOption {
 
 	public DeliveryOption() {
 		super();
+		items = new ArrayList<>();
 	}
-
+public void addItem(Item item) {
+	if(items == null) {
+		items = new ArrayList<>();
+		
+	}
+	if(!items.contains(item)) {
+		
+		items.add(item);
+		item.addDeliveryOptions(this);
+	}
+	
+}
 	public int getId() {
 		return id;
 	}
