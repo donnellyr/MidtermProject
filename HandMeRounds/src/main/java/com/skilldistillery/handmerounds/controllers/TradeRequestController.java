@@ -19,11 +19,10 @@ public class TradeRequestController {
 
 	@Autowired
 	private TradeRequestDAO tradeDAO;
-	
+
 	@Autowired
 	private ItemDAO itemDAO;
 
-		
 	@RequestMapping(path = "posttrade.do")
 	public String postItem(int id, Model model) {
 		Item item = itemDAO.getById(id);
@@ -42,7 +41,6 @@ public class TradeRequestController {
 	public String editTrade(Model model, int id) {
 		TradeRequest request = tradeDAO.findById(id);
 		model.addAttribute("request", request);
-
 		return "editrade";
 	}
 
@@ -59,17 +57,19 @@ public class TradeRequestController {
 		tradeDAO.deleteRequest(id);
 		return "home";
 	}
-	@RequestMapping(path ="displayrequestowner.do")
+
+	@RequestMapping(path = "displayrequestowner.do")
 	public String displayRequestsOwner(Model model, int id) {
 		List<TradeRequest> request = tradeDAO.displayAllbyUserId(id);
 		model.addAttribute("request", request);
 		return "displayrequestowner";
-		
+
 	}
-	@RequestMapping(name="gettradebyid.do")
+
+	@RequestMapping(name = "gettradebyid.do")
 	public String findTradeById(Model model, int id) {
 		TradeRequest request = tradeDAO.findById(id);
 		model.addAttribute("request", request);
-		return"showtrade";
+		return "showtrade";
 	}
 }
