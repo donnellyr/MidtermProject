@@ -73,9 +73,11 @@ public class UserDAOImpl implements UserDAO {
 		return user;
 	}
 	@Override
-	public List<Item> listUserItem(int id){
-		String jpql = "SELECT i FROM Item i JOIN User u WHERE u.id = :id ";
-		return em.createQuery(jpql, Item.class).getResultList();
+	public List<Item> listUserItem(int uid){
+		
+//		String jpql = "SELECT i FROM Item i JOIN User u ON u.id = i.item_id WHERE u.id = :uid ";
+//		return em.createQuery(jpql, Item.class).setParameter("uid", uid).getResultList();
+		return em.find(User.class, uid).getListeditems();
 	}
 }
 
