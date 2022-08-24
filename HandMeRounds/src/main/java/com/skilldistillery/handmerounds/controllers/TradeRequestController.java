@@ -37,21 +37,22 @@ public class TradeRequestController {
 		return "showtrade";
 	}
 
-	@RequestMapping(path = "edittrade.do")
-	public String editTrade(Model model, int id) {
-		TradeRequest request = tradeDAO.findById(id);
+	@RequestMapping(path = "editTradeRequest.do")
+	public String editTrade(Model model, int requestId) {
+		TradeRequest request = tradeDAO.findById(requestId);
 		model.addAttribute("request", request);
-		return "editrade";
+		return "editTrade";
 	}
 
-	@RequestMapping(path = "updatetrade.do")
-	public String updateTrade(Model model, int id, boolean trade, String remarks) {
-		TradeRequest request = tradeDAO.editRequest(id, trade, remarks);
+	@RequestMapping(path = "updateTradeRequest.do")
+	public String updateTrade(Model model, int requestId, boolean tradeRequest, String remarks) {
+		TradeRequest request = tradeDAO.editRequest(requestId, tradeRequest, remarks);
+		model.addAttribute("id", requestId);
 		model.addAttribute("request", request);
-		return "showtrade";
+		return "home";
 	}
 
-	@RequestMapping(path = "deletetraderequest.do")
+	@RequestMapping(path = "deleteTradeRequest.do")
 	public String deleteTrade(int requestId) {
 		tradeDAO.deleteRequest(requestId);
 		return "home";
