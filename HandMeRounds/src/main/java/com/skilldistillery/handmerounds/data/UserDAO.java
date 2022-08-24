@@ -19,4 +19,6 @@ public interface UserDAO {
 
 	List<Item> listUserItem(int id);
 
+	User inactivateUser(int id);
+
 }
