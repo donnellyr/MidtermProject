@@ -1,5 +1,8 @@
 package com.skilldistillery.handmerounds.data;
 
+import java.util.List;
+
+import com.skilldistillery.handmerounds.entities.Item;
 import com.skilldistillery.handmerounds.entities.User;
 
 public interface UserDAO {
@@ -13,5 +16,7 @@ public interface UserDAO {
 
 	User newAccount(String username, String password, String firstName, String lastName, String street, String city,
 			String state, int postalCode);
+
+	List<Item> listUserItem(int id);
 
 }
