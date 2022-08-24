@@ -16,6 +16,9 @@
     <br> ${item.size.size}
     <br> ${item.condition.name}
     <br>
+    <c:forEach var="option" items="${item.deliveryOptions}">
+    <br> Item is available for ${option.name}
+    </c:forEach>
     <h3>Item images</h3>
     <c:forEach var="i" items="${item.images}" >
         <hr>

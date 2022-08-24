@@ -12,6 +12,8 @@ import com.skilldistillery.handmerounds.entities.Address;
 import com.skilldistillery.handmerounds.entities.Item;
 import com.skilldistillery.handmerounds.entities.User;
 
+import net.bytebuddy.matcher.CollectionItemMatcher;
+
 @Service
 @Transactional
 public class UserDAOImpl implements UserDAO {
@@ -42,6 +44,7 @@ public class UserDAOImpl implements UserDAO {
 	public User updateAccount(int uid, String username, String password, boolean enabled, String role, String firstName,
 			String lastName, String street, String city, String state, int postalCode, String image, String aboutMe) {
 		User user = em.find(User.class, uid);
+		
 		if (user != null) {
 			// user.setUsername(username);
 			user.setPassword(password);
@@ -74,11 +77,16 @@ public class UserDAOImpl implements UserDAO {
 	}
 	@Override
 	public List<Item> listUserItem(int uid){
-		
-//		String jpql = "SELECT i FROM Item i JOIN User u ON u.id = i.item_id WHERE u.id = :uid ";
-//		return em.createQuery(jpql, Item.class).setParameter("uid", uid).getResultList();
 		return em.find(User.class, uid).getListeditems();
 	}
+
+	@Override
+	public User inactivateUser(int id) {
+		User user = em.find(User.class, id);
+		user.setEnabled(false);
+		return user;
+	}
+
 }
 
 
