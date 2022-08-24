@@ -65,8 +65,6 @@ public class ItemDAOImpl implements ItemDAO {
 		}
 		
 		return item;
-		
-		
 	}
 
 	@Override
