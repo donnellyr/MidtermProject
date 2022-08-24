@@ -15,6 +15,7 @@ import com.skilldistillery.handmerounds.entities.User;
 @Service
 @Transactional
 public class TradeRequestDAOImpl implements TradeRequestDAO {
+	
 	@PersistenceContext
 	private EntityManager em;
 
@@ -63,5 +64,4 @@ public class TradeRequestDAOImpl implements TradeRequestDAO {
 				.getResultList();
 		return requests;
 	}
-
 }
