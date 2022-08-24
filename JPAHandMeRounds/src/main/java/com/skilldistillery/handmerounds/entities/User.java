@@ -15,7 +15,7 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class User {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -42,8 +42,7 @@ public class User {
 	
 	@Column(name = "about_me")
 	private String aboutMe;
-	
-	private Boolean active;
+
 
 	@ManyToMany(mappedBy = "users")
 	private List<Item> items;
@@ -67,13 +66,12 @@ public class User {
 		super();
 	}
 
-	public User(int id, String username, String password, Boolean enabled, String role, String firstName,
+	public User(int id, String username, String password,  String role, String firstName,
 			String lastName, Address address) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
-		this.enabled = enabled;
 		this.role = role;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -216,13 +214,7 @@ public class User {
 		this.listeditems = listeditems;
 	}
 
-	public Boolean getActive() {
-		return active;
-	}
-
-	public void setActive(Boolean active) {
-		this.active = active;
-	}
+	
 
 	@Override
 	public int hashCode() {

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.handmerounds.data.UserDAO;
+import com.skilldistillery.handmerounds.entities.Address;
 import com.skilldistillery.handmerounds.entities.User;
 
 @Controller
@@ -83,7 +84,11 @@ public class UserController {
 			String city, String state, int postalCode) {
 		System.out.println(username + " " + password + " " + firstName + " " + lastName + " " + street + " " + city
 				+ " " + state + " " + postalCode);
-		userDAO.newAccount(username, password, firstName, lastName, street, city, state, postalCode);
+		Address address = new Address(street, city, state, postalCode);
+		User user = new User(username, password, firstName, lastName, address);
+		user.setEnabled(true);
+		userDAO.newAccount(user);
+		
 
 		return "login";
 	}
