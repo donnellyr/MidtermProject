@@ -1,7 +1,5 @@
 package com.skilldistillery.handmerounds.controllers;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.skilldistillery.handmerounds.data.ItemDAO;
 import com.skilldistillery.handmerounds.entities.AdditionalImage;
 import com.skilldistillery.handmerounds.entities.Item;
+import com.skilldistillery.handmerounds.entities.User;
 
 @Controller
 public class ItemController {
@@ -27,13 +26,13 @@ public class ItemController {
 	}
 
 	@RequestMapping(path = "additem.do")
-	public String addItem(HttpSession session, Model model, String name, String image, int typeid, int size,
+	public String addItem(HttpSession session, Model model, String name, String description, String image, int typeid, int size,
 			int condition, boolean trade, int userid, Integer meet, Integer drop, Integer shipping) {
 		System.out.println(shipping);
 		System.out.println(drop);
 		System.out.println(meet);
 		System.out.println(trade);
-		Item item = itemDAO.createItem(name, image, typeid, size, condition, trade, userid,meet,drop,shipping);
+		Item item = itemDAO.createItem(name, image, typeid, size, condition, trade, userid,meet,drop,shipping,description);
 		System.out.println("******");
 		System.out.println(item.getId());
 		model.addAttribute("item", item);
@@ -51,8 +50,8 @@ public class ItemController {
 	
 	@RequestMapping(path = "updateitem.do", method=RequestMethod.POST)
 	public String updateItem(Model model, int id, String name, String image, int typeid, int size, int condition,
-			boolean trade) {
-		Item item = itemDAO.editItem(id, name, image, typeid, size, condition, trade);
+			boolean trade, Integer meet, Integer drop, Integer shipping, String description) {
+		Item item = itemDAO.editItem(id, name, image, typeid, size, condition, trade,meet,drop,shipping, description);
 		model.addAttribute("item", item);
 		System.out.println(item);
 		return "showlisting";
@@ -84,9 +83,11 @@ public class ItemController {
 	}
 
 	@RequestMapping(path = "getById.do")
-	public String listItem(int id, Model model) {
-//		Item item = itemDAO.getById(iid);
+	public String listItem(int id, Model model, HttpSession session) {
+//		User user = (User) session.getAttribute("loggedInUser");
+
 		model.addAttribute("item", itemDAO.getById(id));
+//		session.setAttribute("loggedInUser", user);
 		return "showlisting";
 	}
 

@@ -13,8 +13,9 @@
 <jsp:include page="navbar.jsp" />
 	<form action="updateitem.do" method="post">
 		<input type="hidden" name="id" value="${item.id}"> <input
-			type="text" name="name" value="${item.name }"> <br> <label>Choose
-			what type of item you are listing</label> <select name="typeid"
+			type="text" name="name" value="${item.name }">
+		<input type="text" name="description" value="${item.description }">
+			 <br> <label>Choose what type of item you are listing</label> <select name="typeid"
 			value="${item.type.name}">
 			<option value="1">Clothing</option>
 			<option value="2">Toy</option>
@@ -34,10 +35,14 @@
 		</select> <br> <label>Trade or Donate</label> <select name="trade">
 			<option value="1">Trade</option>
 			<option value="0">Donate</option>
-		</select> <br> <label>Meet up</label> <input type="checkbox"
-			name="deliveryoption" value="1"> <label>Shipping</label> <input
-			type="checkbox" name="deliveryoption" value="2"> <label>Drop
-			off</label> <input type="checkbox" name="deliveryoption" value="3"> <br>
+		</select> <br> <label>Meet up</label> 
+		<label>Meet up</label>
+		 <input type="checkbox" name="meet"
+			value="1"> 
+			<label>Shipping</label> 
+			<input type="checkbox"name="shipping" value="2"> 
+			<label>Drop off</label> 
+			<input type="checkbox" name="drop" value="3">  
 		<input type="submit" value="Update changes">
 
 	</form>
