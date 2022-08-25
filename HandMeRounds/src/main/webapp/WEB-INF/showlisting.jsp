@@ -10,8 +10,9 @@
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
-    <jsp:include page="navbar.jsp" />
-    ${item.id } ${item.name }
+    <main class="container-fluid">
+    <jsp:include page="navbar.jsp" /><br><br><br><br>
+	 ${item.name }
     <br> ${item.type.name}
     <br> ${item.description}
     <br> ${item.size.size}
@@ -48,7 +49,7 @@
     </form>
     </c:if>
 
-   
+   </main>
 	<jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>

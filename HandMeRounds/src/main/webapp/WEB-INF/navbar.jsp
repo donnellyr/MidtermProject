@@ -27,14 +27,11 @@
 		" value="listalldonate" class="btn btn-primary btn-sm"
 		id="navbarbuttons">Browse All Donations</button></a>
 
-<a href="home.do"><button type="button" style="float: left"
-		" value="communitydropoff" class="btn btn-primary btn-sm"
-		id="navbarbuttons">Community Drop-off locations</button></a>
 
 <a href="logout.do"><button type="button" style="float: left"
 		" value="Logout" class="btn btn-primary btn-sm" id="navbarbuttons">Log
 		Out</button></a>
-
+<br><br><br><br>
 <c:choose>
 	<c:when test="${not empty loggedInUser}">
 

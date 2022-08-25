@@ -25,6 +25,7 @@
 			<c:choose>
 				<c:when test="${not empty requests}">
 					<c:forEach var="request" items="${requests}">
+ 
 						<c:if test="${request.active}">
 							<tr>
 								<td><a href="getTradeById.do?id=${request.id}">${request.item.name}
@@ -37,6 +38,7 @@
 										test="${request.decision == 2}">declined</c:if>
 							</tr>
 						</c:if>
+
 					</c:forEach>
 				</c:when>
 			</c:choose>

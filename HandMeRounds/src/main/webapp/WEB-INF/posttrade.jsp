@@ -9,8 +9,8 @@
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
-	<jsp:include page="navbar.jsp" />
-	<main class="container-fluid">
+<main class="container-fluid">
+	<jsp:include page="navbar.jsp" /><br><br><br><br>
 		<h2>Post Trade</h2>
 		<form action="addtrade.do">
 		

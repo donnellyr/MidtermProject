@@ -8,7 +8,7 @@
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
-	<jsp:include page="navbar.jsp" />
+	<jsp:include page="navbar.jsp" /><br><br><br><br>
 	<main class="container-fluid">
 		<h2>Update Account Details</h2>
 		<form action="updateAccount.do" method="POST">

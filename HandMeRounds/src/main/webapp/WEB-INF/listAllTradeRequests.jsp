@@ -19,6 +19,7 @@
 				<th>Trade Requester</th>
 				<th>Remarks</th>
 				<th>Status</th>
+
 			</tr>
 		</thead>
 		<tbody>
@@ -36,6 +37,7 @@
 								<td><c:if test="${request.decision == 1}">accepted</c:if>
 								<td><c:if test="${request.decision == 2}">declined</c:if>
 							</tr>
+
 						</c:if>
 					</c:forEach>
 				</c:when>

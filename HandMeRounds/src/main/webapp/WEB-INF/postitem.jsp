@@ -8,38 +8,55 @@
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
-	<jsp:include page="navbar.jsp" />
+<main class="container-fluid">
+	<jsp:include page="navbar.jsp" /><br><br><br><br>
 	<h1>List your item!</h1>
 	<form action="additem.do">
 		<input type="hidden" name="userid" value="${loggedInUser.id }">
-		<label>Name of item</label> <input type="text" name="name"
-			placeholder="item name"> <label> Description</label> <input
+		<label>Name of item</label> 
+		<input type="text" name="name"
+			placeholder="item name"> 
+			<br>
+			<label> Description</label> <input
 			type="text" name="description" placeholder="item description">
+			<br>
 		<label>Choose what type of item you are listing</label> <select
 			name="typeid">
 			<option value="1">Clothing</option>
 			<option value="2">Toy</option>
 			<option value="3">Furniture</option>
 			<option value="4">School Supplies</option>
-		</select> <label>Condition of your item</label> <select name="condition">
+		</select> 
+			<br>
+		<label>Condition of your item</label> <select name="condition">
 			<option value="1">New</option>
 			<option value="2">Like New</option>
 			<option value="3">Used - Good</option>
 			<option value="4">Used - Fair</option>
-		</select> <label>Size (Clothing only)</label> <select name="size">
+		</select> 
+			<br>
+		<label>Size (Clothing only)</label> <select name="size">
 			<option value="1">Newborn</option>
 			<option value="2">0-6 Months</option>
 			<option value="3">6-12 Months</option>
 			<option value="4">12-18 Months</option>
-		</select> <label>Trade or Donate</label> <select name="trade">
+		</select> 
+			<br>
+		<label>Trade or Donate</label> <select name="trade">
 			<option value="1">Trade</option>
 			<option value="0">Donate</option>
-		</select> <label>Meet up</label> <input type="checkbox" name="meet" value="1">
+		</select> 
+			<br>
+			<label>Exchange options:</label>
+		<label>Meet up</label> <input type="checkbox" name="meet" value="1">
 		<label>Shipping</label> <input type="checkbox" name="shipping"
 			value="2"> <label>Drop off</label> <input type="checkbox"
-			name="drop" value="3"> <input type="submit"
-			value="submititem" id="button1">
+			name="drop" value="3"> 
+			<br>
+			<input type="submit"
+			value="Submit Item" id="button1">
 	</form>
+	</main>
 	<jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>

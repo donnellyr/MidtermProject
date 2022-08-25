@@ -552,8 +552,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `handmeroundsdb`;
-INSERT INTO `trade_request` (`id`, `trade_request`, `remarks`, `item_id`, `user_id`, `request_date`, `image`, `decision`, `active`) VALUES (1, 1, 'Willing to trade locally', 1, 1, '2014-05-26 23:57:41', NULL, NULL, NULL);
-INSERT INTO `trade_request` (`id`, `trade_request`, `remarks`, `item_id`, `user_id`, `request_date`, `image`, `decision`, `active`) VALUES (2, 2, 'Would like to pick up ', 2, 2, '2014-05-26 23:57:41', NULL, NULL, NULL);
+INSERT INTO `trade_request` (`id`, `trade_request`, `remarks`, `item_id`, `user_id`, `request_date`, `image`, `decision`, `active`) VALUES (1, 1, 'Willing to trade locally', 1, 1, '2014-05-26 23:57:41', NULL, NULL, 1);
+INSERT INTO `trade_request` (`id`, `trade_request`, `remarks`, `item_id`, `user_id`, `request_date`, `image`, `decision`, `active`) VALUES (2, 2, 'Would like to pick up ', 2, 2, '2014-05-26 23:57:41', NULL, NULL, 1);
 
 COMMIT;
 
