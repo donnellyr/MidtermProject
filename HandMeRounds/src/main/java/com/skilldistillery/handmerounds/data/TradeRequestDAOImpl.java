@@ -31,10 +31,11 @@ public class TradeRequestDAOImpl implements TradeRequestDAO {
 	}
 
 	@Override
-	public TradeRequest editRequest(int id, boolean trade, String remarks) {
+	public TradeRequest editRequest(int id, boolean trade, String remarks, String image) {
 		TradeRequest edit = em.find(TradeRequest.class, id);
 		edit.setRemarks(remarks);
 		edit.setTradeRequest(trade);
+		edit.setImage(image);
 		em.persist(edit);
 
 		return null;
