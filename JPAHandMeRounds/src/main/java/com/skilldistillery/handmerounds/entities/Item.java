@@ -90,7 +90,7 @@ public class Item {
 			User user, DeliveryOption meetup, DeliveryOption dropoff) {
 		this.name = name;
 		this.image = image;
-		this.type = itemType;
+		this.type = itemType; 
 		this.size = itemSize;
 		this.condition = condition;
 		this.trade = trade;
@@ -132,6 +132,12 @@ public class Item {
 		if (!deliveryOptions.contains(deliveryOption)) {
 			deliveryOptions.add(deliveryOption);
 			deliveryOption.addItem(this);
+		}
+	}
+	public void removeDeliveryOptions(DeliveryOption deliveryOption) {
+		if(deliveryOptions != null && deliveryOptions.contains(deliveryOption)) {
+			deliveryOptions.remove(deliveryOption);
+			deliveryOption.removeItem(this);
 		}
 	}
 

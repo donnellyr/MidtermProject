@@ -101,4 +101,11 @@ public void addItem(Item item) {
 	public String toString() {
 		return "DeliveryOption [id=" + id + ", name=" + name + ", description=" + description + "]";
 	}
+
+	public void removeItem(Item item) {
+		if(items != null && items.contains(item)) {
+			items.remove(item);
+			item.removeDeliveryOptions(this);
+		}
+	}
 }

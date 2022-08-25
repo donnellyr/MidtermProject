@@ -35,14 +35,14 @@
 		</select> <br> <label>Trade or Donate</label> <select name="trade">
 			<option value="1">Trade</option>
 			<option value="0">Donate</option>
-		</select> <br> <label>Meet up</label> 
-		<label>Meet up</label>
-		 <input type="checkbox" name="meet"
-			value="1"> 
-			<label>Shipping</label> 
-			<input type="checkbox"name="shipping" value="2"> 
-			<label>Drop off</label> 
-			<input type="checkbox" name="drop" value="3">  
+		</select> <br>
+		<c:forEach var ="d" items="${deliveryOptions }">
+		<label>${d.name }</label>
+		<input type="checkbox" name="optionId" value="${d.id }"
+		<c:if test="${item.deliveryOptions.contains(d) }">checked</c:if>
+		>
+		
+		</c:forEach>
 		<input type="submit" value="Update changes">
 
 	</form>
