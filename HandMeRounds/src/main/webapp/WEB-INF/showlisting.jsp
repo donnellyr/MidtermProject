@@ -6,10 +6,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
+<title>Item Details</title>
+<jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
-
     <jsp:include page="navbar.jsp" />
     ${item.id } ${item.name }
     <br> ${item.type.name}
@@ -48,7 +48,6 @@
         <input type="hidden" name="id" value="${item.id}"> <input
             type="submit" value="Edit item">
     </form>
-
-
+	<jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>

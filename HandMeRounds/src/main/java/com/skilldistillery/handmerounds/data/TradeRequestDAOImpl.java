@@ -74,4 +74,10 @@ public class TradeRequestDAOImpl implements TradeRequestDAO {
 
 		return decision;
 	}
+	
+	@Override
+	public List<TradeRequest> listAll(){
+		String jpql = "SELECT t FROM TradeRequest t";
+		return em.createQuery(jpql, TradeRequest.class).getResultList();
+	}
 }

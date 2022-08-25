@@ -1,5 +1,7 @@
 package com.skilldistillery.handmerounds.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.handmerounds.data.UserDAO;
 import com.skilldistillery.handmerounds.entities.Address;
+import com.skilldistillery.handmerounds.entities.TradeRequest;
 import com.skilldistillery.handmerounds.entities.User;
 
 @Controller
@@ -30,7 +33,6 @@ public class UserController {
 		if (user != null && user.getEnabled()) {
 			return "account";
 		} else {
-
 			return "login";
 		}
 	}
@@ -62,9 +64,7 @@ public class UserController {
 	@RequestMapping(path = "logout.do", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
 		session.removeAttribute("loggedInUser");
-
 		return "home";
-
 	}
 
 	@RequestMapping(path = "register.do")
@@ -88,7 +88,6 @@ public class UserController {
 		User user = new User(username, password, firstName, lastName, address);
 		user.setEnabled(true);
 		userDAO.newAccount(user);
-		
 
 		return "login";
 	}
@@ -122,10 +121,14 @@ public class UserController {
 		} else {
 			System.out.println("inside the else");
 			return "home";
-
 		}
 	}
-	
-	
+
+	@RequestMapping(path = "userCreatedTradeRequests.do")
+	public String getTradeRequests(int uid, Model model) {
+		List<TradeRequest> requests = userDAO.getUserById(uid).getRequests();
+		model.addAttribute("requests", requests);
+		return "userCreatedTradeRequests";
+	}
 
 }

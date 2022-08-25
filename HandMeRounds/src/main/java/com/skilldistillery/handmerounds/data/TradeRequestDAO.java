@@ -18,4 +18,6 @@ public interface TradeRequestDAO {
 	TradeRequest accept(int id, int choice);
 
 	List<TradeRequest> displayAllRequestsOnUserItemsByUserId(int id);
+	
+	List<TradeRequest> listAll();
 }

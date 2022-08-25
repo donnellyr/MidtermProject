@@ -8,7 +8,6 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.skilldistillery.handmerounds.entities.Address;
 import com.skilldistillery.handmerounds.entities.Item;
 import com.skilldistillery.handmerounds.entities.User;
 
@@ -84,7 +83,11 @@ public class UserDAOImpl implements UserDAO {
 		user.setEnabled(false);
 		return user;
 	}
-
+	
+//	public List<TradeRequest> getTradeRequests(int id){
+//		User user = em.find(User.class, id);
+//		return user.getRequests();
+//	}
 }
 
 
