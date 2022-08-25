@@ -38,7 +38,7 @@
 							value="${loggedInUser.password}" />
 						<td>
 					</tr>
-					<tr>
+					<%-- <tr>
 						<th>Active</th>
 						<td><input class="form-control" type="text" name="enabled"
 							value="${loggedInUser.enabled}" />
@@ -49,7 +49,7 @@
 						<td><input class="form-control" type="text" name="role"
 							value="${loggedInUser.role}" />
 						<td>
-					</tr>
+					</tr> --%>
 					<tr>
 						<th>Street</th>
 						<td><input class="form-control" type="text" name="street"

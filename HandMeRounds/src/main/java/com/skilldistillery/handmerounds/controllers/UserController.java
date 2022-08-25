@@ -82,19 +82,16 @@ public class UserController {
 	@RequestMapping(path = "newAccount.do")
 	public String newAccount(String username, String password, String firstName, String lastName, String street,
 			String city, String state, int postalCode, HttpSession session) {
-		
 		try {
-//		System.out.println(username + " " + password + " " + firstName + " " + lastName + " " + street + " " + city
-//				+ " " + state + " " + postalCode);
-		Address address = new Address(street, city, state, postalCode);
-		User user = new User(username, password, firstName, lastName, address);
-		user.setEnabled(true);
-		userDAO.newAccount(user);
-		session.setAttribute("loggedInUser", user);
-		}catch (Exception e) {
+			Address address = new Address(street, city, state, postalCode);
+			User user = new User(username, password, firstName, lastName, address);
+			user.setEnabled(true);
+			userDAO.newAccount(user);
+			session.setAttribute("loggedInUser", user);
+		} catch (Exception e) {
 			return "somethingwentwrong";
 		}
-		
+
 		return "accountCreated";
 	}
 
@@ -106,11 +103,11 @@ public class UserController {
 	}
 
 	@RequestMapping(path = "updateAccount.do")
-	public String updateAccount(int uid, String userName, String password, Boolean enabled, Integer role,
-			String firstName, String lastName, String street, String city, String state, int postalCode, String image,
-			String aboutMe, HttpSession session) {
-		User user = userDAO.updateAccount(uid, userName, password, Boolean.TRUE, role, firstName, lastName, street,
-				city, state, postalCode, image, aboutMe);
+	public String updateAccount(int uid, String userName, String password, String firstName, String lastName,
+			String street, String city, String state, int postalCode, String image, String aboutMe,
+			HttpSession session) {
+		User user = userDAO.updateAccount(uid, userName, password, firstName, lastName, street, city, state, postalCode,
+				image, aboutMe);
 		if (user != null && user.getEnabled())
 			session.setAttribute("loggedInUser", user);
 		return "account";

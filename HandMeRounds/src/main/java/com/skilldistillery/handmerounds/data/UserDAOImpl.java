@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import com.skilldistillery.handmerounds.entities.Item;
 import com.skilldistillery.handmerounds.entities.User;
 
-
 @Service
 @Transactional
 public class UserDAOImpl implements UserDAO {
@@ -39,15 +38,13 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public User updateAccount(int uid, String username, String password, boolean enabled, Integer role, String firstName,
-			String lastName, String street, String city, String state, int postalCode, String image, String aboutMe) {
+	public User updateAccount(int uid, String username, String password, String firstName, String lastName,
+			String street, String city, String state, int postalCode, String image, String aboutMe) {
 		User user = em.find(User.class, uid);
-		
+
 		if (user != null) {
 			// user.setUsername(username);
 			user.setPassword(password);
-			user.setEnabled(enabled);
-			user.setRole(role);
 			user.setFirstName(firstName);
 			user.setLastName(lastName);
 			user.getAddress().setCity(city);
@@ -72,8 +69,9 @@ public class UserDAOImpl implements UserDAO {
 
 		return user;
 	}
+
 	@Override
-	public List<Item> listUserItem(int uid){
+	public List<Item> listUserItem(int uid) {
 		return em.find(User.class, uid).getListeditems();
 	}
 
@@ -83,21 +81,9 @@ public class UserDAOImpl implements UserDAO {
 		user.setEnabled(false);
 		return user;
 	}
-	
+
 //	public List<TradeRequest> getTradeRequests(int id){
 //		User user = em.find(User.class, id);
 //		return user.getRequests();
 //	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
