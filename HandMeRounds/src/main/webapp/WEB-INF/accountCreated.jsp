@@ -40,14 +40,14 @@
 				<th>Password</th>
 				<td>${loggedInUser.password}</td>
 			</tr>
-			<tr>
+			<%-- <tr>
 				<th>Active</th>
 				<td>${loggedInUser.enabled}</td>
 			</tr>
 			<tr>
 				<th>Role</th>
 				<td>${loggedInUser.role}</td>
-			</tr>
+			</tr> --%>
 			<tr>
 				<th>Street</th>
 				<td>${loggedInUser.address.street}</td>
