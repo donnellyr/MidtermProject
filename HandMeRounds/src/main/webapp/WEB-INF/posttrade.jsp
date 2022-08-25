@@ -29,6 +29,7 @@
 			<option value="0">Donate</option>
 		</select>
 					
+		Picture of item to be traded (optional): <input type="text" name="image">
 		Message to owner: <input type="text" name="remarks">
 		<input type="hidden" name="item" value="${item.id}">
 		<input type="hidden" name="user" value="${loggedInUser.id}">

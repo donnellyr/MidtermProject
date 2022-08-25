@@ -19,10 +19,10 @@ public class TradeRequestDAOImpl implements TradeRequestDAO {
 	private EntityManager em;
 
 	@Override
-	public TradeRequest createRequest(boolean trade, String remarks, int item, int user) {
+	public TradeRequest createRequest(boolean trade, String remarks, int item, int user, String image) {
 		User owner = em.find(User.class, user);
 		Item requested = em.find(Item.class, item);
-		TradeRequest request = new TradeRequest(trade, remarks, owner, requested);
+		TradeRequest request = new TradeRequest(trade, remarks, owner, requested, image);
 		request.setDecision(0);
 		em.persist(request);
 		return request;
