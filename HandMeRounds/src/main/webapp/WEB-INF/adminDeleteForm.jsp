@@ -6,9 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Delete Posts: Admin only</title>
+<jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
-<jsp:include page="navbar.jsp" />
+<jsp:include page="navbar.jsp" /><br><br><br><br>
 
 <h1>Choose the post you would like to delete</h1>
 
@@ -41,5 +42,6 @@
 
 		</table>
 
+<jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>

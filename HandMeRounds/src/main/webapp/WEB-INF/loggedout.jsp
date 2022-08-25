@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Logged Out</title>
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
