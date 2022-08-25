@@ -9,7 +9,11 @@
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
-	<jsp:include page="navbar.jsp" />
+<main class="container-fluid">
+	<jsp:include page="navbar.jsp" /><br>
+	<br>
+	<br>
+	<br>
 	<h1>You are logged in</h1>
 	<h1>Account Details</h1>
 
@@ -91,6 +95,8 @@
 			class="btn btn-primary btn-sm" type="submit"
 			value="Inactivate my account" />
 	</form>
+	</main>
 	<jsp:include page="bootstrapFoot.jsp" />
+	
 </body>
 </html>

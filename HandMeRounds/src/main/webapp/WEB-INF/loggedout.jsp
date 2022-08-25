@@ -5,10 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Logged Out</title>
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
+<main class="container-fluid">
 	<jsp:include page="navbar.jsp" /><br>
 	<br>
 	<br>
@@ -16,7 +17,7 @@
 
 	<h1>You have been logged out</h1>
 
-
+	</main>
 	<jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>
