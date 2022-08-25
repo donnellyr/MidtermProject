@@ -18,7 +18,7 @@
 				<th>Item Name</th>
 				<th>Item Owner</th>
 				<th>Trade Requester</th>
-				<th>Description</th>
+				<th>Remarks</th>
 				<th>Status</th>
 			</tr>
 		</thead>

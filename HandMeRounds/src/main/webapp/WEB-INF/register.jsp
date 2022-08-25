@@ -60,7 +60,7 @@
 					</tr>
 					<tr>
 						<th>Zip Code</th>
-						<td><input class="form-control" type="text" name="postalCode"
+						<td><input class="form-control" type="number" name="postalCode"
 							required />
 						<td>
 					</tr>

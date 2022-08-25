@@ -78,9 +78,9 @@
 		<input class="btn btn-primary btn-sm" type="submit" value="Edit Trade Request" />
 	</form>
 	
-	<form action="deleteTradeRequest.do" method="GET">
+	<form action="deactivateTradeRequest.do" method="GET">
 		<input class="form-control" type="text" hidden="true" name="requestId" value="${request.id }"> 
-		<input class="btn btn-primary btn-sm" type="submit" value="Delete Trade Request" />
+		<input class="btn btn-primary btn-sm" type="submit" value="Deactivate Trade Request" />
 	</form>
 	</c:if>
 	<jsp:include page="bootstrapFoot.jsp" />	
