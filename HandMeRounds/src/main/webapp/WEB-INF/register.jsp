@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,20 +8,68 @@
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
-<jsp:include page="navbar.jsp" /><br><br><br>
-
-	<form action="newAccount.do">
-		<br>
-		<br>
-		User name: <input type = "text" name="username" required><br>
-		Password: <input type = "text" name="password" required><br>
-		First Name: <input type = "text" name="firstName" required><br>
-		Last Name: <input type = "text" name="lastName" required><br>
-		Address: <input type = "text" name="address" required><br>
-		City: <input type = "text" name="city" required><br>
-		State: <input type = "text" name="state" required><br>
-		ZIP Code: <input type = "number" name="postalCode" required><br>
-		<input type = "submit" value="create account" required><br>
-	</form>
+	<jsp:include page="navbar.jsp" /><br>
+	<br>
+	<br>
+	<main class="container-fluid">
+		<h2>Update Account Details</h2>
+		<form action="newAccount.do" method="POST">
+			<table class="table table-striped table-hover">
+				<tbody>
+					<tr>
+						<th>Username</th>
+						<td><input class="form-control" type="text" name="username"
+							required />
+						<td>
+					</tr>
+					<tr>
+						<th>Password</th>
+						<td><input class="form-control" type="text" name="password"
+							required />
+						<td>
+					</tr>
+					<tr>
+						<th>First Name</th>
+						<td><input class="form-control" type="text" name="firstName"
+							required />
+						<td>
+					</tr>
+					<tr>
+						<th>Last Name</th>
+						<td><input class="form-control" type="text" name="lastName"
+							required />
+						<td>
+					</tr>
+					<tr>
+						<th>Street</th>
+						<td><input class="form-control" type="text" name="street"
+							required />
+						<td>
+					</tr>
+					<tr>
+						<th>City</th>
+						<td><input class="form-control" type="text" name="city"
+							required />
+						<td>
+					</tr>
+					<tr>
+						<th>State</th>
+						<td><input class="form-control" type="text" name="state"
+							required />
+						<td>
+					</tr>
+					<tr>
+						<th>Zip Code</th>
+						<td><input class="form-control" type="text" name="postalCode"
+							required />
+						<td>
+					</tr>
+				</tbody>
+			</table>
+			<input class="btn btn-warning btn-sm" type="submit"
+				value="Create Account" />
+		</form>
+	</main>
+	<jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>
