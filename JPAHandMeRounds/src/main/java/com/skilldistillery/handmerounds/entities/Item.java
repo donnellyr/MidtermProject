@@ -36,6 +36,7 @@ public class Item {
 	private LocalDateTime datePosted;
 
 	private String image;
+	
 
 	@OneToMany(mappedBy = "item")
 	private List<AdditionalImage> images;

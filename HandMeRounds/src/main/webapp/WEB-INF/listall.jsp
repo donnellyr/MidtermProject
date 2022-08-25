@@ -24,12 +24,14 @@
 				<c:choose>
 					<c:when test="${not empty items}">
 						<c:forEach var="i" items="${items}">
+							<c:if test="${!i.available == false}">
 
 							<tr>
 								<td><a href="getById.do?id=${i.id}">${i.name} </a></td>
 								<td>${i.name}</td>
 								<td>${i.description}</td>
 							</tr>
+							</c:if>
 						</c:forEach>
 
 					</c:when>

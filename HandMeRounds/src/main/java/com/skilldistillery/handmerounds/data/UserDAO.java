@@ -11,7 +11,7 @@ public interface UserDAO {
 
 	User getUserByUserName(String username);
 
-	User updateAccount(int uid, String username, String password, boolean enabled, String role, String firstName,
+	User updateAccount(int uid, String username, String password, boolean enabled, Integer role, String firstName,
 			String lastName, String street, String city, String state, int postalCode, String image, String aboutMe);
 
 	User newAccount(User user);
