@@ -13,7 +13,7 @@
 
 	<form action="loggedIn.do" method="post">
 		User Name:<input type="text" name="username" id="username" placeholder="User Name">
-		Password:<input type="text" name="password" id="password" placeholder="Password">
+		Password:<input type="password" name="password" id="password" placeholder="Password">
 		<input type="submit" value="login" id="button1">
 	
 	
