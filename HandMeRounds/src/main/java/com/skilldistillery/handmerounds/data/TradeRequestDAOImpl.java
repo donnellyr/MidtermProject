@@ -57,7 +57,7 @@ public class TradeRequestDAOImpl implements TradeRequestDAO {
 	}
 
 	@Override
-	public List<TradeRequest> displayAllbyUserId(int id) {
+	public List<TradeRequest> displayAllRequestsOnUserItemsByUserId(int id) {
 		User user = em.find(User.class, id);
 		String jpql = "SELECT t FROM TradeRequest t JOIN Item i ON t.item.id = i.id WHERE i.user.id = :userid";
 		List<TradeRequest> requests = em.createQuery(jpql, TradeRequest.class).setParameter("userid", user.getId())

@@ -15,5 +15,5 @@ public interface TradeRequestDAO {
 
 	TradeRequest findById(int id);
 
-	List<TradeRequest> displayAllbyUserId(int id);
+	List<TradeRequest> displayAllRequestsOnUserItemsByUserId(int id);
 }

@@ -20,6 +20,10 @@
 <a href="listalltrade.do"><button type="button" style="float: left"
 		" value="listalltrade" class="btn btn-primary" id="navbarbuttons">Browse
 		Trades</button></a>
+		
+<!-- <a href="displayRequestOwner.do"><button type="button" style="float: left"
+		" value="displayrequestowner" class="btn btn-primary" id="navbarbuttons">Browse
+		Trade Requests I made</button></a> -->
 
 <a href="listalldonate.do"><button type="button" style="float: left"
 		" value="listalldonate" class="btn btn-primary" id="navbarbuttons">Browse
@@ -29,30 +33,33 @@
 		" value="communitydropoff" class="btn btn-primary" id="navbarbuttons">Community
 		Drop-off locations</button></a>
 
-
-
 <a href="logout.do"><button type="button" style="float: left"
 		" value="logout" class="btn btn-primary" id="navbarbuttons">Log
 		Out</button></a>
 
 <c:choose>
-
 	<c:when test="${not empty loggedInUser}">
-
-
+	
 		<form action="listUserItem.do" method="GET">
-
 			<input class="form-control" type="text" hidden="true" name="uid"
-				value="${loggedInUser.id }"> <input
+				value="${loggedInUser.id }">
+			<input
 				class="btn btn-primary btn-sm" type="submit"
 				value="View your listed items" />
 		</form>
-
+		
+		<form action="displayAllRequestsOnUserItemsByUserId.do" method="GET">
+			<input class="form-control" type="text" hidden="true" name="trid"
+				value="${loggedInUser.id }">
+			<input
+				class="btn btn-primary btn-sm" type="submit"
+				value="Display Trade Requests on All My Frickin' Items" />
+		</form>
+			
 	</c:when>
 	<c:otherwise>
 		<a href="home.do"></a>
 	</c:otherwise>
-
 </c:choose>
 
 
