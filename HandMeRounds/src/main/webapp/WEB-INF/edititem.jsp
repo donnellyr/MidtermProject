@@ -16,14 +16,13 @@
 		<input type="hidden" name="id" value="${item.id}"> <input
 			type="text" name="name" value="${item.name }">
 		<input type="text" name="description" value="${item.description }">
-			 <br> <label>Choose what type of item you are listing</label> <select name="typeid"
-			value="${item.type.name}">
+			 <br> <label>Choose what type of item you are listing</label> <select name="typeid" value="${item.type.name}">
 			<option value="1">Clothing</option>
 			<option value="2">Toy</option>
 			<option value="3">Furniture</option>
 			<option value="4">School Supplies</option>
 		</select> <br> <label>Condition of your item</label> <select
-			name="condition">
+			name="condition" >
 			<option value="1">New</option>
 			<option value="2">Like New</option>
 			<option value="3">Used - Good</option>

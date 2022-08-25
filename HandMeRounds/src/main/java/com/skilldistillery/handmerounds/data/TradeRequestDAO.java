@@ -9,7 +9,7 @@ public interface TradeRequestDAO {
 	// add stretch goal Type type
 	TradeRequest createRequest(boolean trade, String remarks, int item, int user, String image);
 
-	TradeRequest editRequest(int id, boolean trade, String remarks);
+	TradeRequest editRequest(int id, boolean trade, String remarks, String image);
 
 	Boolean deleteRequest(int requestId);
 

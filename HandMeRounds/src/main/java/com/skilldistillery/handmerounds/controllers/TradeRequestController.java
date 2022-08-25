@@ -46,8 +46,8 @@ public class TradeRequestController {
 	}
 
 	@RequestMapping(path = "updateTradeRequest.do")
-	public String updateTrade(Model model, int requestId, boolean tradeRequest, String remarks) {
-		TradeRequest request = tradeDAO.editRequest(requestId, tradeRequest, remarks);
+	public String updateTrade(Model model, int requestId, boolean tradeRequest, String remarks, String image) {
+		TradeRequest request = tradeDAO.editRequest(requestId, tradeRequest, remarks, image);
 		model.addAttribute("id", requestId);
 		model.addAttribute("request", request);
 		return "home";
