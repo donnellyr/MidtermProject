@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Register new user</title>
+<jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
-<jsp:include page="navbar.jsp" />
+<jsp:include page="navbar.jsp" /><br><br><br>
 
 	<form action="newAccount.do">
 		<br>
