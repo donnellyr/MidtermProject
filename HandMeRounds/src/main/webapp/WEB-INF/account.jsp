@@ -9,7 +9,10 @@
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
-	<jsp:include page="navbar.jsp" />
+	<jsp:include page="navbar.jsp" /><br>
+	<br>
+	<br>
+	<br>
 	<h1>You are logged in</h1>
 	<h1>Account Details</h1>
 

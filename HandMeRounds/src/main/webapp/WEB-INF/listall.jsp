@@ -5,12 +5,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>List all</title>
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
 	<jsp:include page="navbar.jsp" />
 
+
+	<br>
+	<br>
+	<br>
 	<table class="table table-stripe table-hover">
 		<thead>
 			<tr>
