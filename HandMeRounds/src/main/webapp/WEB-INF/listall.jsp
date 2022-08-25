@@ -9,6 +9,7 @@
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
+<main class="container-fluid">
 	<jsp:include page="navbar.jsp" />
 
 
@@ -43,6 +44,7 @@
 		</tbody>
 
 	</table>
+	</main>
 	<jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>

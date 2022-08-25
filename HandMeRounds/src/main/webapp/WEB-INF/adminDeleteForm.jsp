@@ -9,6 +9,7 @@
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
+<main class="container-fluid">
 <jsp:include page="navbar.jsp" /><br><br><br><br>
 
 <h1>Choose the post you would like to delete</h1>
@@ -41,7 +42,7 @@
 			</tbody>
 
 		</table>
-
+</main>
 <jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>

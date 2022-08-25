@@ -8,8 +8,8 @@
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
-	<jsp:include page="navbar.jsp" />
 	<main class="container-fluid">
+	<jsp:include page="navbar.jsp" />
 		<h2>Trade Request Details</h2>
 		<form action="updateTradeRequest.do" method="POST">
 			<table class="table table-striped table-hover">

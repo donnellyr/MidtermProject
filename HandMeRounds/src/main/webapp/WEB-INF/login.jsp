@@ -8,8 +8,9 @@
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 
-<jsp:include page="navbar.jsp" />
 <body>
+<main class="container-fluid">
+<jsp:include page="navbar.jsp" />
 
 	<br>
 	<br>
@@ -27,7 +28,7 @@
 	<a href="register.do"><button type="button"
 		style="float: left" " value="registernewaccount"
 		class="btn btn-primary btn-sm" id="navbarbuttons">Click here to register a new account</button></a>
-	
+	</main>
 	<jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>
