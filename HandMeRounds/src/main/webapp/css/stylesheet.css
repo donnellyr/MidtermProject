@@ -1,3 +1,8 @@
+body {
+	
+	background-color: #cccccc;
+}
+
 
 #navbarbutton {
 	
@@ -5,5 +10,14 @@
 
 
 #button1 {
+		
+	padding: 20px;
+	background-color: #639393;
+	color: white;
+	font-family: fantasy;
+	width: 150px;
+	height: 75px;
+	border-radius: 50%;
 	
 }
+	
