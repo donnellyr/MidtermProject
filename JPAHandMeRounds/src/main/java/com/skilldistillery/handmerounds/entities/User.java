@@ -26,7 +26,7 @@ public class User {
 	
 	private Boolean enabled;
 	
-	private String role;
+	private Integer role;
 	
 	@Column(name = "first_name")
 	private String firstName;
@@ -66,7 +66,7 @@ public class User {
 		super();
 	}
 
-	public User(int id, String username, String password,  String role, String firstName,
+	public User(int id, String username, String password,  Integer role, String firstName,
 			String lastName, Address address) {
 		super();
 		this.id = id;
@@ -118,11 +118,11 @@ public class User {
 		this.enabled = enabled;
 	}
 
-	public String getRole() {
+	public Integer getRole() {
 		return role;
 	}
 
-	public void setRole(String role) {
+	public void setRole(Integer role) {
 		this.role = role;
 	}
 

@@ -97,5 +97,17 @@ public class ItemController {
 		return "home";
 
 	}
+	
+	@RequestMapping(path = "deleteItemFormAdminOnly.do")
+	public String deleteItemFormAdminOnly(Model model) {
+		model.addAttribute("items", itemDAO.listAll());
+		return "adminDeleteForm";
+		
+	}
+	@RequestMapping(path = "deleteItemAdminOnly.do")
+	public String deleteItemAdminOnly(int id) {
+		itemDAO.deleteItem(id);
+		return "account";
+	}
 
 }

@@ -15,15 +15,16 @@ import com.skilldistillery.handmerounds.entities.User;
 @Service
 @Transactional
 public class TradeRequestDAOImpl implements TradeRequestDAO {
-	
+
 	@PersistenceContext
 	private EntityManager em;
 
 	@Override
-	public TradeRequest createRequest(boolean trade, String remarks, int item, int user) {
+	public TradeRequest createRequest(boolean trade, String remarks, int item, int user, String image) {
 		User owner = em.find(User.class, user);
 		Item requested = em.find(Item.class, item);
-		TradeRequest request = new TradeRequest(trade, remarks, owner, requested);
+		TradeRequest request = new TradeRequest(trade, remarks, owner, requested, image);
+		request.setDecision(0);
 		em.persist(request);
 		return request;
 	}
@@ -63,5 +64,14 @@ public class TradeRequestDAOImpl implements TradeRequestDAO {
 		List<TradeRequest> requests = em.createQuery(jpql, TradeRequest.class).setParameter("userid", user.getId())
 				.getResultList();
 		return requests;
+	}
+
+	@Override
+	public TradeRequest accept(int id, int choice) {
+		TradeRequest decision = em.find(TradeRequest.class, id);
+		decision.setDecision(choice);
+		em.persist(decision);
+
+		return decision;
 	}
 }

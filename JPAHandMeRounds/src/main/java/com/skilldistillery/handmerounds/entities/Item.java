@@ -36,6 +36,7 @@ public class Item {
 	private LocalDateTime datePosted;
 
 	private String image;
+	
 
 	@OneToMany(mappedBy = "item")
 	private List<AdditionalImage> images;
@@ -76,7 +77,6 @@ public class Item {
 	}
 	public Item(String name, String decription, String image, List<AdditionalImage> images, Size size, ItemCondition itemCondition) {
 		this.name = name;
-		this.description = description;
 		this.image = image;
 		this.images = images;
 		this.size = size;

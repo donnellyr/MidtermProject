@@ -48,6 +48,7 @@ public class ItemDAOImpl implements ItemDAO {
 		DeliveryOption ship = em.find(DeliveryOption.class, meet);
 		ItemCondition condition = em.find(ItemCondition.class, itemCondition);
 		Item item = new Item( name, image, itemType, itemSize, condition,trade,user, meetup,  dropoff,  ship, description);
+		item.setAvailable(true);
 		em.persist(item);
 		return item;
 	}
@@ -120,8 +121,10 @@ public class ItemDAOImpl implements ItemDAO {
 	@Override
 	public Item deleteItem(int id) {
 		Item deleted = em.find(Item.class, id);
-		em.remove(deleted);
-		return null;
+		deleted.setAvailable(false);
+		em.persist(deleted);
+		
+		return deleted;
 	}
 
 }

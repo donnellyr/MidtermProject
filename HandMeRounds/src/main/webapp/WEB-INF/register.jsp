@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="navbar.jsp" />
+
 	<form action="newAccount.do">
 		User name: <input type = "text" name="username"><br>
 		Password: <input type = "text" name="password"><br>

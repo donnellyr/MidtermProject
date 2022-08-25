@@ -7,13 +7,15 @@ import com.skilldistillery.handmerounds.entities.TradeRequest;
 public interface TradeRequestDAO {
 
 	// add stretch goal Type type
-	TradeRequest createRequest(boolean trade, String remarks, int item, int user);
+	TradeRequest createRequest(boolean trade, String remarks, int item, int user, String image);
 
 	TradeRequest editRequest(int id, boolean trade, String remarks);
 
 	Boolean deleteRequest(int requestId);
 
 	TradeRequest findById(int id);
+	
+	TradeRequest accept(int id, int choice);
 
 	List<TradeRequest> displayAllRequestsOnUserItemsByUserId(int id);
 }

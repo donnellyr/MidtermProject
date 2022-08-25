@@ -5,11 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<jsp:include page="bootstrapHead.jsp" />
+<title>Delete Posts: Admin only</title>
 </head>
 <body>
 <jsp:include page="navbar.jsp" />
+
+<h1>Choose the post you would like to delete</h1>
 
 <table class="table table-stripe table-hover">
 			<thead>
@@ -24,22 +25,21 @@
 				<c:choose>
 					<c:when test="${not empty items}">
 						<c:forEach var="i" items="${items}">
-						<c:if test="${i.trade == false }">
 							<c:if test="${!i.available == false}">
-								<tr>
-									<td><a href="getById.do?id=${i.id}">${i.name} </a></td>
-									<td>${i.name}</td>
-									<td>${i.description}</td>
-								</tr>
+
+							<tr>
+								<td><a href="deleteItemAdminOnly.do?id=${i.id}">${i.name} </a></td>
+								<td>${i.name}</td>
+								<td>${i.description}</td>
+							</tr>
 							</c:if>
-						</c:if>
-					</c:forEach>
+						</c:forEach>
 
 					</c:when>
 				</c:choose>
 			</tbody>
 
 		</table>
-		<jsp:include page="bootstrapFoot.jsp" />
+
 </body>
 </html>
