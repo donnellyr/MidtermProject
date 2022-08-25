@@ -10,8 +10,9 @@
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
-    <jsp:include page="navbar.jsp" />
-    ${item.id } ${item.name }
+    <jsp:include page="navbar.jsp" /><br><br><br><br>
+    
+	 ${item.name }
     <br> ${item.type.name}
     <br> ${item.description}
     <br> ${item.size.size}
