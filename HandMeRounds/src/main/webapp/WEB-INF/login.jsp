@@ -4,21 +4,30 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Log in/ Register</title>
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 
 <jsp:include page="navbar.jsp" />
 <body>
 
+	<br>
+	<br>
+	<br>
+	<br>
+
 	<form action="loggedIn.do" method="post">
-		User Name:<input type="text" name="username" id="username" placeholder="User Name">
-		Password:<input type="password" name="password" id="password" placeholder="Password">
-		<input type="submit" value="login" id="button1">
-	
-	
+		User Name:<input type="text" name="username" id="username"
+			placeholder="User Name"> Password:<input type="password"
+			name="password" id="password" placeholder="Password"> <input
+			type="submit" value="login" id="button1">
+
+
 	</form>
-<a href="register.do">Click here to register an account</a>
-<jsp:include page="bootstrapFoot.jsp" />
+	<a href="register.do"><button type="button"
+		style="float: left" " value="registernewaccount"
+		class="btn btn-primary btn-sm" id="navbarbuttons">Click here to register a new account</button></a>
+	
+	<jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>
