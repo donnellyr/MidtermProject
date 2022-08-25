@@ -133,9 +133,11 @@ public class UserController {
 	}
 
 	@RequestMapping(path = "userCreatedTradeRequests.do")
-	public String getTradeRequests(int uid, Model model) {
+	public String getTradeRequests(int uid, Model model, HttpSession session) {
 		List<TradeRequest> requests = userDAO.getUserById(uid).getRequests();
 		model.addAttribute("requests", requests);
+		User user = userDAO.getUserById(uid);
+		session.setAttribute("loggedInUser", user);
 		return "userCreatedTradeRequests";
 	}
 

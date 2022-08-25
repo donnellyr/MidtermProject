@@ -9,6 +9,7 @@
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
+<main class="container-fluid">
 	<jsp:include page="navbar.jsp" />
 	<h1>Your Requested Trades</h1>
 	<table class="table table-stripe table-hover">
@@ -44,6 +45,7 @@
 			</c:choose>
 		</tbody>
 	</table>
+	</main>
 	<jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>

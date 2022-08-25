@@ -8,10 +8,11 @@
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
+<main class="container-fluid">
 	<jsp:include page="navbar.jsp" /><br>
 	<br>
 	<br>
-	<main class="container-fluid">
+	<br>
 		<h2>Update Account Details</h2>
 		<form action="newAccount.do" method="POST">
 			<table class="table table-striped table-hover">

@@ -10,7 +10,8 @@
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
-	<jsp:include page="navbar.jsp" />
+<main class="container-fluid">
+	<jsp:include page="navbar.jsp" /><br><br>
 	<h1>Trade Details</h1>
 	<table class="table table-striped table-hover">
 		<tbody>
@@ -83,6 +84,7 @@
 		<input class="btn btn-primary btn-sm" type="submit" value="Deactivate Trade Request" />
 	</form>
 	</c:if>
+	</main>
 	<jsp:include page="bootstrapFoot.jsp" />	
 </body>
 </html>

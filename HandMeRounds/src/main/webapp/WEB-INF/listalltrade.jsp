@@ -5,10 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>List All Trades</title>
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
+<main class="container-fluid">
 	<jsp:include page="navbar.jsp" />
 
 	<table class="table table-stripe table-hover">
@@ -40,6 +41,7 @@
 		</tbody>
 
 	</table>
+	</main>
 	<jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>
