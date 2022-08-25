@@ -58,6 +58,12 @@ public class TradeRequestController {
 		tradeDAO.deleteRequest(requestId);
 		return "home";
 	}
+	
+	@RequestMapping(path = "deactivateTradeRequest.do")
+	public String deactivateRequest(int requestId) {
+		tradeDAO.deactivateRequest(requestId);
+		return "home";
+	}
 
 	@RequestMapping(path = "displayAllRequestsOnUserItemsByUserId.do")
 	public String displayRequestsOwner(Model model, int trid) {
