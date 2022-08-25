@@ -23,12 +23,15 @@
 			<c:choose>
 				<c:when test="${not empty requests}">
 					<c:forEach var="request" items="${requests}">
+					<c:if test="${request.active != false }">
+					
 						<tr>
 							<td><a href="getTradeById.do?id=${request.id}">${request.item.name}
 							</a></td>
 							<td>${request.user.username}</td>
 							<td>${request.remarks }
 						</tr>
+						</c:if>
 					</c:forEach>
 				</c:when>
 			</c:choose>

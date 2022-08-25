@@ -28,6 +28,7 @@
 					<c:forEach var="request" items="${request}">
 
 						<tr>
+							<c:if test="${request.active != false }">
 							<td><a href="getTradeById.do?id=${request.id}">${request.item.name}
 							</a></td>
 							<td>${request.item.user.username}</td>
@@ -36,6 +37,8 @@
 							<td>	<c:if test="${request.decision == 0}">pending</c:if>
 									<c:if test="${request.decision == 1}">accepted</c:if>
 									<c:if test="${request.decision == 2}">declined</c:if>
+							</td>
+							</c:if>
 						</tr>
 					</c:forEach>
 
