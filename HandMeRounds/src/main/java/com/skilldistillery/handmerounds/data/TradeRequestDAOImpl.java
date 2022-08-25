@@ -15,6 +15,7 @@ import com.skilldistillery.handmerounds.entities.User;
 @Service
 @Transactional
 public class TradeRequestDAOImpl implements TradeRequestDAO {
+
 	@PersistenceContext
 	private EntityManager em;
 
@@ -57,7 +58,7 @@ public class TradeRequestDAOImpl implements TradeRequestDAO {
 	}
 
 	@Override
-	public List<TradeRequest> displayAllbyUserId(int id) {
+	public List<TradeRequest> displayAllRequestsOnUserItemsByUserId(int id) {
 		User user = em.find(User.class, id);
 		String jpql = "SELECT t FROM TradeRequest t JOIN Item i ON t.item.id = i.id WHERE i.user.id = :userid";
 		List<TradeRequest> requests = em.createQuery(jpql, TradeRequest.class).setParameter("userid", user.getId())
@@ -70,8 +71,7 @@ public class TradeRequestDAOImpl implements TradeRequestDAO {
 		TradeRequest decision = em.find(TradeRequest.class, id);
 		decision.setDecision(choice);
 		em.persist(decision);
-		
+
 		return decision;
 	}
-
 }
