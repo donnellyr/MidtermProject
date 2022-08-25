@@ -44,14 +44,15 @@ public class ItemController {
 	@RequestMapping(path = "updateitem.do", method=RequestMethod.GET)
 	public String goToUpdateForm(int itemid, Model model) {
 		model.addAttribute("item", itemDAO.getById(itemid));
+		model.addAttribute("deliveryOptions", itemDAO.listAllDeliveryOptions());
 		return "edititem";
 	}
 	
 	
 	@RequestMapping(path = "updateitem.do", method=RequestMethod.POST)
 	public String updateItem(Model model, int id, String name, String image, int typeid, int size, int condition,
-			boolean trade, Integer meet, Integer drop, Integer shipping, String description) {
-		Item item = itemDAO.editItem(id, name, image, typeid, size, condition, trade,meet,drop,shipping, description);
+			boolean trade,  String description, Integer[] optionId) {
+		Item item = itemDAO.editItem(id, name, image, typeid, size, condition, trade, description, optionId);
 		model.addAttribute("item", item);
 		System.out.println(item);
 		return "showlisting";
