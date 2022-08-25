@@ -54,6 +54,25 @@
 	</c:otherwise>
 
 </c:choose>
+ <c:choose>
+
+	<c:when test="${not empty loggedInUser && loggedInUser.role == '1' }">
+		
+		<!-- <form action="deleteItemFormAdminOnly.do" method="GET">
+
+			 <input
+				class="btn btn-primary btn-sm" type="submit"
+				value="Delete user posts" />
+		</form> -->
+		<a href="deleteItemFormAdminOnly.do"><button type="button" style="float: left"
+		" value="listallitems" class="btn btn-primary" id="navbarbuttons">Delete user posts</button></a>
+
+	</c:when>
+	<c:otherwise>
+		<a href="home.do"></a>
+	</c:otherwise>
+
+</c:choose> 
 
 
 

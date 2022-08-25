@@ -101,7 +101,7 @@ public class UserController {
 	}
 
 	@RequestMapping(path = "updateAccount.do")
-	public String updateAccount(int uid, String userName, String password, Boolean enabled, String role,
+	public String updateAccount(int uid, String userName, String password, Boolean enabled, Integer role,
 			String firstName, String lastName, String street, String city, String state, int postalCode, String image,
 			String aboutMe, HttpSession session) {
 		User user = userDAO.updateAccount(uid, userName, password, Boolean.TRUE, role, firstName, lastName, street,
@@ -125,5 +125,7 @@ public class UserController {
 
 		}
 	}
+	
+	
 
 }

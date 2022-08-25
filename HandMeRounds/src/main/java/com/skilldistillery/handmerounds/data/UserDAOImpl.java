@@ -40,7 +40,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public User updateAccount(int uid, String username, String password, boolean enabled, String role, String firstName,
+	public User updateAccount(int uid, String username, String password, boolean enabled, Integer role, String firstName,
 			String lastName, String street, String city, String state, int postalCode, String image, String aboutMe) {
 		User user = em.find(User.class, uid);
 		
