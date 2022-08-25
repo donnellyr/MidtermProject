@@ -8,7 +8,8 @@
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
-	<jsp:include page="navbar.jsp" />
+<main class="container-fluid">
+	<jsp:include page="navbar.jsp" /><br><br><br><br>
 	<h1>List your item!</h1>
 	<form action="additem.do">
 		<input type="hidden" name="userid" value="${loggedInUser.id }">
@@ -55,6 +56,7 @@
 			<input type="submit"
 			value="Submit Item" id="button1">
 	</form>
+	</main>
 	<jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>

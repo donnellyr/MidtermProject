@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Add Image</title>
+<jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
+<main class="container-fluid">
 <jsp:include page="navbar.jsp" /><br><br><br>
 
 <form action="addimages.do">
@@ -18,6 +20,7 @@
 		<input type="submit" value="Update images">
 
 	</form>
-
+	</main>
+<jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>

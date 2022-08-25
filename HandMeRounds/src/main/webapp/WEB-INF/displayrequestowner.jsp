@@ -9,6 +9,7 @@
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
+<main class="container-fluid">
 	<jsp:include page="navbar.jsp" />
 	<h1>Trade Requests On Your Items</h1>
 	<table class="table table-stripe table-hover">
@@ -17,7 +18,7 @@
 				<th>Item Name</th>
 				<th>Item Owner</th>
 				<th>Trade Requester</th>
-				<th>Description</th>
+				<th>Remarks</th>
 				<th>Status</th>
 			</tr>
 		</thead>
@@ -47,6 +48,7 @@
 		</tbody>
 
 	</table>
+	</main>
 	<jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>

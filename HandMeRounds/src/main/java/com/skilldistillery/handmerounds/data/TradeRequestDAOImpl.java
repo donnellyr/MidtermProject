@@ -25,6 +25,7 @@ public class TradeRequestDAOImpl implements TradeRequestDAO {
 		Item requested = em.find(Item.class, item);
 		TradeRequest request = new TradeRequest(trade, remarks, owner, requested, image);
 		request.setDecision(0);
+		request.setActive(true);
 		em.persist(request);
 		return request;
 	}
@@ -48,6 +49,18 @@ public class TradeRequestDAOImpl implements TradeRequestDAO {
 		}
 		System.out.println("IS DELETED: " + !em.contains(deleted));
 		return em.contains(deleted);
+	}
+	
+	@Override
+	public Boolean deactivateRequest(int requestId) {
+		TradeRequest deactivated = em.find(TradeRequest.class, requestId);
+		if (deactivated != null) {
+			System.out.println("IN DEACTIVATE");
+			deactivated.setActive(false);
+			em.persist(deactivated);
+		}
+		System.out.println("DEACTIVATED IS: " + deactivated.getActive());
+		return deactivated.getActive();
 	}
 
 	@Override

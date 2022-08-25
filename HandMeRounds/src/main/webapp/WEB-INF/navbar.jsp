@@ -31,7 +31,7 @@
 <a href="logout.do"><button type="button" style="float: left"
 		" value="Logout" class="btn btn-primary btn-sm" id="navbarbuttons">Log
 		Out</button></a>
-
+<br><br><br><br>
 <c:choose>
 	<c:when test="${not empty loggedInUser}">
 

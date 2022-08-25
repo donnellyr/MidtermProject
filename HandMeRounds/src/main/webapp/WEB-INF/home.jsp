@@ -9,6 +9,7 @@
 
 </head>
 <body>
+<main class="container-fluid">
 
 <jsp:include page="navbar.jsp" /><br><br><br>
 
@@ -20,5 +21,6 @@
 	<a href="listall.do" id="button1" >List all items</a><br><br><br>
 	
 	<jsp:include page="bootstrapFoot.jsp" />
+	</main>
 </body>
 </html>

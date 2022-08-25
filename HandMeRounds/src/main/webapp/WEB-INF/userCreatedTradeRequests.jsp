@@ -17,7 +17,7 @@
 				<th>Item Name</th>
 				<th>Item Owner</th>
 				<th>Trade Requester</th>
-				<th>Description</th>
+				<th>Remarks</th>
 				<th>Status</th>
 			</tr>
 		</thead>
@@ -25,18 +25,20 @@
 			<c:choose>
 				<c:when test="${not empty requests}">
 					<c:forEach var="request" items="${requests}">
-						<tr>
-							<c:if test="${request.active != false }">
-							<td><a href="getTradeById.do?id=${request.id}">${request.item.name}
-							</a></td>
-							<td>${request.item.user.username}</td>
-							<td>${request.user.username}</td>
-							<td>${request.remarks }
-							<td>	<c:if test="${request.decision == 0}">pending</c:if>
-									<c:if test="${request.decision == 1}">accepted</c:if>
-									<c:if test="${request.decision == 2}">declined</c:if>
-							</c:if>
-						</tr>
+ 
+						<c:if test="${request.active}">
+							<tr>
+								<td><a href="getTradeById.do?id=${request.id}">${request.item.name}
+								</a></td>
+								<td>${request.item.user.username}</td>
+								<td>${request.user.username}</td>
+								<td>${request.remarks }
+								<td><c:if test="${request.decision == 0}">pending</c:if> <c:if
+										test="${request.decision == 1}">accepted</c:if> <c:if
+										test="${request.decision == 2}">declined</c:if>
+							</tr>
+						</c:if>
+
 					</c:forEach>
 				</c:when>
 			</c:choose>
