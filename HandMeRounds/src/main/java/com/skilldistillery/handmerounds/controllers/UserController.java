@@ -81,15 +81,18 @@ public class UserController {
 
 	@RequestMapping(path = "newAccount.do")
 	public String newAccount(String username, String password, String firstName, String lastName, String street,
-			String city, String state, int postalCode) {
-//		System.out.println(username + " " + password + " " + firstName + " " + lastName + " " + street + " " + city
-//				+ " " + state + " " + postalCode);
-		Address address = new Address(street, city, state, postalCode);
-		User user = new User(username, password, firstName, lastName, address);
-		user.setEnabled(true);
-		userDAO.newAccount(user);
+			String city, String state, int postalCode, HttpSession session) {
+		try {
+			Address address = new Address(street, city, state, postalCode);
+			User user = new User(username, password, firstName, lastName, address);
+			user.setEnabled(true);
+			userDAO.newAccount(user);
+			session.setAttribute("loggedInUser", user);
+		} catch (Exception e) {
+			return "somethingwentwrong";
+		}
 
-		return "login";
+		return "accountCreated";
 	}
 
 	@RequestMapping(path = "goToUpdate.do")

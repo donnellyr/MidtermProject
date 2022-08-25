@@ -12,6 +12,9 @@
 
 <jsp:include page="navbar.jsp" /><br><br><br>
 
+
+	<h1>Oops Something went wrong</h1>
+
 	<h1>Welcome to Hand Me Rounds</h1><br>
 	<h1>Help support our community</h1><br><br><br>
 	<a href="login.do" id="button1" >Login</a><br><br><br>
