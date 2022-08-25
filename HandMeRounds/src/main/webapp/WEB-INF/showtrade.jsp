@@ -50,6 +50,7 @@
 	</table>
 	<c:if test="${request.decision == 0}">
 	Trade Pending 
+	<c:if test="${request.item.user.id == loggedInUser.id }">
 	<form action="accept.do">
 	<input type="hidden"  name="id" value="${request.id}">
 	<input type="hidden"  name="choice" value="1">
@@ -61,13 +62,17 @@
 	<input type="submit"  value="decline">
 	</form>
 	</c:if>
+	</c:if>
+	
 	<c:if test="${request.decision == 1}">
 	Trade Accepted! 
 	</c:if>
+	
 	<c:if test="${request.decision == 2}">
 	Trade Declined! 
 	</c:if>
 	
+	<c:if test="${request.user.id == loggedInUser.id }">
 	<form action="editTradeRequest.do" method="GET">
 		<input class="form-control" type="text" hidden="true" name="requestId" value="${request.id }"> 
 		<input class="btn btn-primary btn-sm" type="submit" value="Edit Trade Request" />
@@ -77,7 +82,7 @@
 		<input class="form-control" type="text" hidden="true" name="requestId" value="${request.id }"> 
 		<input class="btn btn-primary btn-sm" type="submit" value="Delete Trade Request" />
 	</form>
-	
+	</c:if>
 	<jsp:include page="bootstrapFoot.jsp" />	
 </body>
 </html>
