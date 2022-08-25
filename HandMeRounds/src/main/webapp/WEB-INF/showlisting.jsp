@@ -29,6 +29,7 @@
     <c:if test="${item.trade == true }"><p>Item is for trade</p></c:if>
     <c:if test="${item.trade == false }"><p>Item is for donation</p></c:if>
     <br>
+    <c:if test="${item.user.id == loggedInUser.id }">
     <form action="addimages.do" METHOD="post">
         <input type="hidden" name="itemId" value="${item.id}"> <input
             type="text" name="image"> <br> <label>Add your
@@ -38,16 +39,16 @@
         <input type="hidden" name="itemid" value="${item.id}"> <input
             type="submit" value="Edit item">
     </form>
+    </c:if>
     
+    <c:if test="${item.user.id != loggedInUser.id }">
     <form action="posttrade.do">
         <input type="hidden" name="id" value="${item.id}"> <input
             type="submit" value="Post Trade">
     </form>
+    </c:if>
 
-    <form action="edititem.do">
-        <input type="hidden" name="id" value="${item.id}"> <input
-            type="submit" value="Edit item">
-    </form>
+   
 	<jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>
