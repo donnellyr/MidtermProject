@@ -14,9 +14,11 @@
 	<table class="table table-stripe table-hover">
 		<thead>
 			<tr>
-				<th></th>
-				<th>Name</th>
+				<th>Item Name</th>
+				<th>Item Owner</th>
+				<th>Trade Requester</th>
 				<th>Description</th>
+				<th>Status</th>
 			</tr>
 		</thead>
 
@@ -28,8 +30,12 @@
 						<tr>
 							<td><a href="getTradeById.do?id=${request.id}">${request.item.name}
 							</a></td>
+							<td>${request.item.user.username}</td>
 							<td>${request.user.username}</td>
 							<td>${request.remarks }
+							<td>	<c:if test="${request.decision == 0}">pending</c:if>
+									<c:if test="${request.decision == 1}">accepted</c:if>
+									<c:if test="${request.decision == 2}">declined</c:if>
 						</tr>
 					</c:forEach>
 
