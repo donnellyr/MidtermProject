@@ -34,7 +34,7 @@
 		Drop-off locations</button></a>
 
 <a href="logout.do"><button type="button" style="float: left"
-		" value="logout" class="btn btn-primary btn-sm" id="navbarbuttons">Log
+		" value="Logout" class="btn btn-primary btn-sm" id="navbarbuttons">Log
 		Out</button></a>
 
 <c:choose>
@@ -44,21 +44,21 @@
 			<input class="form-control" type="text" hidden="true" name="uid"
 				value="${loggedInUser.id }"> <input
 				class="btn btn-primary btn-sm" type="submit"
-				value="View your listed items" />
+				value="View my listed items" />
 		</form>
 
 		<form action="displayAllRequestsOnUserItemsByUserId.do" method="GET">
 			<input class="form-control" type="text" hidden="true" name="trid"
 				value="${loggedInUser.id }"> <input
 				class="btn btn-primary btn-sm" type="submit"
-				value="Display Trade Requests on All My Frickin' Items" />
+				value="Display Trade Requests on My Items" />
 		</form>
 
 		<form action="userCreatedTradeRequests.do" method="GET">
 			<input class="form-control" type="text" hidden="true" name="uid"
 				value="${loggedInUser.id }"> <input
 				class="btn btn-primary btn-sm" type="submit"
-				value="Display All the Damn Trade Requests I made" />
+				value="Display Trade Requests I've made" />
 		</form>
 
 	</c:when>
