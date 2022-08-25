@@ -58,9 +58,12 @@ public class TradeRequestController {
 		return "home";
 	}
 
-	@RequestMapping(path = "displayrequestowner.do")
-	public String displayRequestsOwner(Model model, int id) {
-		List<TradeRequest> request = tradeDAO.displayAllbyUserId(id);
+	@RequestMapping(path = "displayAllRequestsOnUserItemsByUserId.do")
+	public String displayRequestsOwner(Model model, int trid) {
+		List<TradeRequest> request = tradeDAO.displayAllRequestsOnUserItemsByUserId(trid);
+		
+		System.out.println(tradeDAO.displayAllRequestsOnUserItemsByUserId(trid));
+		
 		model.addAttribute("request", request);
 		return "displayrequestowner";
 	}
