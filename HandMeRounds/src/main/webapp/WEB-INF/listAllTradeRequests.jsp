@@ -14,7 +14,7 @@
 	<table class="table table-stripe table-hover">
 		<thead>
 			<tr>
-				<th></th>
+				<th>Item Name</th>
 				<th>Name</th>
 				<th>Description</th>
 			</tr>
@@ -23,17 +23,15 @@
 			<c:choose>
 				<c:when test="${not empty requests}">
 					<c:forEach var="request" items="${requests}">
+					<c:if test="${request.active != false }">
+					
 						<tr>
 							<td><a href="getTradeById.do?id=${request.id}">${request.item.name}
 							</a></td>
-							<td>${request.item.user.username}</td>
 							<td>${request.user.username}</td>
 							<td>${request.remarks }
-							<td>	<c:if test="${request.decision == 0}">pending</c:if>
-							<td>	<c:if test="${request.decision == 1}">accepted</c:if>
-							<td>	<c:if test="${request.decision == 2}">declined</c:if>
-							
 						</tr>
+						</c:if>
 					</c:forEach>
 				</c:when>
 			</c:choose>
