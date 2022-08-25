@@ -90,6 +90,7 @@ public class UserController {
 			Address address = new Address(street, city, state, postalCode);
 			User user = new User(username, password, firstName, lastName, address);
 			user.setEnabled(true);
+			user.setImage("https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg");
 			userDAO.newAccount(user);
 			session.setAttribute("loggedInUser", user);
 		} catch (Exception e) {
