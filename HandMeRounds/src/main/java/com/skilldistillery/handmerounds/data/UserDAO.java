@@ -3,6 +3,7 @@ package com.skilldistillery.handmerounds.data;
 import java.util.List;
 
 import com.skilldistillery.handmerounds.entities.Item;
+import com.skilldistillery.handmerounds.entities.TradeRequest;
 import com.skilldistillery.handmerounds.entities.User;
 
 public interface UserDAO {
@@ -20,4 +21,6 @@ public interface UserDAO {
 
 	User inactivateUser(int id);
 
+//	List<TradeRequest> getTradeRequests(int id);
+	
 }

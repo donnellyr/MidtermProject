@@ -5,12 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Trade Requests</title>
+<title>Your Requested Trades</title>
 <jsp:include page="bootstrapHead.jsp" />
 </head>
 <body>
 	<jsp:include page="navbar.jsp" />
-	<h1>Trade Requests On Your Items</h1>
+	<h1>Your Requested Trades</h1>
 	<table class="table table-stripe table-hover">
 		<thead>
 			<tr>
@@ -19,12 +19,10 @@
 				<th>Description</th>
 			</tr>
 		</thead>
-
 		<tbody>
 			<c:choose>
-				<c:when test="${not empty request}">
-					<c:forEach var="request" items="${request}">
-
+				<c:when test="${not empty requests}">
+					<c:forEach var="request" items="${requests}">
 						<tr>
 							<td><a href="getTradeById.do?id=${request.id}">${request.item.name}
 							</a></td>
@@ -32,11 +30,9 @@
 							<td>${request.remarks }
 						</tr>
 					</c:forEach>
-
 				</c:when>
 			</c:choose>
 		</tbody>
-
 	</table>
 	<jsp:include page="bootstrapFoot.jsp" />
 </body>

@@ -3,83 +3,89 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <a href="home.do"><button type="button" style="float: left"
-		" value="Home" class="btn btn-primary" id="navbarbuttons">Home</button></a>
+		" value="Home" class="btn btn-primary btn-sm" id="navbarbuttons">Home</button></a>
 
 <a href="login.do"><button type="button" style="float: left"
-		" value="AccountLogIn" class="btn btn-primary" id="navbarbuttons">Account/Log
+		" value="AccountLogIn" class="btn btn-primary btn-sm" id="navbarbuttons">Account/Log
 		In</button></a>
 
 <a href="postitem.do"><button type="button" style="float: left"
-		" value="additem" class="btn btn-primary" id="navbarbuttons">Post
+		" value="additem" class="btn btn-primary btn-sm" id="navbarbuttons">Post
 		my items</button></a>
 
 <a href="listall.do"><button type="button" style="float: left"
-		" value="listallitems" class="btn btn-primary" id="navbarbuttons">Browse
+		" value="listallitems" class="btn btn-primary btn-sm" id="navbarbuttons">Browse
 		All Listings</button></a>
 
-<a href="listalltrade.do"><button type="button" style="float: left"
-		" value="listalltrade" class="btn btn-primary" id="navbarbuttons">Browse
+<a href="listAllTradeRequests.do"><button type="button" style="float: left"
+		" value="listAllTradeRequests" class="btn btn-primary btn-sm" id="navbarbuttons">Browse
 		Trades</button></a>
-		
+
 <!-- <a href="displayRequestOwner.do"><button type="button" style="float: left"
 		" value="displayrequestowner" class="btn btn-primary" id="navbarbuttons">Browse
 		Trade Requests I made</button></a> -->
 
 <a href="listalldonate.do"><button type="button" style="float: left"
-		" value="listalldonate" class="btn btn-primary" id="navbarbuttons">Browse
+		" value="listalldonate" class="btn btn-primary btn-sm" id="navbarbuttons">Browse
 		Donations</button></a>
 
 <a href="home.do"><button type="button" style="float: left"
-		" value="communitydropoff" class="btn btn-primary" id="navbarbuttons">Community
+		" value="communitydropoff" class="btn btn-primary btn-sm" id="navbarbuttons">Community
 		Drop-off locations</button></a>
 
 <a href="logout.do"><button type="button" style="float: left"
-		" value="logout" class="btn btn-primary" id="navbarbuttons">Log
+		" value="logout" class="btn btn-primary btn-sm" id="navbarbuttons">Log
 		Out</button></a>
 
 <c:choose>
 	<c:when test="${not empty loggedInUser}">
-	
+
 		<form action="listUserItem.do" method="GET">
 			<input class="form-control" type="text" hidden="true" name="uid"
-				value="${loggedInUser.id }">
-			<input
+				value="${loggedInUser.id }"> <input
 				class="btn btn-primary btn-sm" type="submit"
 				value="View your listed items" />
 		</form>
-		
+
 		<form action="displayAllRequestsOnUserItemsByUserId.do" method="GET">
 			<input class="form-control" type="text" hidden="true" name="trid"
-				value="${loggedInUser.id }">
-			<input
+				value="${loggedInUser.id }"> <input
 				class="btn btn-primary btn-sm" type="submit"
 				value="Display Trade Requests on All My Frickin' Items" />
 		</form>
-			
+
+		<form action="userCreatedTradeRequests.do" method="GET">
+			<input class="form-control" type="text" hidden="true" name="uid"
+				value="${loggedInUser.id }"> <input
+				class="btn btn-primary btn-sm" type="submit"
+				value="Display All the Damn Trade Requests I made" />
+		</form>
+
 	</c:when>
 	<c:otherwise>
 		<a href="home.do"></a>
 	</c:otherwise>
 </c:choose>
- <c:choose>
+<c:choose>
 
 	<c:when test="${not empty loggedInUser && loggedInUser.role == '1' }">
-		
+
 		<!-- <form action="deleteItemFormAdminOnly.do" method="GET">
 
 			 <input
 				class="btn btn-primary btn-sm" type="submit"
 				value="Delete user posts" />
 		</form> -->
-		<a href="deleteItemFormAdminOnly.do"><button type="button" style="float: left"
-		" value="listallitems" class="btn btn-primary" id="navbarbuttons">Delete user posts</button></a>
+		<a href="deleteItemFormAdminOnly.do"><button type="button"
+				style="float: left" " value="listallitems" class="btn btn-primary"
+				id="navbarbuttons">Delete user posts</button></a>
 
 	</c:when>
 	<c:otherwise>
 		<a href="home.do"></a>
 	</c:otherwise>
 
-</c:choose> 
+</c:choose>
 
 
 

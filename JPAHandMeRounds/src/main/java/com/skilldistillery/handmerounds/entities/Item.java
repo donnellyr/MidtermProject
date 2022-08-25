@@ -25,7 +25,7 @@ public class Item {
 	private int id;
 
 	private String name;
-	
+
 	private String description;
 
 	private boolean available;
@@ -36,7 +36,6 @@ public class Item {
 	private LocalDateTime datePosted;
 
 	private String image;
-	
 
 	@OneToMany(mappedBy = "item")
 	private List<AdditionalImage> images;
@@ -52,7 +51,7 @@ public class Item {
 	@ManyToOne
 	@JoinColumn(name = "condition_id")
 	private ItemCondition condition;
-	
+
 	@ManyToMany(mappedBy = "items")
 	private List<DeliveryOption> deliveryOptions;
 
@@ -61,8 +60,9 @@ public class Item {
 	private Size size;
 
 	@ManyToOne
-	@JoinColumn(name="user_id")
+	@JoinColumn(name = "user_id")
 	private User user;
+
 	public Item() {
 		super();
 	}
@@ -75,16 +75,19 @@ public class Item {
 		this.condition = itemCondition;
 
 	}
-	public Item(String name, String decription, String image, List<AdditionalImage> images, Size size, ItemCondition itemCondition) {
+
+	public Item(String name, String decription, String image, List<AdditionalImage> images, Size size,
+			ItemCondition itemCondition) {
 		this.name = name;
 		this.image = image;
 		this.images = images;
 		this.size = size;
 		this.condition = itemCondition;
-		
+
 	}
 
-	public Item(String name, String image, Type itemType, Size itemSize, ItemCondition condition, boolean trade, User user, DeliveryOption meetup, DeliveryOption dropoff) {
+	public Item(String name, String image, Type itemType, Size itemSize, ItemCondition condition, boolean trade,
+			User user, DeliveryOption meetup, DeliveryOption dropoff) {
 		this.name = name;
 		this.image = image;
 		this.type = itemType;
@@ -94,7 +97,6 @@ public class Item {
 		this.user = user;
 		this.users = new ArrayList<>();
 	}
-
 
 	public Item(String name, String image, Type itemType, Size itemSize, ItemCondition condition, boolean trade,
 			User user, DeliveryOption meetup, DeliveryOption dropoff, DeliveryOption ship, String description) {
@@ -107,26 +109,27 @@ public class Item {
 		this.user = user;
 		this.description = description;
 		this.deliveryOptions = new ArrayList<>();
-		if(meetup != null) {
+		if (meetup != null) {
 			meetup.addItem(this);
-		deliveryOptions.add(meetup);
-		
+			deliveryOptions.add(meetup);
+
 		}
-		if(dropoff != null) {
+		if (dropoff != null) {
 			dropoff.addItem(this);
-		deliveryOptions.add(dropoff);
+			deliveryOptions.add(dropoff);
 		}
-		if(ship != null) {
+		if (ship != null) {
 			ship.addItem(this);
-		deliveryOptions.add(ship);
+			deliveryOptions.add(ship);
 		}
 		System.out.println(deliveryOptions);
 	}
+
 	public void addDeliveryOptions(DeliveryOption deliveryOption) {
-		if(deliveryOptions == null) {
+		if (deliveryOptions == null) {
 			deliveryOptions = new ArrayList<>();
 		}
-		if(!deliveryOptions.contains(deliveryOption)) {
+		if (!deliveryOptions.contains(deliveryOption)) {
 			deliveryOptions.add(deliveryOption);
 			deliveryOption.addItem(this);
 		}
@@ -183,11 +186,11 @@ public class Item {
 	public void setImages(List<AdditionalImage> images) {
 		this.images = images;
 	}
-	
+
 	public void addAdditionalImage(AdditionalImage image) {
 		if (images == null) {
 			images = new ArrayList<>();
-			
+
 		}
 		if (!images.contains(image)) {
 			images.add(image);
