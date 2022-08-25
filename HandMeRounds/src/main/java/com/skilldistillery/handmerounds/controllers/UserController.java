@@ -39,28 +39,32 @@ public class UserController {
 
 	@RequestMapping(path = "loggedIn.do", method = RequestMethod.POST)
 	public String userLogin(String username, String password, HttpSession session) {
-		// compare returned users password with password in this method
 		System.out.println(username + password);
 
 		try {
+		
 			// find user by username
 			User user = userDAO.getUserByUserName(username);
 			if (user.getPassword().equals(password) && user.getEnabled()) {
 				session.setAttribute("loggedInUser", user);
 				return "account";
-			} else {
+			
+			}else{
 				return "accountinactive";
+			
 			}
 
-//			 else {
-//				return "home";
-//			
-//			 } 
 		} catch (Exception e) {
 			return "home";
 		}
 	}
+	
+	@RequestMapping(path = "loggedInAccountDetails.do", method = RequestMethod.POST)
+	public String loggedInAccountDetails(HttpSession session, int uid) {
+		return "account";
+	}
 
+		
 	@RequestMapping(path = "logout.do", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
 		session.removeAttribute("loggedInUser");

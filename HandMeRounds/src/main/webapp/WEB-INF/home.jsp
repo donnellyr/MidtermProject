@@ -16,7 +16,7 @@
 	<h1>Help support our community</h1><br><br><br>
 	<a href="login.do" id="button1" >Login</a><br><br><br>
 	
-	<a href="postitem.do" id="button1" >Post Item</a><br><br><br>
+	
 	<a href="listall.do" id="button1" >List all items</a><br><br><br>
 	
 	<jsp:include page="bootstrapFoot.jsp" />
