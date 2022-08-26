@@ -19,8 +19,10 @@
 	<table class="table table-stripe table-hover">
 		<thead>
 			<tr>
-				<th></th>
+				<th>Item Name</th>
 				<th>Name</th>
+				<th>Item Owner</th>
+				<th>Trade or Donate</th>
 				<th>Description</th>
 			</tr>
 		</thead>
@@ -32,8 +34,12 @@
 						<c:if test="${!i.available == false}">
 
 							<tr>
+								
 								<td><a href="getById.do?id=${i.id}">${i.name} </a></td>
 								<td>${i.name}</td>
+								<td>${i.user.username}</td>
+								<td><c:if test="${i.trade == true}">Trade</c:if>
+								<c:if test="${i.trade == false}">Donate</c:if></td>
 								<td>${i.description}</td>
 							</tr>
 						</c:if>
