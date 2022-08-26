@@ -25,7 +25,6 @@ In these trying times post pandemic we realize that families are going to have a
 ## Why we Built This
 
 ## Methodologies
-
 ## Concepts
 - Used Request Mapping
 - Database extraction with Prepared Statements
@@ -75,7 +74,9 @@ In these trying times post pandemic we realize that families are going to have a
 - bleep
 
 #### Ryan
-- bloop
+- Learned how to use Many to many mappings in the creation and editing of data base objects
+- Had to figure out how to have certain features available to some users but not others, this was accomplished by using if logic that would present      certain features and information to users based on thier user ID
+- Gained an increased understanding of bootsrap to make the front end more visually appealing 
 
 #### Lawrence
 - blurp
