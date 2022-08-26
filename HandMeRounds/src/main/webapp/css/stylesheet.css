@@ -1,4 +1,6 @@
 body {
+	color: #ffffff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
   background: url('https://source.unsplash.com/twukN12EN7c/1920x1080') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -6,6 +8,36 @@ body {
   -o-background-size: cover;
 }
 
+h1 {
+	color: #ffffff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+	
+}
+img {
+	width: 300px;
+	height: 300px;
+}
+
+td {
+	color: #ffffff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+th {
+	color: #ffffff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+tr {
+	
+	color: #ffffff;
+	font-size: 20px;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.table {
+	background-color: #cccccc;
+	opacity: 90%;
+}
 .button1 {
 	background-color: black;
 	color: #cccccc;
@@ -15,10 +47,9 @@ body {
 	
 }
 
-#navbarNav {
+#navbarbuttons  {
 
-	
-	color: #cccccc;
+	padding: 5px;
 	row-height: 10px;
 }
 

@@ -34,8 +34,8 @@
 								<td>${request.user.username}</td>
 								<td>${request.remarks }
 								<td><c:if test="${request.decision == 0}">pending</c:if>
-								<td><c:if test="${request.decision == 1}">accepted</c:if>
-								<td><c:if test="${request.decision == 2}">declined</c:if>
+								<c:if test="${request.decision == 1}">accepted</c:if>
+								<c:if test="${request.decision == 2}">declined</c:if>
 							</tr>
 
 						</c:if>
