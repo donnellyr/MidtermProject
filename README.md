@@ -71,7 +71,7 @@ In these trying times post pandemic we realize that families are going to have a
 
 ## Team Challenges and What We Learned
 #### Steph
-- bleep
+This group project was an example of how a group can work together and come up with a great product. I learned a lot about working in a group setting. We all kept our ideas of the website fluid so that compromise was possible. This project was a more in-depth version of CRUD then previous projects. Using multiple controllers, multiple DOA‘s and multiple JSP‘s all working together was interesting. We had a couple of merge conflicts throughout the process but for the most part we communicated very well and made sure that nobody was working on the same piece of the project at any time. To only have one or two merge conflicts in a weeks long project was impressive. There are multiple aspects of CRUD for each entity. The introduction of one to many, many to one and many to many from the database is fairly new concept. Seeing how the many to many relationships work in the methods was great as we had several.
 
 #### Ryan
 - Learned how to use Many to many mappings in the creation and editing of data base objects

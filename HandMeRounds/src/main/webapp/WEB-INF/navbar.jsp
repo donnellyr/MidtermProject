@@ -92,7 +92,8 @@
 			</c:choose>
 		</tr>
 
-		<br><br>
+		<br>
+		<br>
 
 
 
@@ -107,17 +108,9 @@
 						<input class="btn btn-dark btn-sm" type="submit"
 							value="Delete user posts" />
 					</form>
-					
-					
-				
-
-
-
-
-
-
 
 				</c:when>
+
 				<c:otherwise>
 					<a href="home.do"></a>
 				</c:otherwise>
