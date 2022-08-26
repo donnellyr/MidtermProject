@@ -79,5 +79,9 @@ In these trying times post pandemic we realize that families are going to have a
 - Gained an increased understanding of bootsrap to make the front end more visually appealing 
 
 #### Lawrence
-- blurp
-# MidtermProject
+- Gained a lot experience on my understanding and implementation of entity relationship mapping
+- Realized that sometimes JSP logic is easier to implement than in Java
+- Increased my JSP EL usage and complexity
+- Used bootstrap and CSS much more for this project
+- Swarming and pair programming is much more effective when used properly
+
