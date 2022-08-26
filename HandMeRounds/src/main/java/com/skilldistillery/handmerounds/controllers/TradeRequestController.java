@@ -11,14 +11,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.handmerounds.data.ItemDAO;
 import com.skilldistillery.handmerounds.data.TradeRequestDAO;
+import com.skilldistillery.handmerounds.data.UserDAO;
 import com.skilldistillery.handmerounds.entities.Item;
 import com.skilldistillery.handmerounds.entities.TradeRequest;
+import com.skilldistillery.handmerounds.entities.User;
 
 @Controller
 public class TradeRequestController {
 
 	@Autowired
 	private TradeRequestDAO tradeDAO;
+	
+	@Autowired
+	private UserDAO userDAO;
 
 	@Autowired
 	private ItemDAO itemDAO;
@@ -46,7 +51,9 @@ public class TradeRequestController {
 	}
 
 	@RequestMapping(path = "updateTradeRequest.do")
-	public String updateTrade(Model model, int requestId, boolean tradeRequest, String remarks, String image) {
+	public String updateTrade(int uid, HttpSession session, Model model, int requestId, boolean tradeRequest, String remarks, String image) {
+		User user = userDAO.getUserById(uid);
+		session.setAttribute("loggedInUser", user);
 		TradeRequest request = tradeDAO.editRequest(requestId, tradeRequest, remarks, image);
 		model.addAttribute("id", requestId);
 		model.addAttribute("request", request);

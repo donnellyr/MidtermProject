@@ -9,7 +9,8 @@
 </head>
 <body>
 	<main class="container-fluid">
-	<jsp:include page="navbar.jsp" />
+		<jsp:include page="navbar.jsp" /><br>
+		<br>
 		<h2>Trade Request Details</h2>
 		<form action="updateTradeRequest.do" method="POST">
 			<table class="table table-striped table-hover">
@@ -35,19 +36,36 @@
 						<td>${request.item.description}</td>
 					</tr>
 					<tr>
-						<th>Is Trade</th>
-						<td><input class="form-control" type="text"
-							name="tradeRequest" value="${request.tradeRequest}" /></td>
+						<th>Trade or Donate</th>
+						<td><select type="dropdown" class="form-control"
+							name="tradeRequest" value="${request.tradeRequest}">
+								<option value="true">Trade</option>
+								<option value="false">Donate</option>
+						</select><br></td>
 					</tr>
 					<tr>
+						<td>
+					<tr>
+					
+						<th>Image of your item to trade</th>
+						<td><input class="form-control" type="text" name="image"
+							value="${request.image}" /></td>
+					</tr>
+
+					<tr>
 						<th>Remarks</th>
-						<td><input class="form-control" type="text"
-							name="remarks" value="${request.remarks}" /></td>
+						<td><input class="form-control" type="text" name="remarks"
+							value="${request.remarks}" /></td>
 					</tr>
 				</tbody>
 			</table>
-			<input class="form-control" type="text" hidden="false" name="requestId" value="${request.id}"> 
-			<input class="btn btn-warning btn-sm" type="submit" value="Submit Updates" />
+			<input class="form-control" type="text" hidden="false"
+				name="requestId" value="${request.id}">
+			<input class="form-control" type="text" hidden="false"
+				name="uid" value="${loggedInUser.id}">
+				
+				 <input
+				class="btn btn-warning btn-sm" type="submit" value="Submit Updates" />
 		</form>
 	</main>
 	<jsp:include page="bootstrapFoot.jsp" />
