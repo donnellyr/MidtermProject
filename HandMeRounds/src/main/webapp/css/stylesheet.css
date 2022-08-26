@@ -1,11 +1,25 @@
 body {
-	
-	background-color: #cccccc;
+  background: url('https://source.unsplash.com/twukN12EN7c/1920x1080') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
 }
 
+.button1 {
+	background-color: black;
+	color: #cccccc;
+}
 
-#navbarbutton {
+#listingdetail {
 	
+}
+
+#navbarNav {
+
+	
+	color: #cccccc;
+	row-height: 10px;
 }
 
 
